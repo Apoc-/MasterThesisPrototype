@@ -122,4 +122,14 @@ public class GameManager : MonoBehaviour
 
         _clock.OnSecondTick += ExecScrumMasterPlan;
     }
+    
+    public void AddToTeamspirit(string description, int value)
+    {
+        Company.AddEffectToCompanyScore("Teamgeist", description, value);
+    }
+    
+    public void AddToAgility(string description, int value)
+    {
+        Company.AddEffectToCompanyScore("Agilität", description, value);
+    }
 }

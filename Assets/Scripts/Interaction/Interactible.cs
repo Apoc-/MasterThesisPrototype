@@ -16,7 +16,7 @@ namespace Core
             GameManager.Instance.InteractibleManager.RegisterInteractible(this);
         }
 
-        public abstract void FinishInteraction();
+        public abstract void FinishInteraction(Entity entity);
         public abstract string GetName();
         public Floor GetFloor()
         {

@@ -57,7 +57,7 @@ namespace Core
                 Debug.Log("Finished Interaction with " + _currentInteractTarget.GetName());
                 _finishedInteraction = true;
                 _finishedInteractionCallback?.Invoke();
-                _currentInteractTarget.FinishInteraction();
+                _currentInteractTarget.FinishInteraction(this);
             }
         }
 

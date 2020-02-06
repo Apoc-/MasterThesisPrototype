@@ -30,9 +30,25 @@ namespace DefaultNamespace
             Value = value;
         }
 
-        public void AggregateEffects()
+        public void AddEffect(string effectDescription, int value)
         {
-            Effects.ForEach(effect => { Value += effect.Value; });
+            Value += value;
+            
+            
+            if (Effects.Count(effect => effect.Description == effectDescription) > 0)
+            {
+                var existingEffect = Effects.First(effect => effect.Description == effectDescription);
+                existingEffect.Value += value;
+            }
+            else
+            {
+                var newEffect = new CompanyScoreEffect(effectDescription, value);
+                Effects.Add(newEffect);
+            }
+        }
+        
+        public void ClearEffectTab()
+        {
             Effects = new List<CompanyScoreEffect>();
         }
     }
@@ -51,11 +67,11 @@ namespace DefaultNamespace
             CompanyScores.Add(agility);
             CompanyScores.Add(teamspirit);
         }
-
+        
         public void AddEffectToCompanyScore(string scoreName, string effectDescription, int value)
         {
-            var effect = new CompanyScoreEffect(effectDescription, value);
-            CompanyScores.First(score => score.Name == scoreName).Effects.Add(effect);   
+            var targetScore = CompanyScores.First(score => score.Name == scoreName);
+            targetScore.AddEffect(effectDescription, value);
         }
     }
 }

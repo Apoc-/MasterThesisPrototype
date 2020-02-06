@@ -35,7 +35,7 @@ namespace UI
                     scoreText += effectText;
                 });
                 
-                score.AggregateEffects();
+                score.ClearEffectTab();
                 scoreText += "Summe: " + score.Value + "\n\n";
             });
 

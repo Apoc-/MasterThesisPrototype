@@ -4,7 +4,7 @@ namespace Core
 {
     public class Chair : Interactible
     {
-        public override void FinishInteraction()
+        public override void FinishInteraction(Entity entity)
         {
             
         }

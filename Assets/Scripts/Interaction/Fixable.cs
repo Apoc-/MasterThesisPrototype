@@ -13,6 +13,7 @@ namespace Core
             Debug.Log("Fixed " + GetName());
             Destroy(_warningSign);
             IsBroken = false;
+            GameManager.Instance.AddToAgility("Scrum Master Tätigkeiten", 1);
             OnFixed();
         }
 
@@ -27,9 +28,31 @@ namespace Core
             Debug.Log("Broke " + GetName());
         }
         
-        public override void FinishInteraction()
+        public override void FinishInteraction(Entity entity)
         {
-            if(IsBroken) Fix();
+            if (IsBroken) HandleIsBroken(entity);
+            if (!IsBroken) HandleNotBroken(entity);
+        }
+
+        private void HandleNotBroken(Entity entity)
+        {
+            if (entity is NPC)
+            {
+                GameManager.Instance.AddToTeamspirit("Hindernisfreies arbeiten", +1);
+            }
+        }
+
+        private void HandleIsBroken(Entity entity)
+        {
+            if (entity is Player)
+            {
+                Fix();
+            }
+
+            if (entity is NPC)
+            {
+                GameManager.Instance.AddToTeamspirit("Hindernisse beim Arbeiten", -1);
+            }
         }
 
         public abstract void OnFixed();

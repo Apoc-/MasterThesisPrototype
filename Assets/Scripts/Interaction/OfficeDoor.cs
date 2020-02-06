@@ -4,7 +4,7 @@
     {
         public NPC Owner;
 
-        public override void FinishInteraction()
+        public override void FinishInteraction(Entity entity)
         {
             
         }

@@ -1,5 +1,0 @@
-﻿Guten Morgen {player_name}!
-Ich hoffe sie haben sich gut in ihre Rolle als Scrum Master eingefügt.
-Natürlich geht es dabei nicht nur darum die Probleme des Teams zu lösen. Sondern auch darum Scrum richtig einzusetzen.
-Deshalb sieht der Plan auch eine der folgenden Maßnahmen vor:
-$plan:DAILY_SCRUM|plan:TASK_BOARD

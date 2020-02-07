@@ -54,6 +54,7 @@ public class GameManager : MonoBehaviour
     
     private void FinishDay()
     {
+        GameState = GameState.ADVISE;
         _clock.Running = false;
         UiManager.Instance.ShowScoreScreen();
     }
@@ -77,7 +78,7 @@ public class GameManager : MonoBehaviour
     {
         player = Instantiate(Resources.Load<Player>("Prefabs/PlayerAvatar"));
         player.name = "PlayerAvatar";
-        player.MoveInstantly(WaypointProvider.Spawn.transform.position, 0);
+        player.MoveInstantly(WaypointProvider.Spawn);
     }
 
     public void InitNewDay()

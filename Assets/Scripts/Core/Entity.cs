@@ -3,29 +3,30 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Timers;
 using UnityEngine;
+using UnityEngine.Events;
 
 namespace Core
 {
     public class Entity : MonoBehaviour
     {
         public float walkingSpeed = 50;
-        private Queue<Vector2> _walkTargets = new Queue<Vector2>();
-        private Vector2 _currentWalkTarget;
-        
+        private Queue<Waypoint> _walkTargets = new Queue<Waypoint>();
+        private Waypoint _currentWalkTarget;
+
         private Vector2 _startWalkPosition;
         private float _startWalkTime = 0;
         private int _targetFloor = 0;
         private float _actingDistance = 50f;
         private int _currentFloorId => GetCurrentFloorId();
-        
+
         private bool reachedWalkTarget = true;
         private Action _reachedWalkTargetCallback;
-        
+
         protected Interactible _currentInteractTarget;
         private float _interactionTime = 0.0f;
         private bool _finishedInteraction = true;
         private Action _finishedInteractionCallback;
-        
+
 
         private void FixedUpdate()
         {
@@ -64,14 +65,14 @@ namespace Core
         private bool ReachedInteractionTarget()
         {
             if (_currentInteractTarget == null) return false;
-            
+
             var dist = Vector2.Distance(_currentInteractTarget.transform.position, transform.position);
             return dist < _actingDistance;
         }
 
         private bool ReachedWalkTarget()
         {
-            return Vector2.Distance(_currentWalkTarget, transform.position) <= 0.01f;
+            return Vector2.Distance(_currentWalkTarget.transform.position, transform.position) <= 0.01f;
         }
 
         private bool HasTargetsLeft()
@@ -82,9 +83,14 @@ namespace Core
         private void HandleWalking()
         {
             var covered = (Time.time - _startWalkTime) * walkingSpeed;
-            var progress = covered / Vector2.Distance(_currentWalkTarget, _startWalkPosition);
+            var progress = covered / Vector2.Distance(_currentWalkTarget.transform.position, _startWalkPosition);
             SetLookingDirection();
-            transform.position = Vector2.Lerp(_startWalkPosition, _currentWalkTarget, progress);
+            transform.position = Vector2.Lerp(_startWalkPosition, _currentWalkTarget.transform.position, progress);
+
+            if (ReachedWalkTarget())
+            {
+                _currentWalkTarget.TriggerOnEnterWaypoint(this);
+            }
             
             if (ReachedWalkTarget() && HasTargetsLeft())
             {
@@ -101,14 +107,15 @@ namespace Core
             _currentInteractTarget = interactible;
             _interactionTime = 0;
         }
-        
+
         public void GiveWalkOrder(Vector2 target, int targetFloorId, Action reachedWalkTargetCallback = null)
         {
             reachedWalkTarget = false;
-            _reachedWalkTargetCallback = reachedWalkTargetCallback; 
+            _reachedWalkTargetCallback = reachedWalkTargetCallback;
             var dist = Vector2.Distance(transform.position, target);
             if (dist < _actingDistance / 10f) return;
-            
+            var targetWp = GameManager.Instance.WaypointProvider.CreateWaypointAtPosition(target);
+
             _walkTargets.Clear();
             _startWalkPosition = transform.position;
             _targetFloor = targetFloorId;
@@ -116,51 +123,88 @@ namespace Core
 
             if (_targetFloor != _currentFloorId)
             {
-                HandleFloorChange(target, targetFloorId);
+                HandleFloorChange(targetWp, targetFloorId);
                 _currentWalkTarget = _walkTargets.Dequeue();
             }
             else
             {
-                _currentWalkTarget = target;
+                _currentWalkTarget = targetWp;
             }
         }
 
-        private void HandleFloorChange(Vector2 target, int targetFloorId)
+        private void HandleFloorChange(Waypoint targetWp, int targetFloorId)
         {
             var elevatorDoorWps = GameManager.Instance.WaypointProvider.ElevatorDoors;
-            var currentFloorWp = elevatorDoorWps[_currentFloorId].transform.position;
-            var targetFloorWp = elevatorDoorWps[targetFloorId].transform.position;
-            
+            var currentFloorWp = elevatorDoorWps[_currentFloorId];
+            AddEnterElevatorEvent(currentFloorWp);
+
+            var targetFloorWp = elevatorDoorWps[targetFloorId];
+            AddLeaveElevatorEvent(targetFloorWp);
+
             _walkTargets.Enqueue(currentFloorWp);
             _walkTargets.Enqueue(targetFloorWp);
-            _walkTargets.Enqueue(target);
+            _walkTargets.Enqueue(targetWp);
+        }
+
+        private void AddEnterElevatorEvent(Waypoint waypoint)
+        {
+            UnityAction action = null;
+            action = () =>
+            {
+                var spriteRenderer = GetComponentInChildren<SpriteRenderer>();
+                var color = spriteRenderer.color;
+                color.a = 0;
+                spriteRenderer.color = color;
+                waypoint.UnregisterOnEnterActionForEntity(this, action);
+            };
+            
+            waypoint.RegisterOnEnterActionForEntity(this, action);
+        }
+
+        private void AddLeaveElevatorEvent(Waypoint waypoint)
+        {
+            UnityAction action = null;
+            action = () =>
+            {
+                var spriteRenderer = GetComponentInChildren<SpriteRenderer>();
+                var color = spriteRenderer.color;
+                color.a = 1;
+                spriteRenderer.color = color;
+                waypoint.UnregisterOnEnterActionForEntity(this, action);
+                if(name == "Mary") Debug.Log("Removed " + action.GetHashCode());
+            };
+
+            waypoint.RegisterOnEnterActionForEntity(this, action);
+            if(name == "Mary") Debug.Log("Registered " + action.GetHashCode());
         }
 
         private void SetLookingDirection()
         {
             var x = transform.position.x;
-            var targetX = _currentWalkTarget.x;
+            var targetX = _currentWalkTarget.transform.position.x;
 
             var scale = transform.localScale;
-            scale.x = Mathf.Sign(x-targetX);
+            scale.x = Mathf.Sign(x - targetX);
             transform.localScale = scale;
         }
 
-        public void MoveInstantly(Vector2 targetPosition, int floorId)
+        public void MoveInstantly(Waypoint targetWp)
         {
-            transform.position = targetPosition;
-            _currentWalkTarget = targetPosition;
-            _startWalkPosition = targetPosition;
+            var targetPos = targetWp.transform.position;
+            transform.position = targetPos;
+            _currentWalkTarget = targetWp;
+            _startWalkPosition = targetPos;
         }
-        
-        
+
+
         private int GetCurrentFloorId()
         {
             var col = GetComponent<Collider2D>();
             List<Collider2D> overlap = new List<Collider2D>();
             col.OverlapCollider(new ContactFilter2D(), overlap);
-            
-            var floor = overlap.FindAll(c => c.GetComponent<Floor>() != null).Select(c => c.GetComponent<Floor>()).First();
+
+            var floor = overlap.FindAll(c => c.GetComponent<Floor>() != null).Select(c => c.GetComponent<Floor>())
+                .First();
             return floor.floorId;
         }
     }

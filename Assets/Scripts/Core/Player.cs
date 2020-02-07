@@ -15,10 +15,7 @@ namespace Core
             UnityAction action = null;
             action = () =>
             {
-                var spriteRenderer = GetComponentInChildren<SpriteRenderer>();
-                var color = spriteRenderer.color;
-                color.a = 0;
-                spriteRenderer.color = color;
+                Hide();
                 waypoint.UnregisterOnEnterActionForEntity(this, action);
                 CanGiveMoveCommand = false;
             };
@@ -31,10 +28,7 @@ namespace Core
             UnityAction action = null;
             action = () =>
             {
-                var spriteRenderer = GetComponentInChildren<SpriteRenderer>();
-                var color = spriteRenderer.color;
-                color.a = 1;
-                spriteRenderer.color = color;
+                Show();
                 waypoint.UnregisterOnEnterActionForEntity(this, action);
                 CanGiveMoveCommand = true;
             };

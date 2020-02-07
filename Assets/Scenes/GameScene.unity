@@ -1687,8 +1687,10 @@ GameObject:
   m_Component:
   - component: {fileID: 254200054}
   - component: {fileID: 254200055}
+  - component: {fileID: 254200056}
+  - component: {fileID: 254200057}
   m_Layer: 0
-  m_Name: Door2 (1)
+  m_Name: MeetingRoom
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1757,6 +1759,45 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &254200056
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 254200053}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f14b39f1e5964de9b7a7edacfd634267, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CurrentMeetingName: Kein Meeting
+--- !u!61 &254200057
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 254200053}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 25.6, y: 50.575}
+    newSize: {x: 32, y: 63.21875}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 25.6, y: 50.575}
+  m_EdgeRadius: 0
 --- !u!1 &270338641
 GameObject:
   m_ObjectHideFlags: 0
@@ -2655,7 +2696,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 237d5962c7336864daeabed8913e65f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SpeedFactor: 60
+  SpeedFactor: 600
   Running: 0
 --- !u!1 &365333748
 GameObject:
@@ -4813,7 +4854,7 @@ GameObject:
   m_Component:
   - component: {fileID: 995956943}
   m_Layer: 0
-  m_Name: OfficeRooms2
+  m_Name: Floor0Left
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4833,7 +4874,7 @@ Transform:
   - {fileID: 236481864}
   - {fileID: 2003316136}
   m_Father: {fileID: 2025791667}
-  m_RootOrder: 6
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1010835994
 PrefabInstance:
@@ -5355,7 +5396,7 @@ MonoBehaviour:
   - {fileID: 2059589330}
   - {fileID: 1873827661}
   - {fileID: 1477089282}
-  WaypointPrefab: {fileID: 8839498748518853880, guid: 6d449dc9febf77e4fb629f4a54e97634,
+  WaypointPrefab: {fileID: 8839498748518853886, guid: 6d449dc9febf77e4fb629f4a54e97634,
     type: 3}
 --- !u!1 &1196762280
 GameObject:
@@ -5658,7 +5699,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1276287265}
   m_Layer: 0
-  m_Name: OfficeRooms1
+  m_Name: Floor1Left
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5679,7 +5720,7 @@ Transform:
   - {fileID: 2072175328}
   - {fileID: 1692578923}
   m_Father: {fileID: 2025791667}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1298631433
 GameObject:
@@ -6253,7 +6294,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1404243493}
   m_Layer: 0
-  m_Name: Workplace1
+  m_Name: ScrumMasterOffice
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6595,7 +6636,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2025791667}
-  m_RootOrder: 4
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &1540122772
 SpriteRenderer:
@@ -7194,6 +7235,7 @@ MonoBehaviour:
   Name: Nina
   _activity: 1
   _randomInteractionChance: 0.5
+  _meetingAttendChance: 1
   Office: {fileID: 2072175330}
 --- !u!61 &1597837471
 BoxCollider2D:
@@ -7208,7 +7250,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0, y: 20}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -7219,7 +7261,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 20, y: 40}
   m_EdgeRadius: 0
 --- !u!1 &1603013973
 GameObject:
@@ -7470,8 +7512,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1673046668}
-  - component: {fileID: 1673046670}
   - component: {fileID: 1673046669}
+  - component: {fileID: 1673046670}
   m_Layer: 0
   m_Name: Mary
   m_TagString: Untagged
@@ -7510,6 +7552,7 @@ MonoBehaviour:
   Name: Mary
   _activity: 1
   _randomInteractionChance: 0.5
+  _meetingAttendChance: 1
   Office: {fileID: 1329401702}
 --- !u!61 &1673046670
 BoxCollider2D:
@@ -7524,7 +7567,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0, y: 20}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -7535,7 +7578,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 20, y: 40}
   m_EdgeRadius: 0
 --- !u!1 &1680877067
 GameObject:
@@ -7547,7 +7590,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1680877068}
   m_Layer: 0
-  m_Name: OfficeRooms3
+  m_Name: Floor2Left
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7567,7 +7610,7 @@ Transform:
   - {fileID: 1956065445}
   - {fileID: 254200054}
   m_Father: {fileID: 2025791667}
-  m_RootOrder: 7
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1690107717
 GameObject:
@@ -7910,7 +7953,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2025791667}
-  m_RootOrder: 5
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &1696887190
 SpriteRenderer:
@@ -9154,7 +9197,7 @@ GameObject:
   - component: {fileID: 1956065445}
   - component: {fileID: 1956065446}
   m_Layer: 0
-  m_Name: MeetingRoom
+  m_Name: RestRoom
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9579,7 +9622,7 @@ SpriteRenderer:
   m_SortingLayer: 1
   m_SortingOrder: -1
   m_Sprite: {fileID: 21300000, guid: d0e735a01e166ab4da6aafd6f96430da, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.13207549, g: 0.13207549, b: 0.13207549, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -9603,11 +9646,11 @@ Transform:
   - {fileID: 700728346}
   - {fileID: 1404243493}
   - {fileID: 615901964}
+  - {fileID: 995956943}
   - {fileID: 1276287265}
+  - {fileID: 1680877068}
   - {fileID: 1540122771}
   - {fileID: 1696887189}
-  - {fileID: 995956943}
-  - {fileID: 1680877068}
   m_Father: {fileID: 1564993675}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -10428,12 +10471,12 @@ PrefabInstance:
     - target: {fileID: 8839498748518853887, guid: 6d449dc9febf77e4fb629f4a54e97634,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -286.6
+      value: 24.2
       objectReference: {fileID: 0}
     - target: {fileID: 8839498748518853887, guid: 6d449dc9febf77e4fb629f4a54e97634,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -147.8
+      value: -74.1
       objectReference: {fileID: 0}
     - target: {fileID: 8839498748518853887, guid: 6d449dc9febf77e4fb629f4a54e97634,
         type: 3}

@@ -34,8 +34,34 @@ namespace Core
 
         private void HandleColliderClick(RaycastHit2D[] hits)
         {
-            CheckForInteractibleHits(hits);
-            CheckForFloorHits(hits);
+            var handled = CheckForMeetingRoomHit(hits);
+            if(!handled) CheckForInteractibleHits(hits);
+            if(!handled) CheckForFloorHits(hits);
+        }
+
+        private bool CheckForMeetingRoomHit(RaycastHit2D[] hits)
+        {
+            if (!GameManager.Instance.MeetingRoomBehaviour.HasMeeting) return false;
+
+            var hasHitMeetingRoom = hits.Count(h => h.collider.GetComponent<MeetingRoomBehaviour>() != null) > 0;
+            if (!hasHitMeetingRoom) return false;
+
+            var meetingRoomHit = hits.ToList().First(h => h.collider.GetComponent<MeetingRoomBehaviour>() != null);
+            var meetingRoom = meetingRoomHit.collider.GetComponent<MeetingRoomBehaviour>();
+            var player = GameManager.Instance.player;
+
+            if (player.CanGiveMoveCommand)
+            {
+                var pos = new Vector2(meetingRoom.gameObject.transform.position.x, 0);
+                player.GiveWalkOrder(pos, 2,
+                    () =>
+                    {
+                        player.CanGiveMoveCommand = false;
+                        meetingRoom.EnterMeeting(player);
+                    });
+            }
+
+            return true;
         }
 
         private void CheckForFloorHits(RaycastHit2D[] hits)
@@ -51,8 +77,8 @@ namespace Core
             var targetFloorId = floor.floorId;
             var target = new Vector2(hit.point.x, hit.collider.bounds.min.y);
             var player = GameManager.Instance.player;
-            
-            if(player.CanGiveMoveCommand) player.GiveWalkOrder(target, targetFloorId);
+
+            if (player.CanGiveMoveCommand) player.GiveWalkOrder(target, targetFloorId);
         }
 
         private void CheckForInteractibleHits(RaycastHit2D[] hits)

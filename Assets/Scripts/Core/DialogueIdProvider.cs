@@ -4,13 +4,17 @@
     {
         public static string GetDialogueIdByDay(int day)
         {
-            switch (day)
+            return "dummy_text";
+            
+            /*switch (day)
             {
                 case 1:
                     return "advisor_01";
+                case 2:
+                    return "advisor_02";
                 default:
                     return "dummy_text";
-            }
+            }*/
         }
     }
 }

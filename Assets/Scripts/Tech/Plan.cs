@@ -3,6 +3,7 @@
     public enum Plan
     {
         SCRUM_MASTER,
-        DAILY_SCRUM
+        DAILY_SCRUM,
+        TASK_BOARD
     }
 }

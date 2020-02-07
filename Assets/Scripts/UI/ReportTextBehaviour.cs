@@ -25,10 +25,6 @@ namespace UI
                     {
                         effectText += "+";
                     }
-                    else
-                    {
-                        effectText += "-";
-                    }
 
                     effectText += val;
                     effectText += " (" + effect.Description + ")\n";
@@ -36,7 +32,7 @@ namespace UI
                 });
                 
                 score.ClearEffectTab();
-                scoreText += "Summe: " + score.Value + "\n\n";
+                scoreText += "Neuer Wert: " + score.Value + "\n\n";
             });
 
             _reportTextField.text = scoreText;

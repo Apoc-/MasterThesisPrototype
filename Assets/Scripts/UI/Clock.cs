@@ -37,6 +37,7 @@ namespace Code
         public event ClockTickAction OnSecondTick;
 
         private List<Alarm> _alarms = new List<Alarm>();
+        private List<Alarm> _newAlarms = new List<Alarm>();
         
         private void Start()
         {
@@ -99,12 +100,15 @@ namespace Code
                 alarm.callback.Invoke();
                 alarm.triggeredToday = true;
             });
+            
+            _alarms.AddRange(_newAlarms);
+            _newAlarms.Clear();
         }
 
         public void SetAlarm(TimeStamp time, Action callback, bool recurring = false)
         {
             var alarm = new Alarm(time, callback, recurring);
-            _alarms.Add(alarm);
+            _newAlarms.Add(alarm);
         }
 
         public void ResetAlarms()

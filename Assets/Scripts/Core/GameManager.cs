@@ -3,7 +3,6 @@ using System.Collections;
 using System.Collections.Generic;
 using Code;
 using Core;
-using DefaultNamespace;
 using Tech;
 using UI;
 using Unity.Collections;
@@ -14,12 +13,23 @@ public class GameManager : MonoBehaviour
 {
     #region Singleton
     private static GameManager _instance;
-    public static GameManager Instance => _instance ? _instance : _instance = FindObjectOfType<GameManager>();
+    public static GameManager Instance 
+        => _instance 
+            ? _instance 
+            : _instance = FindObjectOfType<GameManager>();
     #endregion
     
     private WaypointProvider _waypointProvider;
     public WaypointProvider WaypointProvider
-        => _waypointProvider ? _waypointProvider : _waypointProvider = FindObjectOfType<WaypointProvider>();
+        => _waypointProvider 
+            ? _waypointProvider 
+            : _waypointProvider = FindObjectOfType<WaypointProvider>();
+
+    private MeetingRoomBehaviour _meetingRoomBehaviour;
+    public MeetingRoomBehaviour MeetingRoomBehaviour
+        => _meetingRoomBehaviour
+            ? _meetingRoomBehaviour
+            : _meetingRoomBehaviour = FindObjectOfType<MeetingRoomBehaviour>();
 
     [ReadOnly] public Player player;
 
@@ -103,7 +113,21 @@ public class GameManager : MonoBehaviour
     
     public void InitDailyScrumPlan()
     {
+        Company.AddEffectToCompanyScore(
+            "Agilität", 
+            "Neues Meeting: Daily Scrum", 
+            10);
+        
+        _clock.SetAlarm(new TimeStamp(10,45,0), CallForDailyScrum, true);
+        
         _clock.OnSecondTick += ExecDailyScrumPlan;
+    }
+
+    private void CallForDailyScrum()
+    {
+        MeetingRoomBehaviour.CallForMeeting("Daily Scrum");
+        _clock.SetAlarm(new TimeStamp(11,0,0), MeetingRoomBehaviour.StartMeeting);
+        _clock.SetAlarm(new TimeStamp(11,15,0), MeetingRoomBehaviour.StopMeeting);
     }
 
     public void InitScrumMasterPlan()

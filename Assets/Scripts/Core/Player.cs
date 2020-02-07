@@ -41,5 +41,17 @@ namespace Core
 
             waypoint.RegisterOnEnterActionForEntity(this, action);
         }
+
+        public override void CallToMeeting()
+        {
+            
+        }
+
+        public override void ReturnFromMeeting()
+        {
+            base.ReturnFromMeeting();
+
+            CanGiveMoveCommand = true;
+        }
     }
 }

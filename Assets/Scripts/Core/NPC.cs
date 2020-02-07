@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Timers;
 using UnityEngine;
+using UnityEngine.UIElements;
 using Random = UnityEngine.Random;
 
 namespace Core
@@ -12,19 +13,26 @@ namespace Core
         public string Name;
         [SerializeField] private float _activity = 1f; //seconds per decision
         [SerializeField] private float _randomInteractionChance = 0.8f;
+        [SerializeField] private float _meetingAttendChance = 0.5f;
+
         private float _decisionTimer = 0f;
-        private bool _isBusy = false;
         public Interactible Office;
+        private bool _isInOffice = true;
         public void Update()
         {
             if (GameManager.Instance.GameState != GameState.PLAYING) return;
             
-            _decisionTimer += Time.deltaTime;
-            
-            if (!_isBusy && _decisionTimer > _activity)
+            if (CanMakeDecision())
             {
                 DecideAction();
             }
+        }
+
+        private bool CanMakeDecision()
+        {
+            _decisionTimer += Time.deltaTime;
+            var decisionTimerElapsed = _decisionTimer > _activity;
+            return decisionTimerElapsed && !_hasMeeting && _finishedInteraction && _reachedWalkTarget;
         }
 
         private void DecideAction()
@@ -37,7 +45,7 @@ namespace Core
 
         private void DoRandomInteraction()
         {
-            _isBusy = true;
+            _isInOffice = false;
             var interactible = GetRandomNpcInteractible();
             InteractWith(interactible, GoBackToOffice);
         }
@@ -51,7 +59,7 @@ namespace Core
             
             GiveWalkOrder(walkTarget, floor.floorId, () =>
             {
-                _isBusy = false;
+                _isInOffice = true;
                 _decisionTimer = 0;
             });
         }
@@ -72,6 +80,33 @@ namespace Core
             
             GiveInteractionOrder(interactible, finishedCallback);
             GiveWalkOrder(walkTarget, floor.floorId);
+        }
+
+        public override void CallToMeeting()
+        {
+            if (Random.Range(0f, 1f) < _meetingAttendChance) GoToMeeting();
+        }
+
+        private void GoToMeeting()
+        {
+            CancelAllOrders();
+
+            _hasMeeting = true;
+            var meetingRoomBehaviour = GameManager.Instance.MeetingRoomBehaviour;
+            Vector2 pos = new Vector2(meetingRoomBehaviour.gameObject.transform.position.x, 0);
+
+            void EnterMeetingRoom()
+            {
+                meetingRoomBehaviour.EnterMeeting(this);
+            }
+
+            GiveWalkOrder(pos, 2, EnterMeetingRoom);
+        }
+        
+        public new void CancelAllOrders()
+        {
+            CancelCurrentInteractionOrder();
+            CancelCurrentWalkOrder();
         }
     }
 }

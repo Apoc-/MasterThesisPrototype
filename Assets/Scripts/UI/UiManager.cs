@@ -1,5 +1,4 @@
 ﻿using System;
-using DefaultNamespace;
 using Tech;
 using TMPro;
 using UnityEngine;

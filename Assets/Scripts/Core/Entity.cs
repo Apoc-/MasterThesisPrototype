@@ -7,26 +7,36 @@ using UnityEngine.Events;
 
 namespace Core
 {
-    public class Entity : MonoBehaviour
+    public abstract class Entity : MonoBehaviour
     {
         public float walkingSpeed = 50;
+        
+        protected bool _hasMeeting;
+        protected bool _reachedWalkTarget = true;
+        protected bool _finishedInteraction = true;
+        
+        private Interactible _currentInteractTarget;
+        private Action _finishedInteractionCallback;
+        private float _interactionTime = 0.0f;
+        
         private Queue<Waypoint> _walkTargets = new Queue<Waypoint>();
         private Waypoint _currentWalkTarget;
-
         private Vector2 _startWalkPosition;
         private float _startWalkTime = 0;
         private int _targetFloor = 0;
         private float _actingDistance = 50f;
         private int _currentFloorId => GetCurrentFloorId();
-
-        private bool reachedWalkTarget = true;
         private Action _reachedWalkTargetCallback;
 
-        protected Interactible _currentInteractTarget;
-        private float _interactionTime = 0.0f;
-        private bool _finishedInteraction = true;
-        private Action _finishedInteractionCallback;
+        private List<Waypoint> _helperWaypoints = new List<Waypoint>();
+        private SpriteRenderer _spriteRenderer;
+        private SpriteRenderer SpriteRenderer
+            => _spriteRenderer ? _spriteRenderer : _spriteRenderer = GetComponentInChildren<SpriteRenderer>();
 
+        private void Start()
+        {
+            GameManager.Instance.Company.RegisterTeamMember(this);
+        }
 
         private void FixedUpdate()
         {
@@ -37,15 +47,17 @@ namespace Core
                 DoInteraction();
             }
 
-            if (!reachedWalkTarget)
+            if (!_reachedWalkTarget)
             {
                 HandleWalking();
-                reachedWalkTarget = ReachedWalkTarget();
-
-                if (reachedWalkTarget)
-                {
-                    _reachedWalkTargetCallback?.Invoke();
-                }
+                _reachedWalkTarget = ReachedWalkTarget();
+            }
+            
+            if (_reachedWalkTarget)
+            {
+                _reachedWalkTargetCallback?.Invoke();
+                _reachedWalkTargetCallback = null;
+                _helperWaypoints.Clear(); //TODO destroy Gameobjects
             }
         }
 
@@ -72,7 +84,7 @@ namespace Core
 
         private bool ReachedWalkTarget()
         {
-            return Vector2.Distance(_currentWalkTarget.transform.position, transform.position) <= 0.01f;
+            return Vector2.Distance(_currentWalkTarget.transform.position, transform.position) <= 0.001f;
         }
 
         private bool HasTargetsLeft()
@@ -109,15 +121,31 @@ namespace Core
             _interactionTime = 0;
         }
 
+        public void CancelCurrentInteractionOrder()
+        {
+            GameManager.Instance.WaypointProvider.ClearWaypointActionsForEntity(this);
+            _finishedInteraction = true;
+            _finishedInteractionCallback = null;
+            _currentInteractTarget = null;
+            _interactionTime = 0;
+        }
+
+        public void CancelAllOrders()
+        {
+            CancelCurrentInteractionOrder();
+            CancelCurrentWalkOrder();
+        }
+
         public void GiveWalkOrder(Vector2 target, int targetFloorId, Action reachedWalkTargetCallback = null)
         {
             GameManager.Instance.WaypointProvider.ClearWaypointActionsForEntity(this);
-            reachedWalkTarget = false;
+            _reachedWalkTarget = false;
             _reachedWalkTargetCallback = reachedWalkTargetCallback;
             var dist = Vector2.Distance(transform.position, target);
             if (dist < _actingDistance / 10f) return;
             var targetWp = GameManager.Instance.WaypointProvider.CreateWaypointAtPosition(target);
-
+            _helperWaypoints.Add(targetWp);
+            
             _walkTargets.Clear();
             _startWalkPosition = transform.position;
             _targetFloor = targetFloorId;
@@ -134,6 +162,14 @@ namespace Core
             }
         }
 
+        public void CancelCurrentWalkOrder()
+        {
+            GameManager.Instance.WaypointProvider.ClearWaypointActionsForEntity(this);
+            _reachedWalkTarget = true;
+            _reachedWalkTargetCallback = null;
+            _walkTargets.Clear();
+        }
+        
         private void HandleFloorChange(Waypoint targetWp, int targetFloorId)
         {
             var elevatorDoorWps = GameManager.Instance.WaypointProvider.ElevatorDoors;
@@ -153,10 +189,7 @@ namespace Core
             UnityAction action = null;
             action = () =>
             {
-                var spriteRenderer = GetComponentInChildren<SpriteRenderer>();
-                var color = spriteRenderer.color;
-                color.a = 0;
-                spriteRenderer.color = color;
+                Hide();
                 waypoint.UnregisterOnEnterActionForEntity(this, action);
             };
             
@@ -168,16 +201,11 @@ namespace Core
             UnityAction action = null;
             action = () =>
             {
-                var spriteRenderer = GetComponentInChildren<SpriteRenderer>();
-                var color = spriteRenderer.color;
-                color.a = 1;
-                spriteRenderer.color = color;
+                Show();
                 waypoint.UnregisterOnEnterActionForEntity(this, action);
-                if(name == "Mary") Debug.Log("Removed " + action.GetHashCode());
             };
 
             waypoint.RegisterOnEnterActionForEntity(this, action);
-            if(name == "Mary") Debug.Log("Registered " + action.GetHashCode());
         }
 
         private void SetLookingDirection()
@@ -205,9 +233,34 @@ namespace Core
             List<Collider2D> overlap = new List<Collider2D>();
             col.OverlapCollider(new ContactFilter2D(), overlap);
 
-            var floor = overlap.FindAll(c => c.GetComponent<Floor>() != null).Select(c => c.GetComponent<Floor>())
+            var floor = overlap
+                .FindAll(c => c.GetComponent<Floor>() != null)
+                .Select(c => c.GetComponent<Floor>())
                 .First();
+            
             return floor.floorId;
         }
+
+        public void Show()
+        {
+            var col = SpriteRenderer.color;
+            col.a = 1;
+            SpriteRenderer.color = col;
+        }
+
+        public void Hide()
+        {
+            var col = SpriteRenderer.color;
+            col.a = 0;
+            SpriteRenderer.color = col;
+        }
+
+        public virtual void ReturnFromMeeting()
+        {
+            _hasMeeting = false;
+            Show();
+        }
+
+        public abstract void CallToMeeting();
     }
 }

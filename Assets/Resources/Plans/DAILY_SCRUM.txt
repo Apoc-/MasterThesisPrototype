@@ -1,0 +1,16 @@
+﻿<b>TechCom - Maßnahmenplan</b>
+
+<b>Maßnahme: </b>
+Daily Scrum Meeting
+
+<b>Art der Maßnahme: </b>
+Meeting, maximal 15 Minuten um 11 Uhr
+
+<b>Konzept:</b>
+    - Regelmäiges tägliches Meeting
+    - Alle Teilnehmer stehen
+    - Planung der nächsten 24h
+    - Die Mitglieder des Entwicklerteams schildern:
+        > Was habe ich gestern erreicht?
+        > Was werde ich heute erledigen?
+        > Habe ich irgendwelche Hindernisse [Impediments], um mein Ziel zu erreichen?

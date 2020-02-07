@@ -5,7 +5,6 @@ using System.Timers;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Events;
-using UnityEngine.Experimental.PlayerLoop;
 
 namespace Code
 {

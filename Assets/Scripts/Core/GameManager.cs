@@ -95,6 +95,7 @@ public class GameManager : MonoBehaviour
     public void StartDay()
     {
         GameState = GameState.PLAYING;
+        player.CanGiveMoveCommand = true;
         _clock.SetTime(9,0,0);
         _clock.ResetAlarms();
         _clock.Running = true;

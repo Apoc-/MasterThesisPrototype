@@ -13,6 +13,12 @@ namespace Core
             _onEnterWaypointTriggers[entity]?.Invoke();
         }
 
+        public void UnregisterOnEnterActionsForEntity(Entity entity)
+        {
+            if (!_onEnterWaypointTriggers.ContainsKey(entity)) return;
+            _onEnterWaypointTriggers[entity].RemoveAllListeners();
+        }
+
         public void UnregisterOnEnterActionForEntity(Entity entity, UnityAction action)
         {
             if (!_onEnterWaypointTriggers.ContainsKey(entity)) return;

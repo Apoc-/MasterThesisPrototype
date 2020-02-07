@@ -102,6 +102,7 @@ namespace Core
 
         public void GiveInteractionOrder(Interactible interactible, Action finishedCallback = null)
         {
+            GameManager.Instance.WaypointProvider.ClearWaypointActionsForEntity(this);
             _finishedInteraction = false;
             _finishedInteractionCallback = finishedCallback;
             _currentInteractTarget = interactible;
@@ -110,6 +111,7 @@ namespace Core
 
         public void GiveWalkOrder(Vector2 target, int targetFloorId, Action reachedWalkTargetCallback = null)
         {
+            GameManager.Instance.WaypointProvider.ClearWaypointActionsForEntity(this);
             reachedWalkTarget = false;
             _reachedWalkTargetCallback = reachedWalkTargetCallback;
             var dist = Vector2.Distance(transform.position, target);
@@ -146,7 +148,7 @@ namespace Core
             _walkTargets.Enqueue(targetWp);
         }
 
-        private void AddEnterElevatorEvent(Waypoint waypoint)
+        protected virtual void AddEnterElevatorEvent(Waypoint waypoint)
         {
             UnityAction action = null;
             action = () =>
@@ -161,7 +163,7 @@ namespace Core
             waypoint.RegisterOnEnterActionForEntity(this, action);
         }
 
-        private void AddLeaveElevatorEvent(Waypoint waypoint)
+        protected virtual void AddLeaveElevatorEvent(Waypoint waypoint)
         {
             UnityAction action = null;
             action = () =>

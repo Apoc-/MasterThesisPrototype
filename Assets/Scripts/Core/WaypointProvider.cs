@@ -15,5 +15,13 @@ namespace Core
             wp.transform.position = position;
             return wp;
         }
+
+        public void ClearWaypointActionsForEntity(Entity entity)
+        {
+            foreach (var wp in gameObject.GetComponentsInChildren<Waypoint>())
+            {
+                wp.UnregisterOnEnterActionsForEntity(entity);
+            }
+        }
     }
 }

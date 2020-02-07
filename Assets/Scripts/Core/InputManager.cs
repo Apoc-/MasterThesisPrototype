@@ -50,7 +50,9 @@ namespace Core
             var floor = hitFloors[0].collider.GetComponent<Floor>();
             var targetFloorId = floor.floorId;
             var target = new Vector2(hit.point.x, hit.collider.bounds.min.y);
-            GameManager.Instance.player.GiveWalkOrder(target, targetFloorId);
+            var player = GameManager.Instance.player;
+            
+            if(player.CanGiveMoveCommand) player.GiveWalkOrder(target, targetFloorId);
         }
 
         private void CheckForInteractibleHits(RaycastHit2D[] hits)

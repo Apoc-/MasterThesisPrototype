@@ -7,7 +7,7 @@ namespace Core
     public class InteractibleManager : MonoBehaviour
     {
         private HashSet<Interactible> _interactibles = new HashSet<Interactible>();
-        private int _maxBrokenCount = 1;
+        private int _maxBrokenCount = 3;
 
         
 

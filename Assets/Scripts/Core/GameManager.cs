@@ -71,7 +71,11 @@ public class GameManager : MonoBehaviour
 
     private void ExecScrumMasterPlan()
     {
-        
+        if (Random.Range(0f, 1f) < _impedimentChance)
+        {
+            Debug.Log("Break with p=" + _impedimentChance);
+            InteractibleManager.BreakRandomBreakable();
+        }
     }
 
     private void ExecDailyScrumPlan()
@@ -140,10 +144,7 @@ public class GameManager : MonoBehaviour
         // add problems for master
         _clock.OnSecondTick += () =>
         {
-            if (Random.Range(0f, 1f) < _impedimentChance)
-            {
-                InteractibleManager.BreakRandomBreakable();
-            }
+            
         };
 
         _clock.OnSecondTick += ExecScrumMasterPlan;

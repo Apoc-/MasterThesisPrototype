@@ -58,8 +58,21 @@ namespace Core
             {
                 _reachedWalkTargetCallback?.Invoke();
                 _reachedWalkTargetCallback = null;
-                _helperWaypoints.Clear(); //TODO destroy Gameobjects
+                CleanUpHelperWaypoints();
             }
+        }
+
+        private void CleanUpHelperWaypoints()
+        {
+            if (_helperWaypoints.Count > 0)
+            {
+                _helperWaypoints.ForEach(wp =>
+                {
+                    Destroy(wp.gameObject);
+                });
+            }
+            
+            _helperWaypoints.Clear();
         }
 
         private void DoInteraction()
@@ -85,6 +98,7 @@ namespace Core
 
         private bool ReachedWalkTarget()
         {
+            if (_currentWalkTarget == null) return true;
             return Vector2.Distance(_currentWalkTarget.transform.position, transform.position) <= 0.001f;
         }
 
@@ -95,11 +109,14 @@ namespace Core
 
         private void HandleWalking()
         {
-            var covered = (Time.time - _startWalkTime) * walkingSpeed;
-            var progress = covered / Vector2.Distance(_currentWalkTarget.transform.position, _startWalkPosition);
-            SetLookingDirection();
-            transform.position = Vector2.Lerp(_startWalkPosition, _currentWalkTarget.transform.position, progress);
-
+            if (_currentWalkTarget != null)
+            {
+                var covered = (Time.time - _startWalkTime) * walkingSpeed;
+                var progress = covered / Vector2.Distance(_currentWalkTarget.transform.position, _startWalkPosition);
+                SetLookingDirection();
+                transform.position = Vector2.Lerp(_startWalkPosition, _currentWalkTarget.transform.position, progress);
+            }
+            
             if (ReachedWalkTarget())
             {
                 _currentWalkTarget.TriggerOnEnterWaypoint(this);

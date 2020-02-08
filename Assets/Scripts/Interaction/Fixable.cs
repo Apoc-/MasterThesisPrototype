@@ -1,4 +1,7 @@
-﻿using UnityEngine;
+﻿using System;
+using System.Collections.Generic;
+using UnityEngine;
+using Random = UnityEngine.Random;
 
 namespace Core
 {
@@ -6,6 +9,11 @@ namespace Core
     public abstract class Fixable : Interactible
     {
         public bool IsBroken { get; private set; } = false;
+        protected List<string> _brokenTooltips = new List<string> {
+            "Ich bin Groot!"
+        };
+        private string _currentBrokenTooltip = "";
+        
         private GameObject _warningSign;
 
         public void Fix()
@@ -20,12 +28,18 @@ namespace Core
         public void Break()
         {
             if(IsBroken) return;
+            SetBrokenTooltip();
             var pref = Resources.Load("Prefabs/WarningSign");
             _warningSign = Instantiate(pref, transform) as GameObject;
             _warningSign.transform.localPosition = Vector3.zero;
             IsBroken = true;
 
             Debug.Log("Broke " + GetName());
+        }
+
+        private void SetBrokenTooltip()
+        {
+            _currentBrokenTooltip = _brokenTooltips[Random.Range(0, _brokenTooltips.Count)];
         }
         
         public override void FinishInteraction(Entity entity)
@@ -54,7 +68,8 @@ namespace Core
                 GameManager.Instance.AddToTeamspirit("Hindernisse beim Arbeiten", -1);
             }
         }
-
         public abstract void OnFixed();
+        public override string GetTooltip() => _currentBrokenTooltip;
+
     }
 }

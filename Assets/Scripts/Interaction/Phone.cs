@@ -1,12 +1,20 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Transactions;
+using Random = UnityEngine.Random;
 
 namespace Core
 {
     public class Phone : Fixable
     {
-        public override string GetName() => "Phone";
-
+        private void Start()
+        {
+            _brokenTooltips = new List<string> {
+                "Telefonat annehmen"
+            };
+        }
+        
+        public override string GetName() => "Telefon";
         public override void OnFixed()
         {
             

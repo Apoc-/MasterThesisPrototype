@@ -13,6 +13,7 @@ namespace Core
             Destroy(gameObject);    
         }
 
-        public override string GetName() => "Zu Meeting schicken";
+        public override string GetName() => "Meeting Warnung";
+        public override string GetTooltip() => "Zu Meeting schicken";
     }
 }

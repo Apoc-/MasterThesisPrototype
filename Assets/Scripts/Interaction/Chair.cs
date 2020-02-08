@@ -9,8 +9,7 @@ namespace Core
             
         }
 
-        public override string GetName() => "Chair";
-        
-        
+        public override string GetName() => "Stuhl";
+        public override string GetTooltip() => "Hinsetzen";
     }
 }

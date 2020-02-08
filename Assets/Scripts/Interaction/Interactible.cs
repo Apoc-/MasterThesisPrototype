@@ -7,10 +7,11 @@ using UnityEngine.UIElements;
 namespace Core
 {
     [RequireComponent(typeof(Collider2D))]
-    public abstract class Interactible : MonoBehaviour
+    public abstract class Interactible : MonoBehaviour, IHasToolTip
     {
         public float InteractionDuration = 3;
-        
+        private IHasToolTip _hasToolTipImplementation;
+
         private void OnEnable()
         {
             GameManager.Instance.InteractibleManager.RegisterInteractible(this);
@@ -26,5 +27,7 @@ namespace Core
             var floor = overlap.FindAll(c => c.GetComponent<Floor>() != null).Select(c => c.GetComponent<Floor>()).First();
             return floor;
         }
+
+        public abstract string GetTooltip();
     }
 }

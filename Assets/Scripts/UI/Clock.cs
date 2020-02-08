@@ -57,7 +57,7 @@ namespace Code
             if (CurrentTime.Seconds >= 60)
             {
                 OnSecondTick?.Invoke();
-
+                
                 CurrentTime.RealSeconds = 0;
                 CurrentTime.Minutes += 1;
             }

@@ -1,11 +1,20 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Transactions;
+using Random = UnityEngine.Random;
 
 namespace Core
 {
     public class CoffeeMachine : Fixable
     {
-        public override string GetName() => "Coffee Machine";
+        private void Start()
+        {
+            _brokenTooltips = new List<string> {
+                "Kaffee nachfüllen", "Wasser nachfüllen", "Neue Milch aufmachen"
+            };
+        }
+
+        public override string GetName() => "Kaffee Maschine";
 
         public override void OnFixed()
         {

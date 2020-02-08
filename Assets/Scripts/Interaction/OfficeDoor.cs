@@ -9,6 +9,7 @@
             
         }
 
-        public override string GetName() => Owner.Name + "'s Office";
+        public override string GetName() => Owner.Name + "s Büro";
+        public override string GetTooltip() => "";
     }
 }

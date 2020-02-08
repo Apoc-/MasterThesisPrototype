@@ -1,6 +1,9 @@
 ﻿using System;
+using System.Linq;
+using Core;
 using Tech;
 using TMPro;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.SocialPlatforms.Impl;
 
@@ -10,24 +13,18 @@ namespace UI
     {
         public TextMeshProUGUI CompanyScoreDisplay;
         public AdvisorScreenBehaviour AdvisorScreen;
-        
+        public Tooltip Tooltip;
+
         public void UpdateCompanyScores()
         {
             var comp = GameManager.Instance.Company;
             var text = "";
-            
-            comp.CompanyScores.ForEach(score =>
-            {
-                text += score.Name + ": " + score.Value + "\n";
-            });
-            
+
+            comp.CompanyScores.ForEach(score => { text += score.Name + ": " + score.Value + "\n"; });
+
             CompanyScoreDisplay.text = text;
         }
-        
-        #region Singleton
-        private static UiManager _instance;
-        public static UiManager Instance => _instance ? _instance : _instance = FindObjectOfType<UiManager>();
-        #endregion
+
 
         public void ShowScoreScreen()
         {
@@ -62,6 +59,36 @@ namespace UI
         private void Update()
         {
             UpdateCompanyScores();
+            CheckMouseOver();
         }
+
+        private void CheckMouseOver()
+        {
+            Vector2 origin = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            RaycastHit2D[] hits = Physics2D.RaycastAll(origin, Vector2.zero, 0f);
+
+            if (hits.Length == 0) return;
+
+            var tooltipObjects = hits
+                    .Where(hit => hit.collider.gameObject.GetComponent<IHasToolTip>() != null)
+                    .ToList();
+            
+            if (tooltipObjects.Any())
+            {
+                var hitObject = tooltipObjects.First().collider.gameObject.GetComponent<IHasToolTip>();
+                Tooltip.Show(hitObject);
+            } 
+            else
+            {
+                Tooltip.Hide();
+            }
+        }
+
+        #region Singleton
+
+        private static UiManager _instance;
+        public static UiManager Instance => _instance ? _instance : _instance = FindObjectOfType<UiManager>();
+
+        #endregion
     }
 }

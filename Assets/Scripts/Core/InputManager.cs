@@ -89,11 +89,8 @@ namespace Core
 
             if (hitInteractibles.Count == 0) return;
 
-            var interactibles = hitInteractibles.Select(h => h.collider.GetComponent<Interactible>());
-            foreach (var interactible in interactibles)
-            {
-                GameManager.Instance.player.GiveInteractionOrder(interactible);
-            }
+            var interactible = hitInteractibles.Select(h => h.collider.GetComponent<Interactible>()).First();
+            GameManager.Instance.player.GiveInteractionOrder(interactible);
         }
     }
 }

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Timers;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.UIElements;
 using Random = UnityEngine.Random;
 
@@ -18,10 +19,11 @@ namespace Core
         private float _decisionTimer = 0f;
         public Interactible Office;
         private bool _isInOffice = true;
+
         public void Update()
         {
             if (GameManager.Instance.GameState != GameState.PLAYING) return;
-            
+
             if (CanMakeDecision())
             {
                 DecideAction();
@@ -45,7 +47,7 @@ namespace Core
 
         private void DoRandomInteraction()
         {
-            _isInOffice = false;
+            LeaveOffice();
             var interactible = GetRandomNpcInteractible();
             InteractWith(interactible, GoBackToOffice);
         }
@@ -56,14 +58,26 @@ namespace Core
             var floor = Office.GetFloor();
             var floorCollider = floor.GetComponent<Collider2D>();
             var walkTarget = new Vector2(Office.transform.position.x, floorCollider.bounds.min.y);
-            
+
             GiveWalkOrder(walkTarget, floor.floorId, () =>
             {
-                _isInOffice = true;
+                EnterOffice();
                 _decisionTimer = 0;
             });
         }
 
+        private void EnterOffice()
+        {
+            Hide();
+            _isInOffice = true;
+        }
+
+        private void LeaveOffice()
+        {
+            Show();
+            _isInOffice = false;
+        }
+        
         private Interactible GetRandomNpcInteractible()
         {
             var interactibles = GameManager.Instance.InteractibleManager.NpcInteractibles;
@@ -77,17 +91,42 @@ namespace Core
             var floor = interactible.GetFloor();
             var floorCollider = floor.GetComponent<Collider2D>();
             var walkTarget = new Vector2(interactible.transform.position.x, floorCollider.bounds.min.y);
-            
+
             GiveInteractionOrder(interactible, finishedCallback);
             GiveWalkOrder(walkTarget, floor.floorId);
         }
 
         public override void CallToMeeting()
         {
-            if (Random.Range(0f, 1f) < _meetingAttendChance) GoToMeeting();
+            if (Random.Range(0f, 1f) < _meetingAttendChance)
+            {
+                GoToMeeting();
+            }
+            else
+            {
+                DontAttendMeeting();
+            }
         }
 
-        private void GoToMeeting()
+        private void DontAttendMeeting()
+        {
+            _hasMeeting = true;
+            DisplayMeetingWarning();
+        }
+
+        private void DisplayMeetingWarning()
+        {
+            var pos = SpriteRenderer.bounds.center;
+            var sign = Instantiate(
+                Resources.Load<GameObject>("Prefabs/MeetingWarningSign"),
+                transform);
+
+            sign.transform.position = pos;
+            var signInteractible = sign.GetComponent<MeetingWarningSign>();
+            signInteractible.AttachedNPC = this;
+        }
+
+        public void GoToMeeting()
         {
             CancelAllOrders();
 
@@ -102,11 +141,16 @@ namespace Core
 
             GiveWalkOrder(pos, 2, EnterMeetingRoom);
         }
-        
-        public new void CancelAllOrders()
+
+        public override void ReturnFromMeeting()
         {
-            CancelCurrentInteractionOrder();
-            CancelCurrentWalkOrder();
+            base.ReturnFromMeeting();
+
+            var sign = GetComponentInChildren<MeetingWarningSign>();
+            if (sign != null)
+            {
+                Destroy(sign.gameObject);
+            }
         }
     }
 }

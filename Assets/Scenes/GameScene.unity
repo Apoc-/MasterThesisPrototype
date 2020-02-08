@@ -3419,7 +3419,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 237d5962c7336864daeabed8913e65f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SpeedFactor: 6000
+  SpeedFactor: 120
   Running: 0
 --- !u!1 &365333748
 GameObject:
@@ -14102,7 +14102,7 @@ PrefabInstance:
     - target: {fileID: 6320040942407651880, guid: 61231f02b6f4c9c45853ea4bb7af8839,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6320040942407651881, guid: 61231f02b6f4c9c45853ea4bb7af8839,
         type: 3}
@@ -14164,6 +14164,11 @@ PrefabInstance:
       propertyPath: Office
       value: 
       objectReference: {fileID: 2072175330}
+    - target: {fileID: 6320040942407651882, guid: 61231f02b6f4c9c45853ea4bb7af8839,
+        type: 3}
+      propertyPath: _meetingAttendChance
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 61231f02b6f4c9c45853ea4bb7af8839, type: 3}
 --- !u!1001 &7221303732058776813
@@ -14458,13 +14463,18 @@ PrefabInstance:
     - target: {fileID: 9202573938518580736, guid: 380dc96c56377624298dc258e40767bb,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 9202573938518580742, guid: 380dc96c56377624298dc258e40767bb,
         type: 3}
       propertyPath: Office
       value: 
       objectReference: {fileID: 1329401702}
+    - target: {fileID: 9202573938518580742, guid: 380dc96c56377624298dc258e40767bb,
+        type: 3}
+      propertyPath: _meetingAttendChance
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 9202573938518580743, guid: 380dc96c56377624298dc258e40767bb,
         type: 3}
       propertyPath: m_LocalPosition.x

@@ -31,7 +31,7 @@ namespace Core
 
         private List<Waypoint> _helperWaypoints = new List<Waypoint>();
         private SpriteRenderer _spriteRenderer;
-        private SpriteRenderer SpriteRenderer
+        protected SpriteRenderer SpriteRenderer
             => _spriteRenderer ? _spriteRenderer : _spriteRenderer = GetComponentInChildren<SpriteRenderer>();
 
         private void Start()

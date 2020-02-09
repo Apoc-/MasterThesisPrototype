@@ -13,7 +13,9 @@ namespace UI
     {
         public TextMeshProUGUI CompanyScoreDisplay;
         public AdvisorScreenBehaviour AdvisorScreen;
+        public TaskBoardScreen TaskBoardScreen;
         public Tooltip Tooltip;
+        public Tooltip LargeTooltip;
 
         public void UpdateCompanyScores()
         {
@@ -70,14 +72,15 @@ namespace UI
             if (hits.Length == 0) return;
 
             var tooltipObjects = hits
-                    .Where(hit => hit.collider.gameObject.GetComponent<IHasToolTip>() != null)
-                    .ToList();
-            
+                .Where(hit => hit.collider.gameObject.GetComponent<IHasToolTip>() != null)
+                .ToList();
+
             if (tooltipObjects.Any())
             {
-                var hitObject = tooltipObjects.First().collider.gameObject.GetComponent<IHasToolTip>();
+                var go = tooltipObjects.First().collider.gameObject;
+                var hitObject = go.GetComponent<IHasToolTip>();
                 Tooltip.Show(hitObject);
-            } 
+            }
             else
             {
                 Tooltip.Hide();

@@ -13,7 +13,7 @@ namespace UI
 
         private void Start()
         {
-            enabled = false;
+            //gameObject.SetActive(false);
         }
 
         private void Update()

@@ -11,7 +11,8 @@ namespace UI
 {
     public class UiManager : MonoBehaviour
     {
-        public TextMeshProUGUI CompanyScoreDisplay;
+        public TextMeshProUGUI AgilityScore;
+        public TextMeshProUGUI TeamspiritScore;
         public AdvisorScreenBehaviour AdvisorScreen;
         public TaskBoardScreen TaskBoardScreen;
         public Tooltip Tooltip;
@@ -20,11 +21,12 @@ namespace UI
         public void UpdateCompanyScores()
         {
             var comp = GameManager.Instance.Company;
-            var text = "";
 
-            comp.CompanyScores.ForEach(score => { text += score.Name + ": " + score.Value + "\n"; });
+            var agi = comp.CompanyScores.Find(score => score.Name == "Agilität");
+            var spi = comp.CompanyScores.Find(score => score.Name == "Teamgeist");
 
-            CompanyScoreDisplay.text = text;
+            AgilityScore.text = agi.Name + " " + agi.Value;
+            TeamspiritScore.text = spi.Name + " " + spi.Value;
         }
 
 
@@ -66,6 +68,12 @@ namespace UI
 
         private void CheckMouseOver()
         {
+            if (AdvisorScreen.isActiveAndEnabled || TaskBoardScreen.isActiveAndEnabled)
+            {
+                Tooltip.Hide();
+                return;
+            }
+            
             Vector2 origin = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             RaycastHit2D[] hits = Physics2D.RaycastAll(origin, Vector2.zero, 0f);
 

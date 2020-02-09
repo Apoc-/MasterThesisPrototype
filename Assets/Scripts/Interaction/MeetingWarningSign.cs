@@ -5,7 +5,12 @@ namespace Core
     public class MeetingWarningSign : Interactible
     {
         public NPC AttachedNPC;
-        
+
+        public override void StartInteraction(Entity entity)
+        {
+            
+        }
+
         public override void FinishInteraction(Entity entity)
         {
             GameManager.Instance.AddToAgility("Scrum Master Tätigkeiten", 1);

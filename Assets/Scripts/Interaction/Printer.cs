@@ -17,6 +17,11 @@ namespace Core
             };
         }
 
+        public override void StartInteraction(Entity entity)
+        {
+            
+        }
+
         public override string GetName() => "Printer";
         public override void OnFixed()
         {

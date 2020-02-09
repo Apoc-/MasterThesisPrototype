@@ -13,7 +13,12 @@ namespace Core
                 "Telefonat annehmen"
             };
         }
-        
+
+        public override void StartInteraction(Entity entity)
+        {
+            
+        }
+
         public override string GetName() => "Telefon";
         public override void OnFixed()
         {

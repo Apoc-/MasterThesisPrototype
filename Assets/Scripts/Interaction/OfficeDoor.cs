@@ -4,6 +4,11 @@
     {
         public NPC Owner;
 
+        public override void StartInteraction(Entity entity)
+        {
+            
+        }
+
         public override void FinishInteraction(Entity entity)
         {
             

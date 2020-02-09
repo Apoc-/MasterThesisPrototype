@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Timers;
+using Unity.Mathematics;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.Experimental.Rendering.Universal;
@@ -15,6 +16,7 @@ namespace Core
         protected bool _hasMeeting;
         protected bool _reachedWalkTarget = true;
         protected bool _finishedInteraction = true;
+        protected bool _startedInteraction = false;
         
         private Interactible _currentInteractTarget;
         private Action _finishedInteractionCallback;
@@ -25,7 +27,8 @@ namespace Core
         private Vector2 _startWalkPosition;
         private float _startWalkTime = 0;
         private int _targetFloor = 0;
-        private float _actingDistance = 50f;
+        private float _actingDistance = 2f;
+        private float _walkingDistance = 2.5f;
         private int _currentFloorId => GetCurrentFloorId();
         private Action _reachedWalkTargetCallback;
 
@@ -45,6 +48,12 @@ namespace Core
 
             if (!_finishedInteraction && ReachedInteractionTarget())
             {
+                if (!_startedInteraction)
+                {
+                    _currentInteractTarget.StartInteraction(this);
+                    _startedInteraction = true;
+                }
+                
                 DoInteraction();
             }
 
@@ -83,6 +92,7 @@ namespace Core
             {
                 Debug.Log("Finished Interaction with " + _currentInteractTarget.GetName());
                 _finishedInteraction = true;
+                _startedInteraction = false;
                 _finishedInteractionCallback?.Invoke();
                 _currentInteractTarget.FinishInteraction(this);
             }
@@ -92,14 +102,18 @@ namespace Core
         {
             if (_currentInteractTarget == null) return false;
 
-            var dist = Vector2.Distance(_currentInteractTarget.transform.position, transform.position);
-            return dist < _actingDistance;
+            var collider = GetComponent<Collider2D>();
+            var targetCollider = _currentInteractTarget.gameObject.GetComponent<Collider2D>();
+            return collider.bounds.Intersects(targetCollider.bounds);
         }
 
         private bool ReachedWalkTarget()
         {
             if (_currentWalkTarget == null) return true;
-            return Vector2.Distance(_currentWalkTarget.transform.position, transform.position) <= 0.001f;
+
+            var target = _currentWalkTarget.transform.position;
+            var dist = Vector3.Distance(target, transform.position);
+            return dist < _walkingDistance;
         }
 
         private bool HasTargetsLeft()
@@ -143,6 +157,7 @@ namespace Core
         {
             GameManager.Instance.WaypointProvider.ClearWaypointActionsForEntity(this);
             _finishedInteraction = true;
+            _startedInteraction = false;
             _finishedInteractionCallback = null;
             _currentInteractTarget = null;
             _interactionTime = 0;

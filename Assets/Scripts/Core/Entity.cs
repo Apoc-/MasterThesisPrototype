@@ -298,5 +298,10 @@ namespace Core
         }
 
         public abstract void CallToMeeting();
+
+        public Vector2 GetHeadPosition()
+        {
+            return SpriteRenderer.bounds.max;
+        }
     }
 }

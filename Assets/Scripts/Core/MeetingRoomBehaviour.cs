@@ -40,11 +40,11 @@ namespace Core
         {
             if (_arrivedEntities.Count == _invitedEntities.Count)
             {
-                GameManager.Instance.AddToAgility("Daily Scrum: Volles Haus!", 10);       
+                GameManager.Instance.AddToAgility("Daily Scrum: Volles Haus!", 10, transform.position);       
             }
             else
             {
-                GameManager.Instance.AddToAgility("Daily Scrum: Jemand war nicht beim Daily!", -10);
+                GameManager.Instance.AddToAgility("Daily Scrum: Jemand war nicht beim Daily!", -10, transform.position);
             }
         }
         

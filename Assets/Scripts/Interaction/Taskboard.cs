@@ -9,6 +9,8 @@ namespace Core
         
         public override void StartInteraction(Entity entity)
         {
+            if (entity is NPC) return;
+            
             TaskBoardScreen.gameObject.SetActive(true);
             GameManager.Instance.player.CanGiveMoveCommand = false;
         }

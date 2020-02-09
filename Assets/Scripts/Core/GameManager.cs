@@ -30,6 +30,12 @@ public class GameManager : MonoBehaviour
         => _meetingRoomBehaviour
             ? _meetingRoomBehaviour
             : _meetingRoomBehaviour = FindObjectOfType<MeetingRoomBehaviour>();
+    
+    private EffectController _effectController;
+    public EffectController EffectController
+        => _effectController
+            ? _effectController
+            : _effectController = FindObjectOfType<EffectController>();
 
     [ReadOnly] public Player player;
 
@@ -150,13 +156,17 @@ public class GameManager : MonoBehaviour
         _clock.OnSecondTick += ExecScrumMasterPlan;
     }
     
-    public void AddToTeamspirit(string description, int value)
+    public void AddToTeamspirit(string description, int value, Vector2 pos)
     {
+        var score = UiManager.Instance.TeamspiritScore;
+        EffectController.PlayPositiveEffectAt(pos, Camera.main.ScreenToWorldPoint(score.transform.position));
         Company.AddEffectToCompanyScore("Teamgeist", description, value);
     }
     
-    public void AddToAgility(string description, int value)
+    public void AddToAgility(string description, int value, Vector2 pos)
     {
+        var score = UiManager.Instance.AgilityScore;
+        EffectController.PlayPositiveEffectAt(pos, Camera.main.ScreenToWorldPoint(score.transform.position));
         Company.AddEffectToCompanyScore("Agilität", description, value);
     }
 }

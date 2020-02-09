@@ -16,12 +16,12 @@ namespace Core
         
         private GameObject _warningSign;
 
-        public void Fix()
+        public void Fix(Entity entity)
         {
             Debug.Log("Fixed " + GetName());
             Destroy(_warningSign);
             IsBroken = false;
-            GameManager.Instance.AddToAgility("Scrum Master Tätigkeiten", 1);
+            GameManager.Instance.AddToAgility("Scrum Master Tätigkeiten", 1, entity.GetHeadPosition());
             OnFixed();
         }
 
@@ -52,7 +52,7 @@ namespace Core
         {
             if (entity is NPC)
             {
-                GameManager.Instance.AddToTeamspirit("Hindernisfreies arbeiten", +1);
+                GameManager.Instance.AddToTeamspirit("Hindernisfreies arbeiten", 1, entity.GetHeadPosition());
             }
         }
 
@@ -60,12 +60,12 @@ namespace Core
         {
             if (entity is Player)
             {
-                Fix();
+                Fix(entity);
             }
 
             if (entity is NPC)
             {
-                GameManager.Instance.AddToTeamspirit("Hindernisse beim Arbeiten", -1);
+                GameManager.Instance.AddToTeamspirit("Hindernisse beim Arbeiten", -1, entity.GetHeadPosition());
             }
         }
         public abstract void OnFixed();

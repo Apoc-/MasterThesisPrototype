@@ -159,14 +159,33 @@ public class GameManager : MonoBehaviour
     public void AddToTeamspirit(string description, int value, Vector2 pos)
     {
         var score = UiManager.Instance.TeamspiritScore;
-        EffectController.PlayPositiveEffectAt(pos, Camera.main.ScreenToWorldPoint(score.transform.position));
-        Company.AddEffectToCompanyScore("Teamgeist", description, value);
+        void GainPointsCallback()
+        {
+            Company.AddEffectToCompanyScore("Teamgeist", description, value);
+        }
+        
+        TriggerEffect(Camera.main.WorldToScreenPoint(pos), score.transform.position, value, GainPointsCallback);
     }
     
     public void AddToAgility(string description, int value, Vector2 pos)
     {
         var score = UiManager.Instance.AgilityScore;
-        EffectController.PlayPositiveEffectAt(pos, Camera.main.ScreenToWorldPoint(score.transform.position));
-        Company.AddEffectToCompanyScore("Agilität", description, value);
+        void GainPointsCallback()
+        {
+            Company.AddEffectToCompanyScore("Agilität", description, value);
+        }
+        TriggerEffect(Camera.main.WorldToScreenPoint(pos), score.transform.position, value, GainPointsCallback);
+    }
+
+    private void TriggerEffect(Vector2 pos, Vector2 target, int value, Action callback)
+    {
+        if (value > 0)
+        {
+            EffectController.PlayPlusEffectAt(pos, target, callback);    
+        }
+        else
+        {
+            EffectController.PlayMinusEffectAt(pos, target, callback);   
+        }
     }
 }

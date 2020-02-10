@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 namespace Core
 {
@@ -7,16 +8,20 @@ namespace Core
         public Vector2 Velocity;
         public Vector2 Acceleration;
 
-        public float Alive;
+        public Action TargetReachedCallback;
+
+        public Vector2 Target;
+
+        public float MaxLifeTime = 3f;
         
         private void Update()
         {
-            Alive -= Time.deltaTime;
+            MaxLifeTime -= Time.deltaTime;
 
-            if (Alive <= 0)
+            if (ReachedTarget() || MaxLifeTime <= 0)
             {
-                gameObject.SetActive(false);
-                Destroy(gameObject);
+                TargetReachedCallback?.Invoke();
+                KillEffect();
                 return;
             }
 
@@ -25,6 +30,19 @@ namespace Core
             pos += Velocity * Time.deltaTime;
 
             transform.position = pos;
+        }
+
+        private void KillEffect()
+        {
+            gameObject.SetActive(false);
+            Destroy(gameObject);
+        }
+        
+        private bool ReachedTarget()
+        {
+            var dist = Vector2.Distance(transform.position, Target);
+            Debug.Log(dist);
+            return dist < 100f;
         }
     }
 }

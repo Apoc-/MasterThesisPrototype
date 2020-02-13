@@ -8,7 +8,32 @@ namespace Core
 {
     public class Player : Entity
     {
-        public bool CanGiveMoveCommand = false;
+        public bool CanGiveCommand = false;
+        public GameObject WorkingIcon;
+
+        public void Update()
+        {
+            if (_startedInteraction)
+            {
+                EnableWorkingIcon();
+            }
+
+            if (_finishedInteraction)
+            {
+                DisableWorkingIcon();
+            }
+        }
+
+        private void DisableWorkingIcon()
+        {
+            if(WorkingIcon.activeSelf) WorkingIcon.SetActive(false);
+        }
+
+        private void EnableWorkingIcon()
+        {
+            if(!WorkingIcon.activeSelf) WorkingIcon.SetActive(true);
+        }
+
 
         protected override void AddEnterElevatorEvent(Waypoint waypoint)
         {
@@ -17,7 +42,7 @@ namespace Core
             {
                 Hide();
                 waypoint.UnregisterOnEnterActionForEntity(this, action);
-                CanGiveMoveCommand = false;
+                CanGiveCommand = false;
             };
             
             waypoint.RegisterOnEnterActionForEntity(this, action);
@@ -30,7 +55,7 @@ namespace Core
             {
                 Show();
                 waypoint.UnregisterOnEnterActionForEntity(this, action);
-                CanGiveMoveCommand = true;
+                CanGiveCommand = true;
             };
 
             waypoint.RegisterOnEnterActionForEntity(this, action);
@@ -45,7 +70,7 @@ namespace Core
         {
             base.ReturnFromMeeting();
 
-            CanGiveMoveCommand = true;
+            CanGiveCommand = true;
         }
     }
 }

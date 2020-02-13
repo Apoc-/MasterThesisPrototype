@@ -32,7 +32,7 @@ namespace UI
         {
             var player = GameManager.Instance.player;
             player.CurrentInteractTarget.FinishInteraction(player);
-            player.CanGiveMoveCommand = true;
+            player.CanGiveCommand = true;
             gameObject.SetActive(false);
         }
 

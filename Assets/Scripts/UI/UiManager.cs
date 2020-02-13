@@ -55,6 +55,9 @@ namespace UI
                 case Plan.DAILY_SCRUM:
                     GameManager.Instance.InitDailyScrumPlan();
                     break;
+                case Plan.TASK_BOARD:
+                    GameManager.Instance.InitTaskBoardPlan();
+                    break;
                 default:
                     throw new ArgumentOutOfRangeException(nameof(plan), plan, null);
             }

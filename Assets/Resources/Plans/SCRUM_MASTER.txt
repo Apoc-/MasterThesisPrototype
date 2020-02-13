@@ -1,12 +1,12 @@
 ﻿<b>TechCom - Maßnahmenplan</b>
 
-<b>Maßnahme: </b>
+<b>Maßnahme</b>
 Agile Coach / Scrum Master einführen
 
-<b>Art der Maßnahme: </b>
+<b>Art der Maßnahme</b>
 Rolle
 
-<b>Aufgaben:</b>
+<b>Informationen</b>
   - Coachen des Teams
   - Beseitigung von Hindernissen
   - Unterstützung bei der Durchführung Scrum

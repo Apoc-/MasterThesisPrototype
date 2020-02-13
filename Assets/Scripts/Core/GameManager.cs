@@ -155,14 +155,18 @@ public class GameManager : MonoBehaviour
                 "Agilität", 
                 "Neue Rolle: Scrum Master", 
                 10);
-        
-        // add problems for master
-        Clock.OnSecondTick += () =>
-        {
-            
-        };
 
         Clock.OnSecondTick += ExecScrumMasterPlan;
+    }
+    
+    public void InitTaskBoardPlan()
+    {
+        Company.AddEffectToCompanyScore(
+            "Agilität", 
+            "Neues Artefakt: Taskboard", 
+            10);
+
+        InteractibleManager.TaskboardInteractible.gameObject.SetActive(true);
     }
     
     public void AddToTeamspirit(string description, int value, Vector2 pos)

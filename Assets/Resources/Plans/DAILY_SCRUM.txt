@@ -1,13 +1,13 @@
 ﻿<b>TechCom - Maßnahmenplan</b>
 
-<b>Maßnahme: </b>
+<b>Maßnahme</b>
 Daily Scrum Meeting
 
-<b>Art der Maßnahme: </b>
-Meeting, maximal 15 Minuten um 11 Uhr
+<b>Art der Maßnahme</b>
+Meeting <i>(Maximal 15 Minuten um 11 Uhr täglich!)</i>
 
-<b>Konzept:</b>
-    - Regelmäiges tägliches Meeting
+<b>Informationen</b>
+    - Regelmäßiges tägliches Meeting
     - Alle Teilnehmer stehen
     - Planung der nächsten 24h
     - Die Mitglieder des Entwicklerteams schildern:

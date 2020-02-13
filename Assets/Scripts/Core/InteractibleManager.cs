@@ -9,18 +9,23 @@ namespace Core
         private HashSet<Interactible> _interactibles = new HashSet<Interactible>();
         private int _maxBrokenCount = 3;
 
-        
-
         public HashSet<Interactible> Interactibles
         {
             get => _interactibles;
         }
 
         public List<Interactible> NpcInteractibles;
+
+        public TaskboardInteractible TaskboardInteractible;
         
-        public void RegisterInteractible(Interactible interactible)
+        public void RegisterInteractible(Interactible interactible, bool isNpcInteractible = false)
         {
             Interactibles.Add(interactible);
+
+            if (isNpcInteractible)
+            {
+                NpcInteractibles.Add(interactible);
+            }
         }
 
         public void BreakRandomBreakable()

@@ -1,0 +1,18 @@
+﻿<b>TechCom - Maßnahmenplan</b>
+
+<b>Maßnahme</b>
+Taskboard einführen
+
+<b>Art der Maßnahme</b>
+Artefakt
+
+<b>Informationen</b>
+  - Sichtbar machen der aktuellen Aufgaben und deren Stand
+  - Tasks können beispielsweise farblich codiert werden um weitere Informationen zu vermitteln. Z.b.: Zu welchem Feature gehört der Task?
+  - Einfachste Board Variante aus ToDo-, Doing- und Done-Spalte
+  - Die zu erledigenden Aufgaben sind bei ToDo abgelegt
+  - Sobald eine Aufgabe übernommen wird: In die Doing-Spalte verschieben
+  - Ist eine Aufgabe erledigt: In die Done-Spalte verschieben
+  - Eine Aufgabe ist dann fertig wenn sie die Definition of Done erfüllt.
+  
+  <b>DoD ist in diesem Beispiel: Programmiert, getestet und dokumentiert.</b> 

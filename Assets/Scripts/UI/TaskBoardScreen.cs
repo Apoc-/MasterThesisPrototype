@@ -30,7 +30,9 @@ namespace UI
         
         public void CloseTaskBoardScreen()
         {
-            GameManager.Instance.player.CanGiveMoveCommand = true;
+            var player = GameManager.Instance.player;
+            player.CurrentInteractTarget.FinishInteraction(player);
+            player.CanGiveMoveCommand = true;
             gameObject.SetActive(false);
         }
 
@@ -83,8 +85,8 @@ namespace UI
 
                 task.EndTime = GameManager.Instance.Clock.GetTime().ToString();
                 task.IsDocumented = true;
-                task.IsProgrammed = true;
                 task.IsTested = true;
+                task.IsProgrammed = true;
             }
         }
     }

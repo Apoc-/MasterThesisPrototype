@@ -17,8 +17,8 @@ namespace Core
         protected bool _reachedWalkTarget = true;
         protected bool _finishedInteraction = true;
         protected bool _startedInteraction = false;
-        
-        private Interactible _currentInteractTarget;
+
+        public Interactible CurrentInteractTarget { get; private set; }
         private Action _finishedInteractionCallback;
         private float _interactionTime = 0.0f;
         
@@ -49,7 +49,7 @@ namespace Core
             {
                 if (!_startedInteraction)
                 {
-                    _currentInteractTarget.StartInteraction(this);
+                    CurrentInteractTarget.StartInteraction(this);
                     _startedInteraction = true;
                 }
                 
@@ -88,22 +88,22 @@ namespace Core
         {
             _interactionTime += Time.deltaTime;
 
-            if (_interactionTime >= _currentInteractTarget.InteractionDuration)
+            if (_interactionTime >= CurrentInteractTarget.InteractionDuration)
             {
-                Debug.Log("Finished Interaction with " + _currentInteractTarget.GetName());
+                Debug.Log("Finished Interaction with " + CurrentInteractTarget.GetName());
                 _finishedInteraction = true;
                 _startedInteraction = false;
                 _finishedInteractionCallback?.Invoke();
-                _currentInteractTarget.FinishInteraction(this);
+                CurrentInteractTarget.FinishInteraction(this);
             }
         }
 
         private bool ReachedInteractionTarget()
         {
-            if (_currentInteractTarget == null) return false;
+            if (CurrentInteractTarget == null) return false;
 
             var collider = GetComponent<Collider2D>();
-            var targetCollider = _currentInteractTarget.gameObject.GetComponent<Collider2D>();
+            var targetCollider = CurrentInteractTarget.gameObject.GetComponent<Collider2D>();
             return collider.bounds.Intersects(targetCollider.bounds);
         }
 
@@ -149,7 +149,7 @@ namespace Core
             GameManager.Instance.WaypointProvider.ClearWaypointActionsForEntity(this);
             _finishedInteraction = false;
             _finishedInteractionCallback = finishedCallback;
-            _currentInteractTarget = interactible;
+            CurrentInteractTarget = interactible;
             _interactionTime = 0;
         }
 
@@ -159,7 +159,7 @@ namespace Core
             _finishedInteraction = true;
             _startedInteraction = false;
             _finishedInteractionCallback = null;
-            _currentInteractTarget = null;
+            CurrentInteractTarget = null;
             _interactionTime = 0;
         }
 

@@ -1,13 +1,21 @@
 ﻿using System;
 using System.Linq;
+using System.Security.Cryptography;
+using System.Threading.Tasks;
 using UI;
+using UnityEngine;
+using Random = UnityEngine.Random;
 
 namespace Core
 {
     public class TaskboardInteractible : Interactible
     {
         public TaskBoardScreen TaskBoardScreen;
-
+        public float MistakeChance = 0.1f;
+        
+        
+        private GameObject _warningSign;
+        
         public override void StartInteraction(Entity entity)
         {
             if (entity is NPC npc)
@@ -39,17 +47,67 @@ namespace Core
             }
             
             TaskBoardScreen.ProgressTask(handledTask);
-            
+
+            MakeRandomMistake(handledTask);
+
             if (handledTask.CurrentLane == TaskBoardScreen.DoneLane)
             {
                 TaskBoardScreen.CreateNewTask(npc);
             }
         }
 
-        public override void FinishInteraction(Entity entity)
+        private void MakeRandomMistake(TaskBehaviour handledTask)
         {
+            if (handledTask.CurrentLane.laneType == TaskboardLaneType.DONE)
+            {
+                var testedRnd = Random.Range(0f, 1f);
+                if (testedRnd > 1-MistakeChance)
+                {
+                    handledTask.IsTested = false;
+                }
+                
+                var documentedRnd = Random.Range(0f, 1f);
+                if (documentedRnd > 1-MistakeChance)
+                {
+                    handledTask.IsDocumented = false;
+                }
+                
+                GameManager.Instance
+                    .NotificationController
+                    .DisplayNotification(
+                        "Auf dem Taskboard ist etwas nicht richtig eingeordnet.", 
+                        NotificationType.Warning);
+            }
         }
 
+        public override void FinishInteraction(Entity entity)
+        {
+            if (TaskBoardScreen.Tasks.Any(task => !task.IsInCorrectLane()))
+            {
+                DisplayWarning();       
+            }
+            else
+            {
+                RemoveWarning();
+            }
+        }
+
+        private void DisplayWarning()
+        {
+            if (_warningSign != null) return;
+            
+            var pref = Resources.Load("Prefabs/WarningSign");
+            _warningSign = Instantiate(pref, transform) as GameObject;
+            _warningSign.transform.localPosition = Vector3.zero;
+        }
+
+        private void RemoveWarning()
+        {
+            if (_warningSign == null) return;
+            _warningSign.gameObject.SetActive(false);
+            Destroy(_warningSign.gameObject);
+        }
+        
         public override string GetName() => "Taskboard";
         public override string GetTooltip() => "Taskboard prüfen";
     }

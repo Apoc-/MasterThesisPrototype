@@ -95,7 +95,7 @@ namespace UI
 
             if (lane != null)
             {
-                if (IsCorrectLane(lane))
+                if (IsLaneCorrectForTask(lane))
                 {
                     CurrentLane = lane;
                     GameManager.Instance.Company.AddEffectToCompanyScore("Agilität", "Taskboard Pflege", 2);
@@ -110,7 +110,12 @@ namespace UI
             _isPickedUp = false;
         }
 
-        private bool IsCorrectLane(TaskboardLane lane)
+        public bool IsInCorrectLane()
+        {
+            return IsLaneCorrectForTask(CurrentLane);
+        }
+        
+        private bool IsLaneCorrectForTask(TaskboardLane lane)
         {
             if (lane.laneType == TaskboardLaneType.TODO)
             {

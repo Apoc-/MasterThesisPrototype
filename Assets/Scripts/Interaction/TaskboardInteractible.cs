@@ -60,23 +60,29 @@ namespace Core
         {
             if (handledTask.CurrentLane.laneType == TaskboardLaneType.DONE)
             {
+                var madeMistake = false;
                 var testedRnd = Random.Range(0f, 1f);
                 if (testedRnd > 1-MistakeChance)
                 {
                     handledTask.IsTested = false;
+                    madeMistake = true;
                 }
                 
                 var documentedRnd = Random.Range(0f, 1f);
                 if (documentedRnd > 1-MistakeChance)
                 {
                     handledTask.IsDocumented = false;
+                    madeMistake = true;
                 }
-                
-                GameManager.Instance
-                    .NotificationController
-                    .DisplayNotification(
-                        "Auf dem Taskboard ist etwas nicht richtig eingeordnet.", 
-                        NotificationType.Warning);
+
+                if (madeMistake)
+                {
+                    GameManager.Instance
+                        .NotificationController
+                        .DisplayNotification(
+                            "Auf dem Taskboard ist etwas nicht richtig eingeordnet.", 
+                            NotificationType.Warning);
+                }
             }
         }
 

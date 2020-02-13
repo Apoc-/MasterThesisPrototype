@@ -26,8 +26,8 @@ namespace UI
 
         private Vector2 CalcTooltipPosition()
         {
-            var x = Input.mousePosition.x - 64;
-            var y = Input.mousePosition.y + 16;
+            var x = Input.mousePosition.x;
+            var y = Input.mousePosition.y;
             return new Vector2(x, y);
         }
 

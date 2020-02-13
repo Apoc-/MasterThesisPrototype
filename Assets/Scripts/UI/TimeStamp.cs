@@ -24,6 +24,11 @@
             return Hours * 60 * 60 + Minutes * 60 + Seconds;
         }
 
+        public override string ToString()
+        {
+            return $"{Hours:00}:{Minutes:00}";
+        }
+
         protected bool Equals(TimeStamp other)
         {
             return Hours == other.Hours && Minutes == other.Minutes && Seconds == other.Seconds;

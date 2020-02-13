@@ -4,15 +4,17 @@ using System.Linq;
 using Core;
 using UnityEditor.VersionControl;
 using UnityEngine;
+using UnityEngine.Serialization;
+using UnityEngine.UIElements;
 
 namespace UI
 {
     public class TaskBehaviour : MonoBehaviour, IHasToolTip
     {
-        private TaskboardLane _currentLane;
+        public TaskboardLane CurrentLane;
         private bool _isPickedUp = false;
 
-        public string Owner = "Max Mustermann";
+        public NPC Owner;
         public string StartTime = "10:10 Uhr";
         public string EndTime = "10:10 Uhr";
 
@@ -21,7 +23,7 @@ namespace UI
         public bool IsTested = false;
         public bool IsDocumented = false;
 
-        public Tooltip Tooltip;
+        private Tooltip _tooltip => UiManager.Instance.TaskBoardScreen.TaskTooltip;
         
         private string GetStatusText()
         {
@@ -47,7 +49,7 @@ namespace UI
         
         private void OnEnable()
         {
-            _currentLane = transform.parent.GetComponent<TaskboardLane>();
+            CurrentLane = transform.parent.GetComponent<TaskboardLane>();
         }
 
         private TaskboardLane GetLaneUnderCursor()
@@ -72,19 +74,19 @@ namespace UI
 
             if (!_isPickedUp)
             {
-                transform.SetParent(_currentLane.transform.parent);
+                transform.SetParent(CurrentLane.transform.parent);
                 _isPickedUp = true;
             }
         }
 
         public void ShowTooltip()
         {
-            Tooltip.Show(this);
+            _tooltip.Show(this);
         }
         
         public void HideTooltip()
         {
-            Tooltip.Hide();
+            _tooltip.Hide();
         }
 
         public void DropTask()
@@ -95,7 +97,7 @@ namespace UI
             {
                 if (IsCorrectLane(lane))
                 {
-                    _currentLane = lane;
+                    CurrentLane = lane;
                     GameManager.Instance.Company.AddEffectToCompanyScore("Agilität", "Taskboard Pflege", 2);
                 }
                 else
@@ -104,7 +106,7 @@ namespace UI
                 }
             }
 
-            transform.SetParent(_currentLane.transform, true);
+            transform.SetParent(CurrentLane.transform, true);
             _isPickedUp = false;
         }
 
@@ -131,7 +133,8 @@ namespace UI
         public string GetTooltip()
         {
             var tooltip = "";
-            tooltip += "Bearbeitet von: " + Owner + "\n";
+            
+            tooltip += "Bearbeitet von: " + Owner.Name + "\n";
             tooltip += "Von: " + StartTime;
             if (EndTime != "")
             {

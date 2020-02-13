@@ -1,5 +1,7 @@
 ﻿using System.Collections.Generic;
+using System.Runtime.CompilerServices;
 using Core;
+using TMPro;
 using UnityEditor.VersionControl;
 using UnityEngine;
 
@@ -17,6 +19,8 @@ namespace UI
         public TaskboardLane DoingLane;
         public TaskboardLane DoneLane;
 
+        public Tooltip TaskTooltip;
+        
         public List<TaskBehaviour> Tasks = new List<TaskBehaviour>();
         
         public void DoErrorShake()
@@ -30,19 +34,28 @@ namespace UI
             gameObject.SetActive(false);
         }
 
-        public void CreateNewTask(NPC npc)
+        public TaskBehaviour CreateNewTask(NPC npc)
         {
             var pref = GetRandomPrefab();
-            var task = Instantiate(pref, TodoLane.transform, true);
+            var task = Instantiate(pref, TodoLane.transform, false);
 
-            task.Owner = npc.Name;
-            
+            task.Owner = npc;
             Tasks.Add(task);
+            
+            MoveTaskToLane(task, TodoLane);
+            return task;
         }
 
         public void MoveTaskToLane(TaskBehaviour task, TaskboardLane lane)
         {
             task.transform.SetParent(lane.transform);
+            task.CurrentLane = lane;
+            if (lane.transform.childCount > lane.MaxTasks)
+            {
+                var child = lane.transform.GetChild(0).gameObject;
+                child.SetActive(false);
+                Destroy(child);
+            }
         }
 
         public TaskBehaviour GetRandomPrefab()
@@ -53,6 +66,26 @@ namespace UI
             if (r > 60.0f) return GreenPrefab;
             
             return YellowPrefab;
+        }
+
+        public void ProgressTask(TaskBehaviour task)
+        {
+            if (task.CurrentLane == TodoLane)
+            {
+                MoveTaskToLane(task, DoingLane);
+                
+                task.IsStarted = true;
+                task.StartTime = GameManager.Instance.Clock.GetTime().ToString();
+            } 
+            else if (task.CurrentLane == DoingLane)
+            {
+                MoveTaskToLane(task, DoneLane);
+
+                task.EndTime = GameManager.Instance.Clock.GetTime().ToString();
+                task.IsDocumented = true;
+                task.IsProgrammed = true;
+                task.IsTested = true;
+            }
         }
     }
 }

@@ -1,12 +1,13 @@
 ﻿using System;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace UI
 {
     public class ReportTextBehaviour : ScreenBehaviour
     {
-        [SerializeField] private TextMeshProUGUI _reportTextField;
+        public TextMeshProUGUI ReportTextField;
         
         private void OnEnable()
         {
@@ -35,7 +36,7 @@ namespace UI
                 scoreText += "Neuer Wert: " + score.Value + "\n\n";
             });
 
-            _reportTextField.text = scoreText;
+            ReportTextField.text = scoreText;
         }
     }
 }

@@ -12,5 +12,6 @@ namespace UI
     public class TaskboardLane : MonoBehaviour
     {
         public TaskboardLaneType laneType;
+        public int MaxTasks = 11;
     }
 }

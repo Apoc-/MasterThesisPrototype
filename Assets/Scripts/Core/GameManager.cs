@@ -43,6 +43,9 @@ public class GameManager : MonoBehaviour
         => _notificationController
             ? _notificationController
             : _notificationController = FindObjectOfType<NotificationController>();
+
+    private Clock _clock;
+    public Clock Clock => _clock ? _clock : _clock = FindObjectOfType<Clock>();
     
     [ReadOnly] public Player player;
 
@@ -51,13 +54,12 @@ public class GameManager : MonoBehaviour
     public InteractibleManager InteractibleManager;
 
     public int Day = 0;
-    private Clock _clock;
+    
     public Company Company { get; private set; }
     [SerializeField] private float _impedimentChance = 0.1f;
 
     private void Start()
     {
-        InitUi();
         InitPlayerAvatar();
         InitCompany();
         InitAlarms();
@@ -67,7 +69,7 @@ public class GameManager : MonoBehaviour
 
     private void InitAlarms()
     {
-        _clock.SetAlarm(new TimeStamp(17,00,0), FinishDay, true);
+        Clock.SetAlarm(new TimeStamp(17,00,0), FinishDay, true);
     }
 
     private void InitCompany()
@@ -78,7 +80,7 @@ public class GameManager : MonoBehaviour
     private void FinishDay()
     {
         GameState = GameState.ADVISE;
-        _clock.Running = false;
+        Clock.Running = false;
         UiManager.Instance.ShowScoreScreen();
     }
 
@@ -94,12 +96,7 @@ public class GameManager : MonoBehaviour
     {
         
     }
-    
-    private void InitUi()
-    {
-        _clock = FindObjectOfType<Clock>();
-    }
-    
+
     private void InitPlayerAvatar()
     {
         player = Instantiate(Resources.Load<Player>("Prefabs/PlayerAvatar"));
@@ -122,9 +119,9 @@ public class GameManager : MonoBehaviour
     {
         GameState = GameState.PLAYING;
         player.CanGiveMoveCommand = true;
-        _clock.SetTime(9,0,0);
-        _clock.ResetAlarms();
-        _clock.Running = true;
+        Clock.SetTime(9,0,0);
+        Clock.ResetAlarms();
+        Clock.Running = true;
     }
     
     public void InitDailyScrumPlan()
@@ -134,9 +131,9 @@ public class GameManager : MonoBehaviour
             "Neues Meeting: Daily Scrum", 
             10);
         
-        _clock.SetAlarm(new TimeStamp(10,45,0), CallForDailyScrum, true);
+        Clock.SetAlarm(new TimeStamp(10,45,0), CallForDailyScrum, true);
         
-        _clock.OnSecondTick += ExecDailyScrumPlan;
+        Clock.OnSecondTick += ExecDailyScrumPlan;
     }
 
     private void CallForDailyScrum()
@@ -148,8 +145,8 @@ public class GameManager : MonoBehaviour
                 , NotificationType.Advisor);
         
         MeetingRoomBehaviour.CallForMeeting("Daily Scrum");
-        _clock.SetAlarm(new TimeStamp(11,0,0), MeetingRoomBehaviour.StartMeeting);
-        _clock.SetAlarm(new TimeStamp(11,15,0), MeetingRoomBehaviour.StopMeeting);
+        Clock.SetAlarm(new TimeStamp(11,0,0), MeetingRoomBehaviour.StartMeeting);
+        Clock.SetAlarm(new TimeStamp(11,15,0), MeetingRoomBehaviour.StopMeeting);
     }
 
     public void InitScrumMasterPlan()
@@ -160,12 +157,12 @@ public class GameManager : MonoBehaviour
                 10);
         
         // add problems for master
-        _clock.OnSecondTick += () =>
+        Clock.OnSecondTick += () =>
         {
             
         };
 
-        _clock.OnSecondTick += ExecScrumMasterPlan;
+        Clock.OnSecondTick += ExecScrumMasterPlan;
     }
     
     public void AddToTeamspirit(string description, int value, Vector2 pos)

@@ -47,7 +47,7 @@ namespace Code
         {
             if (Running) IncrementClock();
 
-            _clockText.text = $"{CurrentTime.Hours:00}:{CurrentTime.Minutes:00}";
+            _clockText.text = CurrentTime.ToString();
         }
 
         private void IncrementClock()

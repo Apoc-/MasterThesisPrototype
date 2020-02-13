@@ -41,7 +41,6 @@ namespace Core
         private bool ReachedTarget()
         {
             var dist = Vector2.Distance(transform.position, Target);
-            Debug.Log(dist);
             return dist < 100f;
         }
     }

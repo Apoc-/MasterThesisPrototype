@@ -112,31 +112,10 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
-    - target: {fileID: 5605022681701392653, guid: cfc21b1680c45014296b37ef20defa70,
-        type: 3}
-      propertyPath: IsStarted
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5605022681701392653, guid: cfc21b1680c45014296b37ef20defa70,
-        type: 3}
-      propertyPath: IsProgrammed
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5605022681701392653, guid: cfc21b1680c45014296b37ef20defa70,
-        type: 3}
-      propertyPath: IsTested
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5605022681701392653, guid: cfc21b1680c45014296b37ef20defa70,
-        type: 3}
-      propertyPath: IsDocumented
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 6040595196263639330, guid: cfc21b1680c45014296b37ef20defa70,
         type: 3}
       propertyPath: m_Name
-      value: YellowTask (2)
+      value: YellowTask
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 3386816642871148196, guid: cfc21b1680c45014296b37ef20defa70, type: 3}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cfc21b1680c45014296b37ef20defa70, type: 3}

@@ -98,7 +98,7 @@ namespace Core
             }
         }
 
-        private bool ReachedInteractionTarget()
+        protected bool ReachedInteractionTarget()
         {
             if (CurrentInteractTarget == null) return false;
 

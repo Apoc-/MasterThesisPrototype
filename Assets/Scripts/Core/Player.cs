@@ -18,7 +18,7 @@ namespace Core
                 EnableWorkingIcon();
             }
 
-            if (_finishedInteraction)
+            if (_finishedInteraction || !ReachedInteractionTarget())
             {
                 DisableWorkingIcon();
             }

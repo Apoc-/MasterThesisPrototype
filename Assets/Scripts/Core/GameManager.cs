@@ -177,7 +177,7 @@ public class GameManager : MonoBehaviour
             Company.AddEffectToCompanyScore("Teamgeist", description, value);
         }
         
-        TriggerEffect(Camera.main.WorldToScreenPoint(pos), score.transform.position, value, GainPointsCallback);
+        TriggerTsEffect(Camera.main.WorldToScreenPoint(pos), score.transform.position, value, GainPointsCallback);
     }
     
     public void AddToAgility(string description, int value, Vector2 pos)
@@ -188,18 +188,30 @@ public class GameManager : MonoBehaviour
             Company.AddEffectToCompanyScore("Agilität", description, value);
         }
         
-        TriggerEffect(Camera.main.WorldToScreenPoint(pos), score.transform.position, value, GainPointsCallback);
+        TriggerAgiEffect(Camera.main.WorldToScreenPoint(pos), score.transform.position, value, GainPointsCallback);
     }
 
-    private void TriggerEffect(Vector2 pos, Vector2 target, int value, Action callback)
+    private void TriggerAgiEffect(Vector2 pos, Vector2 target, int value, Action callback)
     {
         if (value > 0)
         {
-            EffectController.PlayPlusEffectAt(pos, target, callback);    
+            EffectController.PlayAgiPlusEffectAt(pos, target, callback);    
         }
         else
         {
-            EffectController.PlayMinusEffectAt(pos, target, callback);   
+            EffectController.PlayAgiMinusEffectAt(pos, target, callback);   
+        }
+    }
+    
+    private void TriggerTsEffect(Vector2 pos, Vector2 target, int value, Action callback)
+    {
+        if (value > 0)
+        {
+            EffectController.PlayTsPlusEffectAt(pos, target, callback);    
+        }
+        else
+        {
+            EffectController.PlayTsMinusEffectAt(pos, target, callback);   
         }
     }
     

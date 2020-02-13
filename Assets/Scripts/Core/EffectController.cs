@@ -6,17 +6,29 @@ namespace Core
 {
     public class EffectController : MonoBehaviour
     {
-        public Effect PlusEffectPrefab;
-        public Effect MinusEffectPrefab;
+        public Effect AgilityPlusPrefab;
+        public Effect AgilityMinusPrefab;
+        public Effect TeamspiritPlusPrefab;
+        public Effect TeamspiritMinusPrefab;
         
-        public void PlayPlusEffectAt(Vector2 pos, Vector2 target, Action callback)
+        public void PlayTsPlusEffectAt(Vector2 pos, Vector2 target, Action callback)
         {
-            PlayEffectAt(pos, target, PlusEffectPrefab, callback);
+            PlayEffectAt(pos, target, TeamspiritPlusPrefab, callback);
         }
         
-        public void PlayMinusEffectAt(Vector2 pos, Vector2 target, Action callback)
+        public void PlayTsMinusEffectAt(Vector2 pos, Vector2 target, Action callback)
         {
-            PlayEffectAt(pos, target, MinusEffectPrefab, callback);
+            PlayEffectAt(pos, target, TeamspiritMinusPrefab, callback);
+        }
+        
+        public void PlayAgiPlusEffectAt(Vector2 pos, Vector2 target, Action callback)
+        {
+            PlayEffectAt(pos, target, AgilityPlusPrefab, callback);
+        }
+        
+        public void PlayAgiMinusEffectAt(Vector2 pos, Vector2 target, Action callback)
+        {
+            PlayEffectAt(pos, target, AgilityMinusPrefab, callback);
         }
 
         private void PlayEffectAt(Vector2 pos, Vector2 target, Effect effectPrefab, Action targetReachedCallback)

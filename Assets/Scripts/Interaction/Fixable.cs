@@ -34,7 +34,7 @@ namespace Core
             _warningSign.transform.localPosition = Vector3.zero;
             IsBroken = true;
 
-            Debug.Log("Broke " + GetName());
+            GameManager.Instance.NotificationController.DisplayNotification(GetBrokenMessage(), NotificationType.Warning);
         }
 
         private void SetBrokenTooltip()
@@ -70,6 +70,8 @@ namespace Core
         }
         public abstract void OnFixed();
         public override string GetTooltip() => _currentBrokenTooltip;
+
+        public virtual string GetBrokenMessage() => "Irgendetwas hindert das Team daran optimal zu arbeiten!";
 
     }
 }

@@ -24,5 +24,10 @@ namespace Core
         {
             
         }
+
+        public override string GetBrokenMessage()
+        {
+            return "Das Telefon klingelt Sturm, muss was ganz wichtiges sein!";
+        }
     }
 }

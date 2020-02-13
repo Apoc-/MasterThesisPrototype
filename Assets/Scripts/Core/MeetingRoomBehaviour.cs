@@ -38,18 +38,46 @@ namespace Core
 
         public void StartMeeting()
         {
-            if (_arrivedEntities.Count == _invitedEntities.Count)
+
+            if (_arrivedEntities.Count != _invitedEntities.Count)
             {
-                GameManager.Instance.AddToAgility("Daily Scrum: Volles Haus!", 10, transform.position);       
+                GameManager.Instance
+                    .NotificationController
+                    .DisplayNotification(
+                        "Das Daily-Scrum-Meeting hat begonnnen, jedoch schwänz irgendjemand!",
+                        NotificationType.Warning);
             }
             else
             {
-                GameManager.Instance.AddToAgility("Daily Scrum: Jemand war nicht beim Daily!", -10, transform.position);
+                GameManager.Instance
+                    .NotificationController
+                    .DisplayNotification("Das Daily-Scrum-Meeting hat begonnen.", NotificationType.Default);
             }
         }
         
         public void StopMeeting()
         {
+            if (_arrivedEntities.Count == _invitedEntities.Count)
+            {
+                GameManager.Instance
+                    .NotificationController
+                    .DisplayNotification(
+                        "Das Daily-Scrum-Meeting ist fertig und jeder war da! Ja man, das gibt extra Punkte!",
+                        NotificationType.Default);
+                
+                GameManager.Instance.AddToAgility("Daily Scrum: Volles Haus!", 10, transform.position);       
+            }
+            else
+            {
+                GameManager.Instance
+                    .NotificationController
+                    .DisplayNotification(
+                        "Mist! Das Daily-Scrum-Meeting ist fertig und jemand hat gefehlt! Das kostet Punkte!",
+                        NotificationType.Warning);
+                
+                GameManager.Instance.AddToAgility("Daily Scrum: Jemand war nicht beim Daily!", -10, transform.position);
+            }
+            
             _invitedEntities.ForEach(entity =>
             {
                 entity.CancelCurrentInteractionOrder();

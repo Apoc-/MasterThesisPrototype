@@ -37,6 +37,13 @@ public class GameManager : MonoBehaviour
             ? _effectController
             : _effectController = FindObjectOfType<EffectController>();
 
+    private NotificationController _notificationController;
+
+    public NotificationController NotificationController
+        => _notificationController
+            ? _notificationController
+            : _notificationController = FindObjectOfType<NotificationController>();
+    
     [ReadOnly] public Player player;
 
     public GameState GameState = GameState.INIT;
@@ -47,7 +54,7 @@ public class GameManager : MonoBehaviour
     private Clock _clock;
     public Company Company { get; private set; }
     [SerializeField] private float _impedimentChance = 0.1f;
-    
+
     private void Start()
     {
         InitUi();
@@ -79,7 +86,6 @@ public class GameManager : MonoBehaviour
     {
         if (Random.Range(0f, 1f) < _impedimentChance)
         {
-            Debug.Log("Break with p=" + _impedimentChance);
             InteractibleManager.BreakRandomBreakable();
         }
     }
@@ -135,6 +141,12 @@ public class GameManager : MonoBehaviour
 
     private void CallForDailyScrum()
     {
+        NotificationController
+            .DisplayNotification(
+                "Das Daily-Scrum-Meeting startet für jeden (auch dich) in 15 Minuten. " +
+                "Wenn mal wieder nicht jeder kommen will, solltest du nachhelfen!"
+                , NotificationType.Advisor);
+        
         MeetingRoomBehaviour.CallForMeeting("Daily Scrum");
         _clock.SetAlarm(new TimeStamp(11,0,0), MeetingRoomBehaviour.StartMeeting);
         _clock.SetAlarm(new TimeStamp(11,15,0), MeetingRoomBehaviour.StopMeeting);
@@ -174,6 +186,7 @@ public class GameManager : MonoBehaviour
         {
             Company.AddEffectToCompanyScore("Agilität", description, value);
         }
+        
         TriggerEffect(Camera.main.WorldToScreenPoint(pos), score.transform.position, value, GainPointsCallback);
     }
 
@@ -188,4 +201,26 @@ public class GameManager : MonoBehaviour
             EffectController.PlayMinusEffectAt(pos, target, callback);   
         }
     }
+    
+    #region Debug
+
+    private int a = -1;
+    public void DebugNotification()
+    {
+        a += 1;
+        if (a == 0)
+        {
+            NotificationController.DisplayNotification("1 advisor test", NotificationType.Advisor);
+        } else if (a == 1)
+        {
+            NotificationController.DisplayNotification("2 warning test", NotificationType.Warning);
+        }
+        else
+        {
+            NotificationController.DisplayNotification("3 default test", NotificationType.Default);
+            a = -1;
+        }
+        
+    }
+    #endregion
 }

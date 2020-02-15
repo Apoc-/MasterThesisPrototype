@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using Core;
 using TMPro;
 using UnityEditor;
 using UnityEngine;
@@ -8,7 +9,7 @@ using UnityEngine.EventSystems;
 
 namespace UI
 {
-    public class WikiScreenBehaviour : MonoBehaviour, IPointerClickHandler
+    public class WikiScreenBehaviour : ScreenBehaviour, IPointerClickHandler
     {
         private Dictionary<string, WikiEntryData> _data;
 
@@ -29,7 +30,13 @@ namespace UI
 
         private void OnEnable()
         {
+            GameManager.Instance.GameSpeedController.Pause();
             DisplayMainWikiEntry();
+        }
+
+        private void OnDisable()
+        {
+            GameManager.Instance.GameSpeedController.Play();
         }
 
         public void OnPointerClick(PointerEventData eventData)

@@ -1,7 +1,4 @@
-﻿<b>TechCom - Maßnahmenplan</b>
-
-<b>Maßnahme</b>
-Taskboard einführen
+﻿<b>Maßnahme:</b> Taskboard einführen
 
 <b>Art der Maßnahme</b>
 Artefakt

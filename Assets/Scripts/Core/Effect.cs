@@ -1,4 +1,5 @@
 ﻿using System;
+using UnityEditor;
 using UnityEngine;
 
 namespace Core
@@ -13,10 +14,14 @@ namespace Core
         public Vector2 Target;
 
         public float MaxLifeTime = 3f;
+
+        public bool UseUnscaledTime = true;
+        
+        private float DeltaTime => UseUnscaledTime ? Time.unscaledDeltaTime : Time.deltaTime;
         
         private void Update()
         {
-            MaxLifeTime -= Time.deltaTime;
+            MaxLifeTime -= DeltaTime;
 
             if (ReachedTarget() || MaxLifeTime <= 0)
             {
@@ -26,11 +31,13 @@ namespace Core
             }
 
             var pos = new Vector2(transform.position.x, transform.position.y);
-            Velocity += Acceleration * Time.deltaTime;;
-            pos += Velocity * Time.deltaTime;
+            Velocity += Acceleration * DeltaTime;
+            pos += Velocity * DeltaTime;
 
             transform.position = pos;
         }
+
+        
 
         private void KillEffect()
         {

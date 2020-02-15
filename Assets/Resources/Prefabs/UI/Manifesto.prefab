@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 5403520093165152694}
   - component: {fileID: 9164013103754120642}
   - component: {fileID: 4995543046180830251}
-  - component: {fileID: 3373667000816450326}
   m_Layer: 5
   m_Name: Sign
   m_TagString: Untagged
@@ -176,14 +175,14 @@ MonoBehaviour:
   animationTime: 6
   enablePlay: 1
   awakePlay: 0
-  lgnoreTimeScale: 1
+  lgnoreTimeScale: 0
   randomStartValue: 0
   startValue: 0
   _previewValue: 0.4119873
   tweens:
   - _tweenType: 0
     _isSelf: 1
-    _tweenObject: {fileID: 7816935585078491419}
+    _tweenObject: {fileID: 8790349754237738569}
     _curve:
       serializedVersion: 2
       m_Curve:
@@ -220,7 +219,7 @@ MonoBehaviour:
     _bezierCurve: {fileID: 0}
   - _tweenType: 4
     _isSelf: 1
-    _tweenObject: {fileID: 7816935585078491419}
+    _tweenObject: {fileID: 8790349754237738569}
     _curve:
       serializedVersion: 2
       m_Curve:
@@ -255,23 +254,6 @@ MonoBehaviour:
     _fromFloat: 0
     _toFloat: 1
     _bezierCurve: {fileID: 0}
---- !u!114 &3373667000816450326
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6892514321874482545}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Delegates:
-  - eventID: 2
-    callback:
-      m_PersistentCalls:
-        m_Calls: []
 --- !u!1 &8790349753431337239
 GameObject:
   m_ObjectHideFlags: 0
@@ -291,7 +273,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &8790349753431337232
 RectTransform:
   m_ObjectHideFlags: 0
@@ -414,7 +396,6 @@ GameObject:
   - component: {fileID: 8790349754237738564}
   - component: {fileID: 8790349754237738565}
   - component: {fileID: 8790349754237738570}
-  - component: {fileID: 8790349754237738568}
   m_Layer: 5
   m_Name: Quote
   m_TagString: Untagged
@@ -438,7 +419,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -14.9999695, y: 0.000015259}
+  m_AnchoredPosition: {x: 504.35, y: 0.000015259}
   m_SizeDelta: {x: 909.2, y: 118.25}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &8790349754237738564
@@ -583,7 +564,7 @@ MonoBehaviour:
   animationTime: 4
   enablePlay: 1
   awakePlay: 0
-  lgnoreTimeScale: 1
+  lgnoreTimeScale: 0
   randomStartValue: 0
   startValue: 0
   _previewValue: 1
@@ -662,20 +643,3 @@ MonoBehaviour:
     _fromFloat: 0
     _toFloat: 1
     _bezierCurve: {fileID: 0}
---- !u!114 &8790349754237738568
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8790349754237738574}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Delegates:
-  - eventID: 2
-    callback:
-      m_PersistentCalls:
-        m_Calls: []

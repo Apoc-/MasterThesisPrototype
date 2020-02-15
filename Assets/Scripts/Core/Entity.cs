@@ -33,12 +33,15 @@ namespace Core
 
         private List<Waypoint> _helperWaypoints = new List<Waypoint>();
         private SpriteRenderer _spriteRenderer;
+
+        protected bool _isInElevator = false;
+        
         protected SpriteRenderer SpriteRenderer
             => _spriteRenderer ? _spriteRenderer : _spriteRenderer = GetComponentInChildren<SpriteRenderer>();
 
         private void Start()
         {
-            GameManager.Instance.Company.RegisterTeamMember(this);
+            
         }
 
         private void FixedUpdate()
@@ -222,6 +225,7 @@ namespace Core
             action = () =>
             {
                 Hide();
+                _isInElevator = true;
                 waypoint.UnregisterOnEnterActionForEntity(this, action);
             };
             
@@ -234,6 +238,7 @@ namespace Core
             action = () =>
             {
                 Show();
+                _isInElevator = false;
                 waypoint.UnregisterOnEnterActionForEntity(this, action);
             };
 

@@ -5,6 +5,7 @@ using Tech;
 using TMPro;
 using UnityEditor;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.SocialPlatforms.Impl;
 
 namespace UI
@@ -15,6 +16,7 @@ namespace UI
         public TextMeshProUGUI TeamspiritScore;
         public AdvisorScreenBehaviour AdvisorScreen;
         public TaskBoardScreen TaskBoardScreen;
+        public WikiScreenBehaviour ScrumWikiScreen;
         public Tooltip Tooltip;
         public Tooltip LargeTooltip;
 
@@ -71,17 +73,17 @@ namespace UI
 
         private void CheckMouseOver()
         {
-            if (AdvisorScreen.isActiveAndEnabled || TaskBoardScreen.isActiveAndEnabled)
+            if (EventSystem.current.IsPointerOverGameObject())
             {
                 Tooltip.Hide();
                 return;
             }
-            
+
             Vector2 origin = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             RaycastHit2D[] hits = Physics2D.RaycastAll(origin, Vector2.zero, 0f);
 
             if (hits.Length == 0) return;
-
+            
             var tooltipObjects = hits
                 .Where(hit => hit.collider.gameObject.GetComponent<IHasToolTip>() != null)
                 .ToList();
@@ -96,6 +98,13 @@ namespace UI
             {
                 Tooltip.Hide();
             }
+        }
+
+        public void HideAllScreens()
+        {
+            ScrumWikiScreen.Hide();
+            AdvisorScreen.Hide();
+            TaskBoardScreen.Hide();
         }
 
         #region Singleton

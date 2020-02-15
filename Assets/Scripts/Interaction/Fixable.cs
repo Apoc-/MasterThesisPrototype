@@ -18,10 +18,10 @@ namespace Core
 
         public void Fix(Entity entity)
         {
-            Debug.Log("Fixed " + GetName());
             Destroy(_warningSign);
             IsBroken = false;
             GameManager.Instance.AddToAgility("Scrum Master Tätigkeiten", 1, entity.GetHeadPosition());
+            _currentBrokenTooltip = "";
             OnFixed();
         }
 

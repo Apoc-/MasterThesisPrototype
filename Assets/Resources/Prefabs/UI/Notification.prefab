@@ -373,7 +373,7 @@ MonoBehaviour:
   animationTime: 0.25
   enablePlay: 0
   awakePlay: 1
-  lgnoreTimeScale: 1
+  lgnoreTimeScale: 0
   randomStartValue: 0
   startValue: 0
   _previewValue: 1

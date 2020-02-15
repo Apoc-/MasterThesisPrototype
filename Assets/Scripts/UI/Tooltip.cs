@@ -34,14 +34,16 @@ namespace UI
         public void Show(IHasToolTip hasToolTip)
         {
             if (isActiveAndEnabled) return;
-            if (_lastDisplayed != hasToolTip)
+            
+            var text = hasToolTip.GetTooltip();
+            if (text == "")
             {
-                var text = hasToolTip.GetTooltip();
-                if (text == "") return;
-            
-                _textComponent.text = text;
+                Hide();
+                return;
             }
-            
+
+            _textComponent.text = text;
+
             transform.position = CalcTooltipPosition();
             gameObject.SetActive(true);
             _lastDisplayed = hasToolTip;

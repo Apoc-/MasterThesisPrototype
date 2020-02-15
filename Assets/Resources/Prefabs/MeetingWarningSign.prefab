@@ -141,5 +141,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d12ab66baa28413986c10486ab02bf4c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  InteractionDuration: 1
+  InteractionDuration: 0.1
   AttachedNPC: {fileID: 0}

@@ -13,7 +13,7 @@ namespace UI
 
         public void Update()
         {
-            TimeToLive -= Time.deltaTime;
+            TimeToLive -= Time.unscaledDeltaTime;
 
             if (TimeToLive <= 0 && !_dismissing)
             {

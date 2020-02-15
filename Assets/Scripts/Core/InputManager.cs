@@ -1,6 +1,8 @@
 ﻿using System;
+using System.ComponentModel.Design;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 namespace Core
 {
@@ -11,7 +13,8 @@ namespace Core
             if (Input.GetMouseButtonDown(0))
             {
                 if (GameManager.Instance.GameState != GameState.PLAYING) return;
-
+                if (EventSystem.current.IsPointerOverGameObject()) return;
+                
                 var mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
                 var hits = Physics2D.RaycastAll(mousePos, Vector2.zero);
 

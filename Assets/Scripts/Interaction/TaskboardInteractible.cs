@@ -12,10 +12,12 @@ namespace Core
     {
         public TaskBoardScreen TaskBoardScreen;
         public float MistakeChance = 0.1f;
-        
+
+        public GameObject LightContainer;
+        public GameObject Stuff;
         
         private GameObject _warningSign;
-        
+
         public override void StartInteraction(Entity entity)
         {
             if (entity is NPC npc)

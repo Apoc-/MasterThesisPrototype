@@ -130,6 +130,8 @@ namespace Core
         {
             CancelAllOrders();
 
+            Show();
+            
             _hasMeeting = true;
             var meetingRoomBehaviour = GameManager.Instance.MeetingRoomBehaviour;
             Vector2 pos = new Vector2(meetingRoomBehaviour.gameObject.transform.position.x, 0);

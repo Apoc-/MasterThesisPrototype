@@ -1,12 +1,14 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using Code;
 using Core;
 using Tech;
 using UI;
 using Unity.Collections;
 using UnityEngine;
+using UnityEngine.Experimental.Rendering.Universal;
 using Random = UnityEngine.Random;
 
 public class GameManager : MonoBehaviour
@@ -44,6 +46,12 @@ public class GameManager : MonoBehaviour
             ? _notificationController
             : _notificationController = FindObjectOfType<NotificationController>();
 
+    private GameSpeedController _gameSpeedController;
+    public GameSpeedController GameSpeedController
+        => _gameSpeedController
+            ? _gameSpeedController
+            : _gameSpeedController = FindObjectOfType<GameSpeedController>();
+    
     private Clock _clock;
     public Clock Clock => _clock ? _clock : _clock = FindObjectOfType<Clock>();
     
@@ -75,12 +83,18 @@ public class GameManager : MonoBehaviour
     private void InitCompany()
     {
         Company = new Company(name);
+
+        FindObjectsOfType<Entity>().ToList().ForEach(entity =>
+        {
+            Company.RegisterTeamMember(entity);
+        });
     }
     
     private void FinishDay()
     {
         GameState = GameState.ADVISE;
         Clock.Running = false;
+        UiManager.Instance.HideAllScreens();
         UiManager.Instance.ShowScoreScreen();
     }
 
@@ -143,6 +157,8 @@ public class GameManager : MonoBehaviour
                 "Das Daily-Scrum-Meeting startet für jeden (auch dich) in 15 Minuten. " +
                 "Wenn mal wieder nicht jeder kommen will, solltest du nachhelfen!"
                 , NotificationType.Advisor);
+
+        GameSpeedController.Play();
         
         MeetingRoomBehaviour.CallForMeeting("Daily Scrum");
         Clock.SetAlarm(new TimeStamp(11,0,0), MeetingRoomBehaviour.StartMeeting);
@@ -166,7 +182,12 @@ public class GameManager : MonoBehaviour
             "Neues Artefakt: Taskboard", 
             10);
 
-        InteractibleManager.TaskboardInteractible.gameObject.SetActive(true);
+        var taskboard = InteractibleManager.TaskboardInteractible;
+        taskboard.gameObject.SetActive(true);
+        taskboard.Stuff.SetActive(false);
+        taskboard.LightContainer.GetComponentsInChildren<Light2D>().ToList().ForEach(light => { light.enabled = true; });
+        
+        InteractibleManager.AddToNpcInteractibles(taskboard);
     }
     
     public void AddToTeamspirit(string description, int value, Vector2 pos)

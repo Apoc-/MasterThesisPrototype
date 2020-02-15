@@ -57,7 +57,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9202573937644022555}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -9.3, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 9202573936930898725}
@@ -153,7 +153,7 @@ MonoBehaviour:
   - {x: -5.9233246, y: 1.5400696, z: 0}
   m_ShapePathHash: -2125669993
   m_Mesh: {fileID: 0}
-  m_InstanceId: -20146
+  m_InstanceId: -1720
 --- !u!1 &9202573938518580736
 GameObject:
   m_ObjectHideFlags: 0
@@ -199,11 +199,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8beed862e41f4a2a831655a3e35ec2cc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  walkingSpeed: 40
+  walkingSpeed: 30
   Name: Mary
   _activity: 1
-  _randomInteractionChance: 0.5
-  _meetingAttendChance: 1
+  _randomInteractionChance: 0.01
+  _meetingAttendChance: 0.3
   Office: {fileID: 0}
 --- !u!61 &9202573938518580741
 BoxCollider2D:

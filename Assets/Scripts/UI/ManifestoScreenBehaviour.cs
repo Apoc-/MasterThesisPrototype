@@ -21,6 +21,8 @@ namespace UI
             var r = Random.Range(0, _manifesto.Count);
             Quote.text = _manifesto[r];
             Sign.text = "Agile Principle #" + (r + 1);
+
+            GetComponentsInChildren<Jun_TweenRuntime>().ToList().ForEach(tween => tween.enabled = true);
         }
 
         private void LoadManifesto()

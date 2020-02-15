@@ -26,8 +26,6 @@ namespace Core
                 member.CallToMeeting();
                 _invitedEntities.Add(member);
             });
-            
-            Debug.Log("Calling for Meeting");
         }
 
         public void EnterMeeting(Entity entity)

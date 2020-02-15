@@ -1,6 +1,8 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 namespace Core
 {
@@ -17,15 +19,15 @@ namespace Core
         public List<Interactible> NpcInteractibles;
 
         public TaskboardInteractible TaskboardInteractible;
+
+        public void AddToNpcInteractibles(Interactible interactible)
+        {
+            NpcInteractibles.Add(interactible);
+        }
         
-        public void RegisterInteractible(Interactible interactible, bool isNpcInteractible = false)
+        public void RegisterInteractible(Interactible interactible)
         {
             Interactibles.Add(interactible);
-
-            if (isNpcInteractible)
-            {
-                NpcInteractibles.Add(interactible);
-            }
         }
 
         public void BreakRandomBreakable()

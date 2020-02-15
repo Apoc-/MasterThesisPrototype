@@ -45,11 +45,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8beed862e41f4a2a831655a3e35ec2cc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  walkingSpeed: 40
+  walkingSpeed: 30
   Name: Nina
   _activity: 1
-  _randomInteractionChance: 0.5
-  _meetingAttendChance: 1
+  _randomInteractionChance: 0.01
+  _meetingAttendChance: 0.3
   Office: {fileID: 0}
 --- !u!61 &6320040942407651883
 BoxCollider2D:
@@ -229,4 +229,4 @@ MonoBehaviour:
   - {x: -7.2376328, y: -12.292487, z: 0}
   m_ShapePathHash: 695468515
   m_Mesh: {fileID: 0}
-  m_InstanceId: -51624
+  m_InstanceId: -1660

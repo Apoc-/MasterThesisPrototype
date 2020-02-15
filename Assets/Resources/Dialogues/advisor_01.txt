@@ -1,6 +1,6 @@
 ﻿Guten Tag {playerName}!
-Sie wurden von ihrem Großvater zum Erben von {companyName} ernannt.
-Die Firma wird laut Testament unter einer Bedinung vollständig an sie übergeben: Sorgen sie dafür, dass das Unternehmen sein nächstes Projekt erfolgreich abschließt!
-Bevor ihr Großvater starb, plante er einige große Veränderungen. Ich werde Ihnen dabei helfen die Ideen Stück für Stück umzusetzen.
-Als erstes wollte ihr Großvater, dass wir einen Art Agile Coach, beziehungweise Scrum Master einführen. Dafür sind Sie in seinen Augen die perfekte Besetzung!
+Sie wurden von Ihrem Großvater zum Erben von {companyName} ernannt.
+Die Firma wird laut Testament unter einer Bedingung vollständig an Sie übergeben: Sorgen Sie dafür, dass das Unternehmen sein nächstes Projekt erfolgreich abschließt!
+Bevor Ihr Großvater starb, plante er einige große Veränderungen. Ich werde Ihnen dabei helfen, die Ideen Stück für Stück umzusetzen.
+Als erstes wollte Ihr Großvater, dass wir einen Art Agile Coach, beziehungweise Scrum Master einführen. Dafür sind Sie in seinen Augen die perfekte Besetzung!
 $plan:SCRUM_MASTER

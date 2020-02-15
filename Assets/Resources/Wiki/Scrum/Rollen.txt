@@ -1,0 +1,2 @@
+﻿$title=Rollen
+Bei Scrum gibt es drei Rollen, den [Product Owner], das Entwicklungsteam und den Scrum Master.

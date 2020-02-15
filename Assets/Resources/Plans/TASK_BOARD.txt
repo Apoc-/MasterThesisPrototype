@@ -8,7 +8,7 @@ Artefakt
 
 <b>Informationen</b>
   - Sichtbar machen der aktuellen Aufgaben und deren Stand
-  - Tasks können beispielsweise farblich codiert werden um weitere Informationen zu vermitteln. Z.b.: Zu welchem Feature gehört der Task?
+  - Tasks können beispielsweise farblich codiert werden um weitere Informationen zu vermitteln. Z.B.: Zu welchem Feature gehört der Task?
   - Einfachste Board Variante aus ToDo-, Doing- und Done-Spalte
   - Die zu erledigenden Aufgaben sind bei ToDo abgelegt
   - Sobald eine Aufgabe übernommen wird: In die Doing-Spalte verschieben

@@ -1,0 +1,7 @@
+﻿$title=Product Owner
+
+<b>Aufgaben</b>
+- Wertmaximierung des Produkts sowie der Arbeit des Entwicklungsteams
+- Management des Product Backlogs
+- Er ist eine einzelne Person
+- Entscheidungen müssen von der gesamten Organisation respektiert werden

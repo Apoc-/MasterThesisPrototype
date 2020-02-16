@@ -15,8 +15,10 @@ namespace Core
         [SerializeField] private float _activity = 1f; //seconds per decision
         [SerializeField] private float _randomInteractionChance = 0.8f;
         [SerializeField] private float _meetingAttendChance = 0.5f;
-
+        [SerializeField] private float _minimumOfficeTime = 20f;        
+        
         private float _decisionTimer = 0f;
+        private float _officeTimer = 0f;
         public Interactible Office;
         private bool _isInOffice = true;
 
@@ -24,10 +26,16 @@ namespace Core
         {
             if (GameManager.Instance.GameState != GameState.PLAYING) return;
 
-            if (CanMakeDecision())
+            if (CanMakeDecision() && CanTakeAction())
             {
                 DecideAction();
             }
+        }
+
+        private void OnEnable()
+        {
+            _decisionTimer = _activity;
+            _officeTimer = _minimumOfficeTime;
         }
 
         private bool CanMakeDecision()
@@ -35,6 +43,14 @@ namespace Core
             _decisionTimer += Time.deltaTime;
             var decisionTimerElapsed = _decisionTimer > _activity;
             return decisionTimerElapsed && !_hasMeeting && _finishedInteraction && _reachedWalkTarget;
+        }
+
+        private bool CanTakeAction()
+        {
+            _officeTimer += Time.deltaTime;
+            var timerElapsed = _officeTimer > _minimumOfficeTime;
+            
+            return timerElapsed;
         }
 
         private void DecideAction()
@@ -70,6 +86,7 @@ namespace Core
         {
             Hide();
             _isInOffice = true;
+            _officeTimer = 0;
         }
 
         private void LeaveOffice()

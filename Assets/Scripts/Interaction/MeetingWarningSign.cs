@@ -14,7 +14,7 @@ namespace Core
 
         public override void FinishInteraction(Entity entity)
         {
-            GameManager.Instance.AddToAgility("Scrum Master Tätigkeiten", 3, entity.GetHeadPosition());
+            GameManager.Instance.AddToAgility("Scrum Master Tätigkeiten", 3, entity.OverheadPosition);
             AttachedNPC.GoToMeeting(MeetingRoomInteractible);
             Destroy(gameObject);
         }

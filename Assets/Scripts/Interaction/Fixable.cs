@@ -21,7 +21,7 @@ namespace Core
         {
             Destroy(_warningSign);
             IsBroken = false;
-            GameManager.Instance.AddToAgility("Scrum Master Tätigkeiten", 1, entity.GetHeadPosition());
+            GameManager.Instance.AddToAgility("Scrum Master Tätigkeiten", 1, entity.OverheadPosition);
             _currentBrokenTooltip = "";
             OnFixed();
         }
@@ -58,7 +58,7 @@ namespace Core
         {
             if (entity is NPC)
             {
-                GameManager.Instance.AddToTeamspirit("Hindernisfreies arbeiten", 1, entity.GetHeadPosition());
+                GameManager.Instance.AddToTeamspirit("Hindernisfreies arbeiten", 1, entity.OverheadPosition);
             }
         }
 
@@ -71,7 +71,7 @@ namespace Core
 
             if (entity is NPC)
             {
-                GameManager.Instance.AddToTeamspirit("Hindernisse beim Arbeiten", -1, entity.GetHeadPosition());
+                GameManager.Instance.AddToTeamspirit("Hindernisse beim Arbeiten", -1, entity.OverheadPosition);
             }
         }
         public abstract void OnFixed();

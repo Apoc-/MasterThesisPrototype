@@ -44,7 +44,18 @@ namespace Core
         
         protected SpriteRenderer SpriteRenderer
             => _spriteRenderer ? _spriteRenderer : _spriteRenderer = GetComponentInChildren<SpriteRenderer>();
-        
+
+        public Vector2 OverheadPosition => CalcOverheadPosition();
+
+        private Vector2 CalcOverheadPosition()
+        {
+            var bounds = GetComponent<Collider2D>().bounds;
+            var pos = bounds.center;
+            pos.y -= bounds.extents.y;
+
+            return pos;
+        }
+            
         private void FixedUpdate()
         {
             if (GameManager.Instance.GameState != GameState.PLAYING) return;
@@ -74,7 +85,7 @@ namespace Core
                 CleanUpHelperWaypoints();
             }
         }
-        
+
         public void DisableInteractionIcon()
         {
             if(InteractionIcon.activeSelf) InteractionIcon.SetActive(false);

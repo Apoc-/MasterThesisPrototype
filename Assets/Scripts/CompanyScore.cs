@@ -16,7 +16,7 @@ public class CompanyScore
     public void AddEffect(string effectDescription, int value)
     {
         Value += value;
-            
+        if (Value <= 0) Value = 0;
             
         if (Effects.Count(effect => effect.Description == effectDescription) > 0)
         {

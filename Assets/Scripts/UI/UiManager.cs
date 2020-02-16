@@ -14,6 +14,7 @@ namespace UI
     {
         public TextMeshProUGUI AgilityScore;
         public TextMeshProUGUI TeamspiritScore;
+        public TextMeshProUGUI ProgressScore;
         public AdvisorScreenBehaviour AdvisorScreen;
         public TaskBoardScreen TaskBoardScreen;
         public WikiScreenBehaviour ScrumWikiScreen;
@@ -26,9 +27,11 @@ namespace UI
 
             var agi = comp.CompanyScores.Find(score => score.Name == "Agilität");
             var spi = comp.CompanyScores.Find(score => score.Name == "Teamgeist");
+            var prog = comp.CompanyScores.Find(score => score.Name == "Fortschritt");
 
             AgilityScore.text = agi.Name + " " + agi.Value;
             TeamspiritScore.text = spi.Name + " " + spi.Value;
+            ProgressScore.text = "" + prog.Value;
         }
 
 

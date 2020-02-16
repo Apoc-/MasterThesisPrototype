@@ -164,7 +164,7 @@ public class GameManager : MonoBehaviour
     {
         NotificationController
             .DisplayNotification(
-                "Das Daily-Scrum-Meeting startet für jeden (auch dich) in 15 Minuten. " +
+                "Das Daily-Scrum-Meeting startet in 15 Minuten. " +
                 "Wenn mal wieder nicht jeder kommen will, solltest du nachhelfen!"
                 , NotificationType.Advisor);
 
@@ -221,6 +221,17 @@ public class GameManager : MonoBehaviour
         
         TriggerAgiEffect(Camera.main.WorldToScreenPoint(pos), score.transform.position, value, GainPointsCallback);
     }
+    
+    public void AddToProgress(string description, int value, Vector2 pos)
+    {
+        var score = UiManager.Instance.ProgressScore;
+        void GainPointsCallback()
+        {
+            Company.AddEffectToCompanyScore("Fortschritt", description, value);
+        }
+        
+        TriggerProgressEffect(Camera.main.WorldToScreenPoint(pos), score.transform.position, GainPointsCallback);
+    }
 
     private void TriggerAgiEffect(Vector2 pos, Vector2 target, int value, Action callback)
     {
@@ -246,6 +257,11 @@ public class GameManager : MonoBehaviour
         }
     }
     
+    private void TriggerProgressEffect(Vector2 pos, Vector2 target, Action callback)
+    {
+        EffectController.PlayProgressEffectAt(pos, target, callback);
+    }
+    
     #region Debug
 
     private int a = -1;
@@ -267,4 +283,5 @@ public class GameManager : MonoBehaviour
         
     }
     #endregion
+
 }

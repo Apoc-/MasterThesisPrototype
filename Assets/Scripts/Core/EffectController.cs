@@ -10,6 +10,7 @@ namespace Core
         public Effect AgilityMinusPrefab;
         public Effect TeamspiritPlusPrefab;
         public Effect TeamspiritMinusPrefab;
+        public Effect ProgressEffectPrefab;
         
         public void PlayTsPlusEffectAt(Vector2 pos, Vector2 target, Action callback)
         {
@@ -29,6 +30,11 @@ namespace Core
         public void PlayAgiMinusEffectAt(Vector2 pos, Vector2 target, Action callback)
         {
             PlayEffectAt(pos, target, AgilityMinusPrefab, callback);
+        }
+        
+        public void PlayProgressEffectAt(Vector2 pos, Vector2 target, Action callback)
+        {
+            PlayEffectAt(pos, target, ProgressEffectPrefab, callback);
         }
 
         private void PlayEffectAt(Vector2 pos, Vector2 target, Effect effectPrefab, Action targetReachedCallback)

@@ -21,6 +21,9 @@ namespace Core
         private float _officeTimer = 0f;
         public Interactible Office;
 
+        private bool _isInOffice = false;
+        private float _progressTimer = 0f;
+        
         public void Update()
         {
             if (GameManager.Instance.GameState != GameState.PLAYING) return;
@@ -28,6 +31,11 @@ namespace Core
             if (CanMakeDecision() && CanTakeAction())
             {
                 DecideAction();
+            }
+
+            if (_isInOffice)
+            {
+                MakeProgress();
             }
         }
 
@@ -82,13 +90,25 @@ namespace Core
 
         private void EnterOffice()
         {
-            Hide();
+            _isInOffice = true;
             _officeTimer = 0;
+            Hide();
         }
 
         private void LeaveOffice()
         {
+            _isInOffice = false;
             Show();
+        }
+
+        private void MakeProgress()
+        {
+            _progressTimer -= Time.deltaTime;
+            if (_progressTimer <= 0)
+            {
+                GameManager.Instance.AddToProgress("Fortschritt", 1, OverheadPosition);
+                _progressTimer = GameManager.Instance.Company.GetProgressTimer();
+            }
         }
         
         private Interactible GetRandomNpcInteractible()
@@ -146,8 +166,9 @@ namespace Core
 
         public void GoToMeeting(MeetingRoomInteractible meetingRoomInteractible)
         {
+            if(_isInOffice) LeaveOffice();
+            
             CancelAllOrders();
-            Show();
             _hasMeeting = true;
             _isRunning = true;
 

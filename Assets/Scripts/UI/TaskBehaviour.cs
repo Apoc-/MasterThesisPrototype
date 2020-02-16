@@ -139,14 +139,14 @@ namespace UI
         {
             var tooltip = "";
             
-            tooltip += "Bearbeitet von: " + Owner.Name + "\n";
-            tooltip += "Von: " + StartTime;
+            tooltip += "Bearbeitet von <b>" + Owner.Name + "</b>\n";
+            tooltip += "Start: " + StartTime;
             if (EndTime != "")
             {
-                tooltip += " Bis: " + EndTime;
+                tooltip += " Ende: " + EndTime;
             }
 
-            tooltip += "\n\n";
+            tooltip += "\n";
             tooltip += GetStatusText();
 
             return tooltip;

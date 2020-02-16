@@ -15,9 +15,11 @@ public class Company
         Name = name;
         var agility = new CompanyScore("Agilität", 0);
         var teamspirit = new CompanyScore("Teamgeist", 50);
-            
+        var progress = new CompanyScore("Fortschritt", 0);
+        
         CompanyScores.Add(agility);
         CompanyScores.Add(teamspirit);
+        CompanyScores.Add(progress);
     }
         
     public void AddEffectToCompanyScore(string scoreName, string effectDescription, int value)
@@ -29,5 +31,13 @@ public class Company
     public void RegisterTeamMember(Entity entity)
     {
         Team.Add(entity);
+    }
+
+    public float GetProgressTimer()
+    {
+        var agi = CompanyScores.First(score => score.Name == "Agilität").Value;
+        var tsp = CompanyScores.First(score => score.Name == "Teamgeist").Value;
+
+        return 12000f / (agi*agi + tsp*tsp);
     }
 }

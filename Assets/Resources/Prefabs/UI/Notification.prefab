@@ -63,10 +63,11 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: C
+  m_text: Achtung Achtung!
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 6ca91044028f4ef4f9630b3f1bd3f373, type: 2}
+  m_sharedMaterial: {fileID: 1896355889915570175, guid: 6ca91044028f4ef4f9630b3f1bd3f373,
+    type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -91,12 +92,12 @@ MonoBehaviour:
   m_outlineColor:
     serializedVersion: 2
     rgba: 4278190080
-  m_fontSize: 22
+  m_fontSize: 38
   m_fontSizeBase: 22
   m_fontWeight: 400
   m_enableAutoSizing: 1
-  m_fontSizeMin: 16
-  m_fontSizeMax: 22
+  m_fontSizeMin: 28
+  m_fontSizeMax: 38
   m_fontStyle: 0
   m_textAlignment: 513
   m_characterSpacing: 0
@@ -132,10 +133,10 @@ MonoBehaviour:
   m_margin: {x: 6.467147, y: 7.9177094, z: 23.739716, w: 15.835419}
   m_textInfo:
     textComponent: {fileID: 4756035476660336930}
-    characterCount: 1
+    characterCount: 16
     spriteCount: 0
-    spaceCount: 0
-    wordCount: 1
+    spaceCount: 1
+    wordCount: 2
     linkCount: 0
     lineCount: 1
     pageCount: 1

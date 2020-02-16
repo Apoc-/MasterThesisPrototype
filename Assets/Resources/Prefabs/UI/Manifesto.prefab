@@ -35,7 +35,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 728.0414, y: -95}
+  m_AnchoredPosition: {x: 750.58, y: -95}
   m_SizeDelta: {x: 418.85, y: 37.41}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5403520093165152694
@@ -64,10 +64,11 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: ' - Agile Manifesto'
+  m_text: ' Agile Manifesto'
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: cfd4a11b3f6561c43b31c93702b30fb1, type: 2}
+  m_sharedMaterial: {fileID: 8779032421642994835, guid: cfd4a11b3f6561c43b31c93702b30fb1,
+    type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -98,8 +99,8 @@ MonoBehaviour:
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
-  m_fontStyle: 2
-  m_textAlignment: 257
+  m_fontStyle: 0
+  m_textAlignment: 513
   m_characterSpacing: 0
   m_wordSpacing: 0
   m_lineSpacing: 0
@@ -133,10 +134,10 @@ MonoBehaviour:
   m_margin: {x: 0, y: -0.9129944, z: 0, w: 0}
   m_textInfo:
     textComponent: {fileID: 9164013103754120642}
-    characterCount: 18
+    characterCount: 16
     spriteCount: 0
-    spaceCount: 3
-    wordCount: 4
+    spaceCount: 2
+    wordCount: 3
     linkCount: 0
     lineCount: 1
     pageCount: 1
@@ -178,11 +179,11 @@ MonoBehaviour:
   lgnoreTimeScale: 0
   randomStartValue: 0
   startValue: 0
-  _previewValue: 0.4119873
+  _previewValue: 0
   tweens:
   - _tweenType: 0
     _isSelf: 1
-    _tweenObject: {fileID: 8790349754237738569}
+    _tweenObject: {fileID: 7816935585078491419}
     _curve:
       serializedVersion: 2
       m_Curve:
@@ -219,7 +220,7 @@ MonoBehaviour:
     _bezierCurve: {fileID: 0}
   - _tweenType: 4
     _isSelf: 1
-    _tweenObject: {fileID: 8790349754237738569}
+    _tweenObject: {fileID: 7816935585078491419}
     _curve:
       serializedVersion: 2
       m_Curve:
@@ -273,7 +274,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &8790349753431337232
 RectTransform:
   m_ObjectHideFlags: 0
@@ -420,7 +421,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 504.35, y: 0.000015259}
-  m_SizeDelta: {x: 909.2, y: 118.25}
+  m_SizeDelta: {x: 958.6, y: 167.4}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &8790349754237738564
 CanvasRenderer:
@@ -455,15 +456,16 @@ MonoBehaviour:
 
     the customer''s competitive advantage.'
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: f5dfb133a53a400419c7728937a80533, type: 2}
+  m_sharedMaterial: {fileID: 7414852691376292321, guid: f5dfb133a53a400419c7728937a80533,
+    type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 184549375
-  m_fontColor: {r: 1, g: 1, b: 1, a: 0.03931656}
+    rgba: 16777215
+  m_fontColor: {r: 1, g: 1, b: 1, a: 0}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -481,14 +483,14 @@ MonoBehaviour:
   m_outlineColor:
     serializedVersion: 2
     rgba: 4278190080
-  m_fontSize: 36
-  m_fontSizeBase: 36
+  m_fontSize: 38
+  m_fontSizeBase: 38
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
-  m_textAlignment: 257
+  m_textAlignment: 514
   m_characterSpacing: 0
   m_wordSpacing: 0
   m_lineSpacing: 0
@@ -498,7 +500,7 @@ MonoBehaviour:
   m_enableWordWrapping: 1
   m_wordWrappingRatios: 0.4
   m_overflowMode: 0
-  m_firstOverflowCharacterIndex: 92
+  m_firstOverflowCharacterIndex: -1
   m_linkedTextComponent: {fileID: 0}
   m_isLinkedTextComponent: 0
   m_isTextTruncated: 0
@@ -567,7 +569,7 @@ MonoBehaviour:
   lgnoreTimeScale: 0
   randomStartValue: 0
   startValue: 0
-  _previewValue: 1
+  _previewValue: 0
   tweens:
   - _tweenType: 0
     _isSelf: 1

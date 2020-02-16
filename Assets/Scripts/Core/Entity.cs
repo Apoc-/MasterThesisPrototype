@@ -11,7 +11,12 @@ namespace Core
 {
     public abstract class Entity : MonoBehaviour
     {
-        public float walkingSpeed = 50;
+        public float WalkSpeed = 50;
+        public float RunSpeed = 100;
+        
+        protected bool _isRunning = false;
+        private float Speed => _isRunning ? RunSpeed : WalkSpeed;
+        
         public GameObject InteractionIcon;
         
         protected bool _hasMeeting;
@@ -39,12 +44,7 @@ namespace Core
         
         protected SpriteRenderer SpriteRenderer
             => _spriteRenderer ? _spriteRenderer : _spriteRenderer = GetComponentInChildren<SpriteRenderer>();
-
-        private void Start()
-        {
-            
-        }
-
+        
         private void FixedUpdate()
         {
             if (GameManager.Instance.GameState != GameState.PLAYING) return;
@@ -139,7 +139,7 @@ namespace Core
         {
             if (_currentWalkTarget != null)
             {
-                var covered = (Time.time - _startWalkTime) * walkingSpeed;
+                var covered = (Time.time - _startWalkTime) * Speed;
                 var progress = covered / Vector2.Distance(_currentWalkTarget.transform.position, _startWalkPosition);
                 SetLookingDirection();
                 transform.position = Vector2.Lerp(_startWalkPosition, _currentWalkTarget.transform.position, progress);

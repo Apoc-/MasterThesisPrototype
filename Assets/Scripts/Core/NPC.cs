@@ -136,6 +136,7 @@ namespace Core
             CancelAllOrders();
             Show();
             _hasMeeting = true;
+            _isRunning = true;
 
             InteractWith(meetingRoomInteractible);
         }
@@ -149,6 +150,8 @@ namespace Core
             {
                 Destroy(sign.gameObject);
             }
+
+            _isRunning = false;
         }
     }
 }

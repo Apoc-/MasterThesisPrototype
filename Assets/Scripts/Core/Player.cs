@@ -9,31 +9,22 @@ namespace Core
     public class Player : Entity
     {
         public bool CanGiveCommand = false;
-        public GameObject WorkingIcon;
 
-        public void Update()
+        private void Update()
         {
-            if (_startedInteraction)
+            if (ReachedInteractionTarget())
             {
-                EnableWorkingIcon();
+                if (CurrentInteractTarget is Fixable fixable && fixable.IsBroken)
+                {
+                    EnableInteractionIcon();
+                }
             }
 
             if (_finishedInteraction || !ReachedInteractionTarget())
             {
-                DisableWorkingIcon();
+                DisableInteractionIcon();
             }
         }
-
-        private void DisableWorkingIcon()
-        {
-            if(WorkingIcon.activeSelf) WorkingIcon.SetActive(false);
-        }
-
-        private void EnableWorkingIcon()
-        {
-            if(!WorkingIcon.activeSelf) WorkingIcon.SetActive(true);
-        }
-
 
         protected override void AddEnterElevatorEvent(Waypoint waypoint)
         {
@@ -61,7 +52,7 @@ namespace Core
             waypoint.RegisterOnEnterActionForEntity(this, action);
         }
 
-        public override void CallToMeeting()
+        public override void CallToMeeting(MeetingRoomInteractible interactible)
         {
             
         }

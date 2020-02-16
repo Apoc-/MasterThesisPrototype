@@ -142,4 +142,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   InteractionDuration: 0.1
+  IsActive: 1
+  InteractionLayer: 10
   AttachedNPC: {fileID: 0}
+  MeetingRoomInteractible: {fileID: 0}

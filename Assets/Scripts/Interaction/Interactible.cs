@@ -11,7 +11,7 @@ namespace Core
     {
         public float InteractionDuration = 3;
         private IHasToolTip _hasToolTipImplementation;
-
+        public int InteractionLayer = 0;
         public void OnEnable()
         {
             GameManager.Instance.InteractibleManager.RegisterInteractible(this);

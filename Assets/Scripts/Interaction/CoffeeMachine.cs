@@ -14,11 +14,6 @@ namespace Core
             };
         }
 
-        public override void StartInteraction(Entity entity)
-        {
-            
-        }
-
         public override string GetName() => "Kaffee Maschine";
 
         public override void OnFixed()

@@ -80,13 +80,17 @@ namespace Core
         
         private Interactible GetRandomNpcInteractible()
         {
-            var interactibles = GameManager.Instance.InteractibleManager.NpcInteractibles;
+            var interactibles = GameManager.Instance
+                .InteractibleManager
+                .NpcInteractibles
+                .ToList();
+            
             var rand = Random.Range(0, interactibles.Count);
 
             return interactibles.ToList()[rand];
         }
 
-        private void InteractWith(Interactible interactible, Action finishedCallback)
+        private void InteractWith(Interactible interactible, Action finishedCallback = null)
         {
             var floor = interactible.GetFloor();
             var floorCollider = floor.GetComponent<Collider2D>();
@@ -96,25 +100,25 @@ namespace Core
             GiveWalkOrder(walkTarget, floor.floorId);
         }
 
-        public override void CallToMeeting()
+        public override void CallToMeeting(MeetingRoomInteractible meetingRoomInteractible)
         {
             if (Random.Range(0f, 1f) < _meetingAttendChance)
             {
-                GoToMeeting();
+                GoToMeeting(meetingRoomInteractible);
             }
             else
             {
-                DontAttendMeeting();
+                DontAttendMeeting(meetingRoomInteractible);
             }
         }
 
-        private void DontAttendMeeting()
+        private void DontAttendMeeting(MeetingRoomInteractible meetingRoomInteractible)
         {
             _hasMeeting = true;
-            DisplayMeetingWarning();
+            DisplayMeetingWarning(meetingRoomInteractible);
         }
 
-        private void DisplayMeetingWarning()
+        private void DisplayMeetingWarning(MeetingRoomInteractible meetingRoomInteractible)
         {
             var pos = SpriteRenderer.bounds.center;
             var sign = Instantiate(
@@ -123,25 +127,17 @@ namespace Core
 
             sign.transform.position = pos;
             var signInteractible = sign.GetComponent<MeetingWarningSign>();
+            signInteractible.MeetingRoomInteractible = meetingRoomInteractible;
             signInteractible.AttachedNPC = this;
         }
 
-        public void GoToMeeting()
+        public void GoToMeeting(MeetingRoomInteractible meetingRoomInteractible)
         {
             CancelAllOrders();
-
             Show();
-            
             _hasMeeting = true;
-            var meetingRoomBehaviour = GameManager.Instance.MeetingRoomBehaviour;
-            Vector2 pos = new Vector2(meetingRoomBehaviour.gameObject.transform.position.x, 0);
 
-            void EnterMeetingRoom()
-            {
-                meetingRoomBehaviour.EnterMeeting(this);
-            }
-
-            GiveWalkOrder(pos, 2, EnterMeetingRoom);
+            InteractWith(meetingRoomInteractible);
         }
 
         public override void ReturnFromMeeting()

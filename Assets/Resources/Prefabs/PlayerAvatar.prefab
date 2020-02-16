@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5561226035589436834}
   m_Layer: 0
-  m_Name: WorkingIcon
+  m_Name: InteractionIcon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -104,7 +104,7 @@ SpriteRenderer:
   m_SortingLayer: 3
   m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: 24918a696f52b3041bdfaa400cd7b466, type: 3}
-  m_Color: {r: 0.023529412, g: 0.09411765, b: 0.14117648, a: 1}
+  m_Color: {r: 0.07058824, g: 0.28627452, b: 0.43137255, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -221,8 +221,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   walkingSpeed: 60
+  InteractionIcon: {fileID: 1007091064661270838}
   CanGiveCommand: 0
-  WorkingIcon: {fileID: 1007091064661270838}
 --- !u!61 &1624464495420341365
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -382,7 +382,7 @@ MonoBehaviour:
   - {x: -6.3383245, y: -11.793658, z: 0}
   m_ShapePathHash: 814428382
   m_Mesh: {fileID: 0}
-  m_InstanceId: 186046
+  m_InstanceId: 327122
 --- !u!1 &4615138578649896429
 GameObject:
   m_ObjectHideFlags: 0
@@ -507,7 +507,7 @@ SpriteRenderer:
   m_SortingLayer: 3
   m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: 24918a696f52b3041bdfaa400cd7b466, type: 3}
-  m_Color: {r: 0.023529412, g: 0.09411765, b: 0.14117648, a: 1}
+  m_Color: {r: 0.07058824, g: 0.28627452, b: 0.43137255, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0

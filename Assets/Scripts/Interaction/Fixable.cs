@@ -12,6 +12,7 @@ namespace Core
         protected List<string> _brokenTooltips = new List<string> {
             "Ich bin Groot!"
         };
+        
         private string _currentBrokenTooltip = "";
         
         private GameObject _warningSign;
@@ -41,7 +42,12 @@ namespace Core
         {
             _currentBrokenTooltip = _brokenTooltips[Random.Range(0, _brokenTooltips.Count)];
         }
-        
+
+        public override void StartInteraction(Entity entity)
+        {
+            
+        }
+
         public override void FinishInteraction(Entity entity)
         {
             if (IsBroken) HandleIsBroken(entity);

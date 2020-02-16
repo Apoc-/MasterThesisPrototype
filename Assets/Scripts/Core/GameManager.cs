@@ -27,11 +27,11 @@ public class GameManager : MonoBehaviour
             ? _waypointProvider 
             : _waypointProvider = FindObjectOfType<WaypointProvider>();
 
-    private MeetingRoomBehaviour _meetingRoomBehaviour;
-    public MeetingRoomBehaviour MeetingRoomBehaviour
-        => _meetingRoomBehaviour
-            ? _meetingRoomBehaviour
-            : _meetingRoomBehaviour = FindObjectOfType<MeetingRoomBehaviour>();
+    private MeetingRoomInteractible _meetingRoomInteractible;
+    public MeetingRoomInteractible MeetingRoomInteractible
+        => _meetingRoomInteractible
+            ? _meetingRoomInteractible
+            : _meetingRoomInteractible = FindObjectOfType<MeetingRoomInteractible>();
     
     private EffectController _effectController;
     public EffectController EffectController
@@ -84,7 +84,7 @@ public class GameManager : MonoBehaviour
     {
         Company = new Company(name);
 
-        FindObjectsOfType<Entity>().ToList().ForEach(entity =>
+        FindObjectsOfType<NPC>().ToList().ForEach(entity =>
         {
             Company.RegisterTeamMember(entity);
         });
@@ -160,9 +160,9 @@ public class GameManager : MonoBehaviour
 
         GameSpeedController.Play();
         
-        MeetingRoomBehaviour.CallForMeeting("Daily Scrum");
-        Clock.SetAlarm(new TimeStamp(11,0,0), MeetingRoomBehaviour.StartMeeting);
-        Clock.SetAlarm(new TimeStamp(11,15,0), MeetingRoomBehaviour.StopMeeting);
+        MeetingRoomInteractible.CallForMeeting("Daily Scrum");
+        Clock.SetAlarm(new TimeStamp(11,0,0), MeetingRoomInteractible.StartMeeting);
+        Clock.SetAlarm(new TimeStamp(11,15,0), MeetingRoomInteractible.StopMeeting);
     }
 
     public void InitScrumMasterPlan()

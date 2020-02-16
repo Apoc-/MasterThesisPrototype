@@ -12,6 +12,7 @@ namespace Core
     public abstract class Entity : MonoBehaviour
     {
         public float walkingSpeed = 50;
+        public GameObject InteractionIcon;
         
         protected bool _hasMeeting;
         protected bool _reachedWalkTarget = true;
@@ -55,7 +56,7 @@ namespace Core
                     CurrentInteractTarget.StartInteraction(this);
                     _startedInteraction = true;
                 }
-                
+
                 DoInteraction();
             }
 
@@ -72,6 +73,16 @@ namespace Core
                 _currentWalkTarget = null;
                 CleanUpHelperWaypoints();
             }
+        }
+        
+        public void DisableInteractionIcon()
+        {
+            if(InteractionIcon.activeSelf) InteractionIcon.SetActive(false);
+        }
+
+        public void EnableInteractionIcon()
+        {
+            if(!InteractionIcon.activeSelf) InteractionIcon.SetActive(true);
         }
 
         private void CleanUpHelperWaypoints()
@@ -302,7 +313,7 @@ namespace Core
             Show();
         }
 
-        public abstract void CallToMeeting();
+        public abstract void CallToMeeting(MeetingRoomInteractible interactible);
 
         public Vector2 GetHeadPosition()
         {

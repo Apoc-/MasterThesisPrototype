@@ -90,9 +90,15 @@ namespace UI
 
             if (tooltipObjects.Any())
             {
-                var go = tooltipObjects.First().collider.gameObject;
-                var hitObject = go.GetComponent<IHasToolTip>();
-                Tooltip.Show(hitObject);
+                foreach (var obj in tooltipObjects)
+                {
+                    var tooltip = obj.collider.gameObject.GetComponent<IHasToolTip>();
+                    if (tooltip.GetTooltip() != "")
+                    {
+                        Tooltip.Show(tooltip);
+                        break;
+                    }
+                }
             }
             else
             {

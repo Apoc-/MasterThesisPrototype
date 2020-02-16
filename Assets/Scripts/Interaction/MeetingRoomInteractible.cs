@@ -102,7 +102,7 @@ namespace Core
 
         public override string GetName() => "Meeting Raum" ;
 
-        public override string GetTooltip() => HasMeeting ? "Am Meeting teilnehmen" : "";
+        public override string GetTooltip() => "";
 
         /*var pos = SpriteRenderer.bounds.center;
             var sign = Instantiate(

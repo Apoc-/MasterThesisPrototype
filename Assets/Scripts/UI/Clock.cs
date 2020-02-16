@@ -37,6 +37,9 @@ namespace Code
 
         private List<Alarm> _alarms = new List<Alarm>();
         private List<Alarm> _newAlarms = new List<Alarm>();
+
+        public Color BaseColor;
+        public Color WarningColor;
         
         private void Start()
         {
@@ -115,6 +118,16 @@ namespace Code
             var recurringAlarms = _alarms.Where(alarm => alarm.recurring || alarm.triggeredToday == false).ToList();
             recurringAlarms.ForEach(alarm => alarm.triggeredToday = false);
             _alarms = recurringAlarms;
+        }
+
+        public void SetToBaseColor()
+        {
+            _clockText.color = BaseColor;
+        }
+
+        public void SetToWarningColor()
+        {
+            _clockText.color = WarningColor;
         }
     }
 }

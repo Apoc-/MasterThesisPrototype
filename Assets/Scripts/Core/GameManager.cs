@@ -77,6 +77,7 @@ public class GameManager : MonoBehaviour
 
     private void InitAlarms()
     {
+        Clock.SetAlarm(new TimeStamp(16,00,0), WarnFinishDay, true);
         Clock.SetAlarm(new TimeStamp(17,00,0), FinishDay, true);
     }
 
@@ -89,11 +90,18 @@ public class GameManager : MonoBehaviour
             Company.RegisterTeamMember(entity);
         });
     }
+
+    private void WarnFinishDay()
+    {
+        Clock.SetToWarningColor();
+        NotificationController.DisplayNotification("Der Arbeitstag ist in einer Stunde vorbei!", NotificationType.Warning);
+    }
     
     private void FinishDay()
     {
         GameState = GameState.ADVISE;
         Clock.Running = false;
+        Clock.SetToBaseColor();
         UiManager.Instance.HideAllScreens();
         UiManager.Instance.ShowScoreScreen();
     }

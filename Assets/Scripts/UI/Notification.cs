@@ -6,16 +6,16 @@ namespace UI
 {
     public class Notification : MonoBehaviour
     {
-        [SerializeField] private TextMeshProUGUI _textComponent;
-        private float TimeToLive = 4f;
+        public TextMeshProUGUI TextComponent;
+        private float _timeToLive = 4f;
         private bool _dismissing = false;
         public NotificationController Controller { get; set; }
 
         public void Update()
         {
-            TimeToLive -= Time.unscaledDeltaTime;
+            _timeToLive -= Time.unscaledDeltaTime;
 
-            if (TimeToLive <= 0 && !_dismissing)
+            if (_timeToLive <= 0 && !_dismissing)
             {
                 Dismiss();
             }
@@ -23,7 +23,7 @@ namespace UI
 
         public void SetText(string text)
         {
-            _textComponent.text = text;
+            TextComponent.text = text;
         }
 
         public void Dismiss()

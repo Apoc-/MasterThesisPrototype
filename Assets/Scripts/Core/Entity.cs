@@ -104,7 +104,6 @@ namespace Core
 
             if (_interactionTime >= CurrentInteractTarget.InteractionDuration)
             {
-                Debug.Log("Finished Interaction with " + CurrentInteractTarget.GetName());
                 _finishedInteraction = true;
                 _startedInteraction = false;
                 _finishedInteractionCallback?.Invoke();

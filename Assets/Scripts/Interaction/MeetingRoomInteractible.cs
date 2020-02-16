@@ -8,8 +8,7 @@ namespace Core
     {
         public bool HasMeeting = false;
         public string CurrentMeetingName;
-
-        private bool _meetingIsRunning = false;
+        
         private List<Entity> _invitedEntities = new List<Entity>();
         private List<Entity> _arrivedEntities = new List<Entity>();
 

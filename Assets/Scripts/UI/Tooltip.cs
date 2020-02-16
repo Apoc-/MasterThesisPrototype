@@ -8,14 +8,9 @@ namespace UI
 {
     public class Tooltip : MonoBehaviour
     {
-        [SerializeField] private TextMeshProUGUI _textComponent;
+        public TextMeshProUGUI TextComponent;
         private IHasToolTip _lastDisplayed;
-
-        private void Start()
-        {
-            //gameObject.SetActive(false);
-        }
-
+        
         private void Update()
         {
             if (isActiveAndEnabled)
@@ -42,7 +37,7 @@ namespace UI
                 return;
             }
 
-            _textComponent.text = text;
+            TextComponent.text = text;
 
             transform.position = CalcTooltipPosition();
             gameObject.SetActive(true);

@@ -20,7 +20,6 @@ namespace Core
         private float _decisionTimer = 0f;
         private float _officeTimer = 0f;
         public Interactible Office;
-        private bool _isInOffice = true;
 
         public void Update()
         {
@@ -70,7 +69,6 @@ namespace Core
 
         private void GoBackToOffice()
         {
-            Debug.Log("Going back to my office");
             var floor = Office.GetFloor();
             var floorCollider = floor.GetComponent<Collider2D>();
             var walkTarget = new Vector2(Office.transform.position.x, floorCollider.bounds.min.y);
@@ -85,14 +83,12 @@ namespace Core
         private void EnterOffice()
         {
             Hide();
-            _isInOffice = true;
             _officeTimer = 0;
         }
 
         private void LeaveOffice()
         {
             Show();
-            _isInOffice = false;
         }
         
         private Interactible GetRandomNpcInteractible()

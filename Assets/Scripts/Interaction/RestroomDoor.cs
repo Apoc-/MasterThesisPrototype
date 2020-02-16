@@ -14,6 +14,6 @@
 
         public override string GetName() => "WC Tür";
 
-        public override string GetTooltip() => "WC Tür";
+        public override string GetTooltip() => "";
     }
 }

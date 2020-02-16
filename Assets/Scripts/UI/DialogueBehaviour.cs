@@ -10,6 +10,7 @@ namespace UI
 {
     public class DialogueBehaviour : ScreenBehaviour
     {
+        public GameObject NextButton;
         public GameObject PlanButtonContainer;
         public GameObject PlanButtonPrefab;
 
@@ -20,6 +21,11 @@ namespace UI
         public void Awake()
         {
             LoadDialoguesFromFile();
+        }
+
+        private void OnEnable()
+        {
+            
         }
 
         private void LoadDialoguesFromFile()
@@ -47,6 +53,7 @@ namespace UI
             
             _currentDialogue = _dialogues[id];
             Show();
+            NextButton.SetActive(true);
             NextLine();
         }
 
@@ -87,7 +94,11 @@ namespace UI
 
             switch (cmd)
             {
-                case "plan": AddPlanButton((Plan) Enum.Parse(typeof(Plan), param));
+                case "plan":
+                {
+                    AddPlanButton((Plan) Enum.Parse(typeof(Plan), param));
+                    NextButton.SetActive(false);
+                }
                     break;
             }
         }

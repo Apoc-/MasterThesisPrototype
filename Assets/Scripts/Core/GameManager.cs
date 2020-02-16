@@ -133,9 +133,11 @@ public class GameManager : MonoBehaviour
     {
         GameState = GameState.PLAYING;
         player.CanGiveCommand = true;
+        
         Clock.SetTime(9,0,0);
         Clock.ResetAlarms();
         Clock.Running = true;
+        GameSpeedController.Play();
     }
     
     public void InitDailyScrumPlan()

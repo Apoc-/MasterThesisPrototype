@@ -4,12 +4,18 @@
     {
         public override void StartInteraction(Entity entity)
         {
-            entity.Hide();
+            if (entity is NPC)
+            {
+                entity.Hide();    
+            }
         }
 
         public override void FinishInteraction(Entity entity)
         {
-            entity.Show();
+            if (entity is NPC)
+            {
+                entity.Show();    
+            }
         }
 
         public override string GetName() => "WC Tür";

@@ -1,5 +1,5 @@
 ﻿$title=Scrum
 Scrum ist ein agiles Vorgehensmodell für Projekte und wurde 1995 von Ken Schwaber das erste mal vorgestellt.
-Wichtige Elemente von Scrum sind die [Rollen], [Ereignisse] und [Artefakte].
+Wichtige Elemente von Scrum sind die [Rollen], Ereignisse und Artefakte.
 
 Mehr Informationen: https://www.scrumguides.org/

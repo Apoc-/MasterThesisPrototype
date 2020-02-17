@@ -1,8 +1,5 @@
 ﻿using System.Collections.Generic;
-using System.Runtime.CompilerServices;
 using Core;
-using TMPro;
-using UnityEditor.VersionControl;
 using UnityEngine;
 
 namespace UI

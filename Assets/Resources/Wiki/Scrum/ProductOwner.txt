@@ -1,5 +1,4 @@
 ﻿$title=Product Owner
-
 <b>Aufgaben</b>
 - Wertmaximierung des Produkts sowie der Arbeit des Entwicklungsteams
 - Management des Product Backlogs

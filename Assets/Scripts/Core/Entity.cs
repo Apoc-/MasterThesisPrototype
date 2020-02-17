@@ -51,7 +51,7 @@ namespace Core
         {
             var bounds = GetComponent<Collider2D>().bounds;
             var pos = bounds.center;
-            pos.y -= bounds.extents.y;
+            pos.y += bounds.extents.y;
 
             return pos;
         }

@@ -4,6 +4,6 @@ namespace Core
 {
     public class QuestHandler : MonoBehaviour
     {
-           
+        
     }
 }

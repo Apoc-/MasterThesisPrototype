@@ -35,20 +35,9 @@ namespace Core
 
         public void StartMeeting()
         {
-            if (_arrivedEntities.Count != _invitedEntities.Count)
-            {
-                GameManager.Instance
-                    .NotificationController
-                    .DisplayNotification(
-                        "Das Daily-Scrum-Meeting hat begonnen, jedoch schwänz irgendjemand!",
-                        NotificationType.Warning);
-            }
-            else
-            {
-                GameManager.Instance
+            GameManager.Instance
                     .NotificationController
                     .DisplayNotification("Das Daily-Scrum-Meeting hat begonnen.", NotificationType.Default);
-            }
         }
 
         public void StopMeeting()

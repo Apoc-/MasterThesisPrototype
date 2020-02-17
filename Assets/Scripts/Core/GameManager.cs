@@ -164,8 +164,8 @@ public class GameManager : MonoBehaviour
     {
         NotificationController
             .DisplayNotification(
-                "Das Daily-Scrum-Meeting startet in 15 Minuten. " +
-                "Wenn mal wieder nicht jeder kommen will, solltest du nachhelfen!"
+                "In 15 Minuten startet das Daily-Scrum-Meeting! " +
+                "Wenn nicht jeder hingehen will, solltest du nachhelfen!"
                 , NotificationType.Advisor);
 
         GameSpeedController.Play();

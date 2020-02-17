@@ -15,6 +15,6 @@ namespace Core
         }
 
         public override string GetName() => "Stuhl";
-        public override string GetTooltip() => "Hinsetzen";
+        public override string GetTooltip() => "";
     }
 }

@@ -40,7 +40,7 @@ namespace Core
                 GameManager.Instance
                     .NotificationController
                     .DisplayNotification(
-                        "Das Daily-Scrum-Meeting hat begonnnen, jedoch schwänz irgendjemand!",
+                        "Das Daily-Scrum-Meeting hat begonnen, jedoch schwänz irgendjemand!",
                         NotificationType.Warning);
             }
             else

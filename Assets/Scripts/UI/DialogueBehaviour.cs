@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text.RegularExpressions;
 using Core;
 using Tech;
 using TMPro;
@@ -75,6 +76,7 @@ namespace UI
             if (line.StartsWith("$"))
             {
                 var commands = line.Substring(1).Split('|');
+                
                 foreach (var command in commands)
                 {
                     var token = command.Trim().Split(':');
@@ -83,23 +85,39 @@ namespace UI
             } 
             else
             {
+                line = ReplaceVariables(line);
                 _textField.text = line;
             }
+        }
+
+        //todo quick solution, needs more efficient one in the future
+        private string ReplaceVariables(string line)
+        {
+            var replacedLine = line;
+            replacedLine = replacedLine.Replace("{progress}",
+                ""+GameManager.Instance.Company.CompanyScores.First(score => score.Name == "Fortschritt").Value);
+            
+            return replacedLine;
         }
 
         private void ParseCommand(string[] token)
         {
             var cmd = token[0].Trim();
-            var param = token[1].Trim();
-
+            
             switch (cmd)
             {
                 case "plan":
                 {
+                    var param = token[1].Trim();
                     AddPlanButton((Plan) Enum.Parse(typeof(Plan), param));
                     NextButton.SetActive(false);
                 }
                     break;
+                case "end_game":
+                {
+                    GameManager.Instance.FinishGame();
+                    break;
+                }
             }
         }
 

@@ -18,6 +18,7 @@ namespace UI
         public AdvisorScreenBehaviour AdvisorScreen;
         public TaskBoardScreen TaskBoardScreen;
         public WikiScreenBehaviour ScrumWikiScreen;
+        public FinishGameScreen FinishGameScreen;
         public Tooltip Tooltip;
         public Tooltip LargeTooltip;
 

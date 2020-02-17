@@ -1,0 +1,5 @@
+﻿Gratulation! 
+Sie sind mit Tech Com erfolgreich die ersten Schritte auf dem langen Weg zur Agilität gegangen.   
+Mit Ihrere Hilfe hat das Team hat insgesamt einen Fortschritt von {progress} Punkten erarbeitet!
+Ihr Großvater wäre stolz auf Sie und Sie haben es verdient Tech Com zu führen! 
+$end_game

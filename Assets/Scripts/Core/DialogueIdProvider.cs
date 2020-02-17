@@ -14,6 +14,8 @@
                     return "advisor_02";
                 case 3:
                     return "advisor_03";
+                case 4:
+                    return "final_message";
                 default:
                     return "dummy_text";
             }

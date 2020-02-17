@@ -21,7 +21,7 @@ namespace Core
         
         public void PlayFast()
         {
-            Time.timeScale = 8;
+            Time.timeScale = 32;
             ResetColors();
             PlayFastButton.color = PressedColor;
         }

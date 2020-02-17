@@ -262,6 +262,12 @@ public class GameManager : MonoBehaviour
         EffectController.PlayProgressEffectAt(pos, target, callback);
     }
     
+    public void FinishGame()
+    {
+        GameSpeedController.Pause();
+        UiManager.Instance.FinishGameScreen.Show();
+    }
+    
     #region Debug
 
     private int a = -1;

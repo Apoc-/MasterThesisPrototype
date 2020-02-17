@@ -1,10 +1,10 @@
-﻿<b>Maßnahme:</b> Agile Coach / Scrum Master einführen
+﻿<b>Maßnahme:</b> Scrum Master einführen
 
 <b>Art der Maßnahme</b>
-Rolle
+Einführung einer Rolle
 
 <b>Informationen</b>
-  - Coachen des Teams
   - Beseitigung von Hindernissen
-  - Unterstützung bei der Durchführung Scrum
+  - Unterstützung bei der Durchführung von Scrum
   - Vermittlung des richtigen Verständnisses von Scrum an alle Beteiligten
+  - Abschirmung des Teams vor irrelevanten Ablenkungen

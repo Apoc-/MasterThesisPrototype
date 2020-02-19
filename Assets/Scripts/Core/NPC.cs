@@ -9,7 +9,7 @@ using Random = UnityEngine.Random;
 
 namespace Core
 {
-    public class NPC : Entity
+    public class NPC : Entity, IHasToolTip
     {
         public string Name;
         [SerializeField] private float _activity = 1f; //seconds per decision
@@ -187,5 +187,7 @@ namespace Core
 
             _isRunning = false;
         }
+
+        public string GetTooltip() => (_isInOffice || _isInElevator || _hasMeeting) ? "" : Name;
     }
 }

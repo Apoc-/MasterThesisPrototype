@@ -10,6 +10,11 @@ namespace UI
         public Image Background;
         public GameObject MailIcon;
 
+        public void OnEnable()
+        {
+            MailIcon.GetComponent<Jun_TweenRuntime>().enabled = true;
+        }
+
         public void OnReportClick()
         {
             Hide();

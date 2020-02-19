@@ -141,7 +141,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d12ab66baa28413986c10486ab02bf4c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  InteractionDuration: 0.1
+  BaseInteractionDuration: 0.1
+  PlayerInteractDurationFactor: 1
   InteractionLayer: 10
   AttachedNPC: {fileID: 0}
   MeetingRoomInteractible: {fileID: 0}

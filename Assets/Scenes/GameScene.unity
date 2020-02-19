@@ -2787,7 +2787,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7f65ffe100094fa0bb17e4c104e6c34f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  InteractionDuration: 1
+  BaseInteractionDuration: 0.1
+  PlayerInteractDurationFactor: 1
   InteractionLayer: 0
   TaskBoardScreen: {fileID: 1605036765}
   MistakeChance: 0.33
@@ -3636,7 +3637,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac370b71acb24fc4a13281aa99ee9f29, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  InteractionDuration: 3000
+  BaseInteractionDuration: 3
+  PlayerInteractDurationFactor: 0.5
   InteractionLayer: 0
   Owner: {fileID: 1133254830}
 --- !u!61 &236481867
@@ -3683,7 +3685,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3d1bfaad58c24d08a3b14c87299bd44f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  InteractionDuration: 3000
+  BaseInteractionDuration: 3
+  PlayerInteractDurationFactor: 0.5
   InteractionLayer: 0
 --- !u!61 &241928422
 BoxCollider2D:
@@ -4007,7 +4010,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1e39a9fd1f0e452aa18eac9bf8abaaff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  InteractionDuration: 15000
+  BaseInteractionDuration: 3
+  PlayerInteractDurationFactor: 0.5
   InteractionLayer: 0
   HasMeeting: 0
   CurrentMeetingName: Kein Meeting
@@ -10749,7 +10753,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bee303923d0b42848c413b31efb6ed38, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  InteractionDuration: 1
+  BaseInteractionDuration: 3
+  PlayerInteractDurationFactor: 0.5
   InteractionLayer: 0
 --- !u!61 &952396631
 BoxCollider2D:
@@ -14870,7 +14875,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac370b71acb24fc4a13281aa99ee9f29, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  InteractionDuration: 3000
+  BaseInteractionDuration: 3
+  PlayerInteractDurationFactor: 0.5
   InteractionLayer: 0
   Owner: {fileID: 1673046669}
 --- !u!61 &1329401703
@@ -19860,7 +19866,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 07ee54d2ed1b4124a3d357aa6f744ed0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  InteractionDuration: 3
+  BaseInteractionDuration: 3
+  PlayerInteractDurationFactor: 0.5
   InteractionLayer: 0
 --- !u!61 &1838888948
 BoxCollider2D:
@@ -20529,7 +20536,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 505a5b1503364b899a073b3411f3d152, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  InteractionDuration: 0
+  BaseInteractionDuration: 0.1
+  PlayerInteractDurationFactor: 1
   InteractionLayer: 0
   ScrumWikiScreen: {fileID: 893945440}
 --- !u!61 &1901310715
@@ -21064,7 +21072,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a23868f056044653bf72d97405197647, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  InteractionDuration: 5
+  BaseInteractionDuration: 3
+  PlayerInteractDurationFactor: 0.5
   InteractionLayer: 0
 --- !u!61 &1956065448
 BoxCollider2D:
@@ -21667,7 +21676,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac370b71acb24fc4a13281aa99ee9f29, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  InteractionDuration: 3000
+  BaseInteractionDuration: 3
+  PlayerInteractDurationFactor: 0.5
   InteractionLayer: 0
   Owner: {fileID: 1597837470}
 --- !u!61 &2003316139
@@ -22811,7 +22821,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac370b71acb24fc4a13281aa99ee9f29, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  InteractionDuration: 3000
+  BaseInteractionDuration: 3
+  PlayerInteractDurationFactor: 0.5
   InteractionLayer: 0
   Owner: {fileID: 1929263101}
 --- !u!61 &2072175331

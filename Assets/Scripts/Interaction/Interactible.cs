@@ -9,7 +9,8 @@ namespace Core
     [RequireComponent(typeof(Collider2D))]
     public abstract class Interactible : MonoBehaviour, IHasToolTip
     {
-        public float InteractionDuration = 3;
+        public float BaseInteractionDuration = 3;
+        public float PlayerInteractDurationFactor = 0.5f;
         private IHasToolTip _hasToolTipImplementation;
         public int InteractionLayer = 0;
         public void OnEnable()
@@ -29,6 +30,16 @@ namespace Core
             return floor;
         }
 
+        public float GetInteractDuration(Entity entity)
+        {
+            if (entity is NPC)
+            {
+                return BaseInteractionDuration;
+            }
+            
+            return BaseInteractionDuration * PlayerInteractDurationFactor;
+        }
+        
         public abstract string GetTooltip();
     }
 }

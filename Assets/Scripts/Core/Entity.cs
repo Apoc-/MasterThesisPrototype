@@ -113,7 +113,7 @@ namespace Core
         {
             _interactionTime += Time.deltaTime;
 
-            if (_interactionTime >= CurrentInteractTarget.InteractionDuration)
+            if (_interactionTime >= CurrentInteractTarget.GetInteractDuration(this))
             {
                 _finishedInteraction = true;
                 _startedInteraction = false;

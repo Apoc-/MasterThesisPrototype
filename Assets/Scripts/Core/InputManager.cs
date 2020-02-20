@@ -8,8 +8,15 @@ namespace Core
 {
     public class InputManager : MonoBehaviour
     {
+        private bool _pausedGame = false;
+        
         private void Update()
         {
+            if (Input.GetKeyDown(KeyCode.Space))
+            {
+                HandlePauseToggle();
+            }
+            
             if (Input.GetMouseButtonDown(0))
             {
                 if (GameManager.Instance.GameState != GameState.PLAYING) return;
@@ -32,6 +39,23 @@ namespace Core
             if (Input.mouseScrollDelta.y < -0.01f)
             {
                 Camera.main.GetComponent<CameraHandler>().ZoomOut();
+            }
+        }
+
+        private void HandlePauseToggle()
+        {
+            var gm = GameManager.Instance;
+            if (gm.GameState != GameState.PLAYING) return;
+            
+            if (_pausedGame)
+            {
+                gm.GameSpeedController.UnPause();
+                _pausedGame = false;
+            }
+            else
+            {
+                gm.GameSpeedController.Pause();
+                _pausedGame = true;
             }
         }
 

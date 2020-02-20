@@ -15,7 +15,7 @@ namespace Core
         public Image PauseButton;
 
         private Speed _lastSpeed = Speed.Play;
-        
+
         private enum Speed
         {
             Play,

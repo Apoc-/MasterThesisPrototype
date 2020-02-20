@@ -15,6 +15,17 @@ namespace UI
         private List<string> _manifesto;
         private List<string> _manifestoAvailable;
 
+        public Action FinishedCallback;
+
+        public void Update()
+        {
+            if (Input.anyKeyDown)
+            {
+                Hide();
+                FinishedCallback?.Invoke();
+            }
+        }
+
         public void OnEnable()
         {
             if(_manifestoAvailable == null) LoadManifesto();

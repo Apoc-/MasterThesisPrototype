@@ -8,6 +8,13 @@ namespace UI
     public class ReportTextBehaviour : ScreenBehaviour
     {
         public TextMeshProUGUI ReportTextField;
+
+        public void ShowManifesto()
+        {
+            var manifesto = UiManager.Instance.ManifestoScreen;
+            manifesto.FinishedCallback = UiManager.Instance.AdvisorScreen.ScoreInfo.FinishReport;
+            manifesto.gameObject.SetActive(true);
+        }
         
         private void OnEnable()
         {

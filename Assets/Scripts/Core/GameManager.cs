@@ -146,6 +146,8 @@ public class GameManager : MonoBehaviour
     public void StartDay()
     {
         GameState = GameState.PLAYING;
+        Instance.SongHandler?.PlaySongById(1);
+        
         player.CanGiveCommand = true;
         
         Clock.SetTime(9,0,0);

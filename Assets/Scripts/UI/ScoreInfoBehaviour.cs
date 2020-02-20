@@ -15,7 +15,7 @@ namespace UI
             MailIcon.GetComponent<Jun_TweenRuntime>().enabled = true;
         }
 
-        public void OnReportClick()
+        public void FinishReport()
         {
             Hide();
             GameManager.Instance.InitNewDay();

@@ -133,7 +133,8 @@ namespace UI
             {
                 UiManager.Instance.AdvisorScreen.Hide();
                 UiManager.Instance.ActivatePlan(plan);
-                GameManager.Instance.StartDay();
+                UiManager.Instance.ManifestoScreen.FinishedCallback = GameManager.Instance.StartDay;
+                UiManager.Instance.ManifestoScreen.Show();
             }
 
             void PlanButtonClickedAction()

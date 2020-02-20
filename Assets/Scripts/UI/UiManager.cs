@@ -22,7 +22,18 @@ namespace UI
         public ManifestoScreenBehaviour ManifestoScreen;
         public Tooltip Tooltip;
         public Tooltip LargeTooltip;
+        public ModalDialogueBehaviour Modal;
 
+        public void DisplayGameQuitModal()
+        {
+            Modal.SetTitle("Spiel Beenden");
+            Modal.SetText("Möchtest du das Spiel wirklich verlassen?");
+            Modal.NoAction = () => { };
+            Modal.YesAction = Application.Quit;
+            
+            Modal.Show();
+        }
+        
         public void UpdateCompanyScores()
         {
             var comp = GameManager.Instance.Company;

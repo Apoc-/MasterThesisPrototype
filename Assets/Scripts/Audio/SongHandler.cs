@@ -36,11 +36,11 @@ namespace UI
             _isMuted = !_isMuted;
             if (_isMuted)
             {
-                AudioSource.volume = 0;    
+                AudioListener.volume = 0;    
             }
             else
             {
-                AudioSource.volume = 0.05f;  
+                AudioListener.volume = 1f;  
             }
             
         }

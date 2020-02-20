@@ -28,6 +28,11 @@ namespace Core
         {
             if (GameManager.Instance.GameState != GameState.PLAYING) return;
 
+            if (ReachedInteractionTarget() || _isInOffice)
+            {
+                EnableInteractionIcon();
+            }
+            
             if (CanMakeDecision() && CanTakeAction())
             {
                 DecideAction();
@@ -36,6 +41,11 @@ namespace Core
             if (_isInOffice)
             {
                 MakeProgress();
+            }
+
+            if (!(ReachedInteractionTarget() || _isInOffice))
+            {
+                DisableInteractionIcon();
             }
         }
 

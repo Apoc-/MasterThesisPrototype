@@ -51,6 +51,12 @@ public class GameManager : MonoBehaviour
         => _gameSpeedController
             ? _gameSpeedController
             : _gameSpeedController = FindObjectOfType<GameSpeedController>();
+
+    private SongHandler _songHandler;
+    public SongHandler SongHandler
+        => _songHandler
+            ? _songHandler
+            : _songHandler = FindObjectOfType<SongHandler>();
     
     private Clock _clock;
     public Clock Clock => _clock ? _clock : _clock = FindObjectOfType<Clock>();

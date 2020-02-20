@@ -68,7 +68,7 @@ public class SkyBehaviour : MonoBehaviour
         _cloudPool.Remove(cloud);
         cloud.SetActive(true);
         var pos = cloud.transform.position;
-        pos.x = -500;
+        pos.x = cloudSpawnX;
         pos.y = Random.Range(cloudMinHeight, cloudMaxHeight);
 
         cloud.transform.position = pos;

@@ -3191,7 +3191,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 64.089294, y: 34.217415}
+  m_Offset: {x: 63.80333, y: 34.217415}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -3202,7 +3202,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 476.53912, y: 69.9335}
+  m_Size: {x: 470.246, y: 69.9335}
   m_EdgeRadius: 0
 --- !u!1 &252292321
 GameObject:
@@ -7951,7 +7951,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 64.45451, y: -31.205399}
+  m_Offset: {x: 63.88246, y: -31.205399}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -7962,7 +7962,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 477.12845, y: 69.3613}
+  m_Size: {x: 469.11887, y: 69.3613}
   m_EdgeRadius: 0
 --- !u!1 &726420217
 GameObject:
@@ -12440,7 +12440,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 64.12866, y: 99.91731}
+  m_Offset: {x: 64.70085, y: 99.91731}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -12451,7 +12451,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 476.4604, y: 69.18472}
+  m_Size: {x: 470.7393, y: 69.18472}
   m_EdgeRadius: 0
 --- !u!1001 &1227770344
 PrefabInstance:
@@ -12966,7 +12966,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -1.489914, y: -96.00543}
+  m_Offset: {x: -2.0620728, y: -96.00543}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -12977,7 +12977,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 607.51685, y: 70.07074}
+  m_Size: {x: 600.65137, y: 70.07074}
   m_EdgeRadius: 0
 --- !u!114 &1259553603
 MonoBehaviour:

@@ -15,7 +15,8 @@ namespace Core
         [SerializeField] private float _activity = 1f; //seconds per decision
         [SerializeField] private float _randomInteractionChance = 0.8f;
         [SerializeField] private float _meetingAttendChance = 0.5f;
-        [SerializeField] private float _minimumOfficeTime = 20f;        
+        [SerializeField] private float _minimumOfficeTime = 20f;
+        [SerializeField] private float _breakChance = 0.2f;
         
         private float _decisionTimer = 0f;
         private float _officeTimer = 0f;
@@ -82,9 +83,27 @@ namespace Core
         {
             LeaveOffice();
             var interactible = GetRandomNpcInteractible();
-            InteractWith(interactible, GoBackToOffice);
+            InteractWith(interactible, () =>
+            {
+                HandleRandomBreak(interactible);
+                GoBackToOffice();
+            });
         }
 
+        private void HandleRandomBreak(Interactible interactible)
+        {
+            if (!GameManager.Instance.ScrumMasterActive) return;
+            
+            var fixable = interactible as Fixable;
+            if (fixable == null) return;
+            
+            var rnd = Random.Range(0, 1f);
+            if (rnd <= _breakChance)
+            {
+                fixable.Break();
+            }
+        }
+        
         private void GoBackToOffice()
         {
             var floor = Office.GetFloor();

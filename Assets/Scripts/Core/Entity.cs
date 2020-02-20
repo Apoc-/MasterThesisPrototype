@@ -1,11 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Timers;
 using Unity.Mathematics;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.Experimental.Rendering.Universal;
+using Random = UnityEngine.Random;
 
 namespace Core
 {
@@ -119,6 +119,7 @@ namespace Core
                 _startedInteraction = false;
                 _finishedInteractionCallback?.Invoke();
                 CurrentInteractTarget.FinishInteraction(this);
+                
             }
         }
 

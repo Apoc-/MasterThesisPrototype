@@ -29,13 +29,5 @@ namespace Core
         {
             Interactibles.Add(interactible);
         }
-
-        public void BreakRandomBreakable()
-        {
-            var fixables = Interactibles.OfType<Fixable>().ToList();
-            if(fixables.Count(fixable => fixable.IsBroken) >= _maxBrokenCount) return;
-            var rnd = Random.Range(0, fixables.Count);
-            fixables[rnd].Break();
-        }
     }
 }

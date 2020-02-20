@@ -68,6 +68,8 @@ public class GameManager : MonoBehaviour
     public InteractibleManager InteractibleManager;
 
     public int Day = 0;
+
+    public bool ScrumMasterActive = false;
     
     public Company Company { get; private set; }
     [SerializeField] private float _impedimentChance = 0.1f;
@@ -114,10 +116,7 @@ public class GameManager : MonoBehaviour
 
     private void ExecScrumMasterPlan()
     {
-        if (Random.Range(0f, 1f) < _impedimentChance)
-        {
-            InteractibleManager.BreakRandomBreakable();
-        }
+        
     }
 
     private void ExecDailyScrumPlan()
@@ -190,6 +189,7 @@ public class GameManager : MonoBehaviour
                 "Neue Rolle: Scrum Master", 
                 10);
 
+        ScrumMasterActive = true;
         Clock.OnSecondTick += ExecScrumMasterPlan;
     }
     

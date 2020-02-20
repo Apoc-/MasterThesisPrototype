@@ -214,7 +214,14 @@ public class GameManager : MonoBehaviour
         void GainPointsCallback()
         {
             Company.AddEffectToCompanyScore("Teamgeist", description, value);
-            SoundEffectManager.Instance.PlayRandomPop();
+            if (value > 0)
+            {
+                SoundEffectManager.Instance.PlayRandomPop();
+            }
+            else
+            {
+                SoundEffectManager.Instance.PlayDud();
+            }
         }
         
         TriggerTsEffect(Camera.main.WorldToScreenPoint(pos), score.transform.position, value, GainPointsCallback);
@@ -226,7 +233,14 @@ public class GameManager : MonoBehaviour
         void GainPointsCallback()
         {
             Company.AddEffectToCompanyScore("Agilität", description, value);
-            SoundEffectManager.Instance.PlayRandomPop();
+            if (value > 0)
+            {
+                SoundEffectManager.Instance.PlayRandomPop();
+            }
+            else
+            {
+                SoundEffectManager.Instance.PlayDud();
+            }
         }
         
         TriggerAgiEffect(Camera.main.WorldToScreenPoint(pos), score.transform.position, value, GainPointsCallback);
@@ -238,7 +252,15 @@ public class GameManager : MonoBehaviour
         void GainPointsCallback()
         {
             Company.AddEffectToCompanyScore("Fortschritt", description, value);
-            SoundEffectManager.Instance.PlayRandomPop();
+            if (value > 0)
+            {
+                SoundEffectManager.Instance.PlayRandomPop();
+            }
+            else
+            {
+                SoundEffectManager.Instance.PlayDud();
+            }
+            
         }
         
         TriggerProgressEffect(Camera.main.WorldToScreenPoint(pos), score.transform.position, GainPointsCallback);

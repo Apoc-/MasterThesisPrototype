@@ -15,6 +15,7 @@ namespace UI
         private void OnEnable()
         {
             DontDestroyOnLoad(this.gameObject);
+            AudioListener.volume = 0.5f;
         }
 
         private void Update()

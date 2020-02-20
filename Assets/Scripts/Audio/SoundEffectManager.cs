@@ -1,5 +1,8 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using Random = UnityEngine.Random;
 
 namespace UI
 {
@@ -14,8 +17,11 @@ namespace UI
         #endregion
         
         public List<AudioClip> Pops;
+        public AudioClip Dud;
         public AudioSource SoundEffectAudioSource;
 
+        public Toggle MuteToggle;
+        
         private bool _isMuted = false;
         
         public void PlayRandomPop()
@@ -24,11 +30,30 @@ namespace UI
             
             SoundEffectAudioSource.PlayOneShot(Pops[rnd]);
         }
+        
+        public void PlayDud()
+        {
+            SoundEffectAudioSource.PlayOneShot(Dud, 2);
+        }
 
         public void ToggleMute()
         {
             _isMuted = !_isMuted;
-            AudioListener.volume = _isMuted ? 0 : 1;
+            AudioListener.volume = _isMuted ? 0 : 0.5f;
+        }
+
+        private void OnEnable()
+        {
+            if (AudioListener.volume <= 0)
+            {
+                MuteToggle.isOn = true;
+                AudioListener.volume = 0;
+            }
+            else
+            {
+                MuteToggle.isOn = false;
+                AudioListener.volume = 0.5f;
+            }
         }
     }
 }

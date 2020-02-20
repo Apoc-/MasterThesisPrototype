@@ -1,7 +1,5 @@
 ﻿using System;
 using TMPro;
-using UnityEditor.Rendering;
-using UnityEngine.Events;
 
 namespace UI
 {

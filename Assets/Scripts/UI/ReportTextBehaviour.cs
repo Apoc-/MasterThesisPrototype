@@ -13,6 +13,7 @@ namespace UI
         {
             var manifesto = UiManager.Instance.ManifestoScreen;
             manifesto.FinishedCallback = UiManager.Instance.AdvisorScreen.ScoreInfo.FinishReport;
+
             manifesto.gameObject.SetActive(true);
         }
         

@@ -111,6 +111,8 @@ public class GameManager : MonoBehaviour
         GameState = GameState.ADVISE;
         Clock.Running = false;
         Clock.SetToBaseColor();
+        
+        InteractibleManager.Phone.StopRinging();
         UiManager.Instance.HideAllScreens();
         UiManager.Instance.ShowScoreScreen();
     }

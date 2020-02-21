@@ -10,11 +10,34 @@ namespace Core
     {
         public bool CanGiveCommand = false;
 
+        private bool _isWorking = false;
+        public Jun_TweenRuntime BopAnimation;
+        private float _progressTimer = 0;
+        
+        public void StartWork()
+        {
+            //hacky stop walk
+            //BopAnimation.enabled = false;
+            _isWorking = true;
+        }
+        
+        public void StopWork()
+        {
+            //hacky start walk
+            //BopAnimation.enabled = true;
+            _isWorking = false;
+        }
+        
         private void Update()
         {
+            if (_isWorking)
+            {
+                MakeProgress();
+            }
+            
             if (ReachedInteractionTarget())
             {
-                if (CurrentInteractTarget is Fixable fixable && fixable.IsBroken)
+                if (CurrentInteractTarget is Fixable fixable && fixable.IsBroken || CurrentInteractTarget is Chair)
                 {
                     EnableInteractionIcon();
                 }
@@ -23,6 +46,17 @@ namespace Core
             if (_finishedInteraction || !ReachedInteractionTarget())
             {
                 DisableInteractionIcon();
+                StopWork();
+            }
+        }
+        
+        private void MakeProgress()
+        {
+            _progressTimer -= Time.deltaTime;
+            if (_progressTimer <= 0)
+            {
+                GameManager.Instance.AddToProgress("Fortschritt", 1, OverheadPosition);
+                _progressTimer = GameManager.Instance.Company.GetProgressTimer();
             }
         }
 

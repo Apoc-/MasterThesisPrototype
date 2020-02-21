@@ -224,6 +224,7 @@ MonoBehaviour:
   RunSpeed: 160
   InteractionIcon: {fileID: 1007091064661270838}
   CanGiveCommand: 0
+  BopAnimation: {fileID: 2118552899614170287}
 --- !u!61 &1624464495420341365
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -383,7 +384,7 @@ MonoBehaviour:
   - {x: -6.3383245, y: -11.793658, z: 0}
   m_ShapePathHash: -789034585
   m_Mesh: {fileID: 0}
-  m_InstanceId: 292600
+  m_InstanceId: 426430
 --- !u!1 &4615138578649896429
 GameObject:
   m_ObjectHideFlags: 0

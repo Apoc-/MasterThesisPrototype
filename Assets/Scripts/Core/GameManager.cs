@@ -58,6 +58,10 @@ public class GameManager : MonoBehaviour
         => _songHandler
             ? _songHandler
             : _songHandler = FindObjectOfType<SongHandler>();
+
+    private TasklistManager _tasklistManager;
+    public TasklistManager TasklistManager
+        => _tasklistManager ? _tasklistManager : _tasklistManager = FindObjectOfType<TasklistManager>();
     
     private Clock _clock;
     public Clock Clock => _clock ? _clock : _clock = FindObjectOfType<Clock>();

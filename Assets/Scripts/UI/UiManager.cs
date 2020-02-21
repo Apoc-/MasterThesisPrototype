@@ -115,6 +115,10 @@ namespace UI
                         Tooltip.Show(tooltip);
                         break;
                     }
+                    else
+                    {
+                        Tooltip.Hide();
+                    }
                 }
             }
             else

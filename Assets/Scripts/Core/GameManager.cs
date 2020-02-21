@@ -165,7 +165,7 @@ public class GameManager : MonoBehaviour
             "Neues Meeting: Daily Scrum", 
             10);
         
-        Clock.SetAlarm(new TimeStamp(10,45,0), CallForDailyScrum, true);
+        Clock.SetAlarm(new TimeStamp(10,30,0), CallForDailyScrum, true);
         
         Clock.OnSecondTick += ExecDailyScrumPlan;
     }

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using Tasklist;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -44,7 +45,7 @@ namespace Core
                 }
             }
 
-            if (_finishedInteraction || !ReachedInteractionTarget())
+            if (_finishedInteraction || !ReachedInteractionTarget() || GameManager.Instance.GameState != GameState.PLAYING)
             {
                 DisableInteractionIcon();
                 StopWork();
@@ -58,6 +59,7 @@ namespace Core
             {
                 GameManager.Instance.AddToProgress("Fortschritt", 1, OverheadPosition);
                 _progressTimer = GameManager.Instance.Company.GetProgressTimer();
+                GameManager.Instance.TasklistScreenBehaviour.ReportTaskProgress(BonusTaskType.MakeProgress);
             }
         }
 

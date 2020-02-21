@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using Core;
+using Tasklist;
 using TMPro;
 using UnityEditor;
 using UnityEngine;
@@ -101,6 +102,8 @@ namespace UI
             
             entry.gameObject.SetActive(true);
             CurrentDisplayWikiEntry = entry;
+            
+            GameManager.Instance.TasklistScreenBehaviour.ReportTaskProgress(BonusTaskType.Wiki);
         }
 
         private void HideAllEntries()

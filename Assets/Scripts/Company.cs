@@ -3,6 +3,7 @@ using System.CodeDom;
 using System.Collections.Generic;
 using System.Linq;
 using Core;
+using Tasklist;
 using UI;
 public class Company
 {
@@ -26,6 +27,14 @@ public class Company
     {
         var targetScore = CompanyScores.First(score => score.Name == scoreName);
         targetScore.AddEffect(effectDescription, value);
+
+        if (scoreName == "Fortschritt")
+        {
+            for (int i = 0; i < value; i++)
+            {
+                GameManager.Instance.TasklistScreenBehaviour.ReportTaskProgress(BonusTaskType.ReachProgress);    
+            }
+        }
     }
 
     public void RegisterTeamMember(Entity entity)

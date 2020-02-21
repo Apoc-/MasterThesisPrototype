@@ -23,18 +23,21 @@ namespace Core
                 .DisplayNotification(
                     "Das Telefon klingelt sturm, muss wohl was ganz wichtiges sein!",
                     NotificationType.Warning);
+            
+            GameManager.Instance.TasklistScreenBehaviour.AddImpediment(this);
         }
 
         public void StopRinging()
         {
             _isRinging = false;
             RingingEffect.SetActive(false);
+            
+            GameManager.Instance.TasklistScreenBehaviour.RemoveImpediment(this);
         }
 
         public void Answer(int id)
         {
-            _isRinging = false;
-            RingingEffect.SetActive(false);
+            StopRinging();
             TriggerDecisionModalById(id);
         }
         

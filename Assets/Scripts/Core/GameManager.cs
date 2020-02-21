@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Code;
 using Core;
+using Tasklist;
 using Tech;
 using UI;
 using Unity.Collections;
@@ -11,6 +12,7 @@ using UnityEditor;
 using UnityEngine;
 using UnityEngine.Experimental.Rendering.Universal;
 using Random = UnityEngine.Random;
+using TasklistScreenBehaviour = Core.TasklistScreenBehaviour;
 
 public class GameManager : MonoBehaviour
 {
@@ -59,9 +61,9 @@ public class GameManager : MonoBehaviour
             ? _songHandler
             : _songHandler = FindObjectOfType<SongHandler>();
 
-    private TasklistManager _tasklistManager;
-    public TasklistManager TasklistManager
-        => _tasklistManager ? _tasklistManager : _tasklistManager = FindObjectOfType<TasklistManager>();
+    private TasklistScreenBehaviour _tasklistScreenBehaviour;
+    public TasklistScreenBehaviour TasklistScreenBehaviour
+        => _tasklistScreenBehaviour ? _tasklistScreenBehaviour : _tasklistScreenBehaviour = FindObjectOfType<TasklistScreenBehaviour>();
     
     private Clock _clock;
     public Clock Clock => _clock ? _clock : _clock = FindObjectOfType<Clock>();
@@ -174,6 +176,9 @@ public class GameManager : MonoBehaviour
         Clock.SetAlarm(new TimeStamp(10,30,0), CallForDailyScrum, true);
         
         Clock.OnSecondTick += ExecDailyScrumPlan;
+        
+        BonusTaskProvider.EnqueueReachProgressTask(1000);
+        BonusTaskProvider.EnqueueTodoTask(5);
     }
 
     private void CallForDailyScrum()
@@ -200,6 +205,9 @@ public class GameManager : MonoBehaviour
 
         ScrumMasterActive = true;
         Clock.OnSecondTick += ExecScrumMasterPlan;
+        
+        BonusTaskProvider.EnqueueTodoTask(5);
+        BonusTaskProvider.EnqueueReadWikiTask(3);
     }
     
     public void InitTaskBoardPlan()
@@ -215,6 +223,10 @@ public class GameManager : MonoBehaviour
         taskboard.LightContainer.GetComponentsInChildren<Light2D>().ToList().ForEach(light => { light.enabled = true; });
         
         InteractibleManager.AddToNpcInteractibles(taskboard);
+        
+        BonusTaskProvider.EnqueueTaskboardTask(3);
+        BonusTaskProvider.EnqueueReachProgressTask(2000);
+        BonusTaskProvider.EnqueueReachProgressTask(5000);
     }
     
     public void AddToTeamspirit(string description, int value, Vector2 pos)
@@ -269,7 +281,6 @@ public class GameManager : MonoBehaviour
             {
                 SoundEffectManager.Instance.PlayDud();
             }
-            
         }
         
         TriggerProgressEffect(Camera.main.WorldToScreenPoint(pos), score.transform.position, GainPointsCallback);

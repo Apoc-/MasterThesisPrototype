@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using Tasklist;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -23,6 +24,8 @@ namespace Core
             IsBroken = false;
             GameManager.Instance.AddToAgility("Scrum Master Tätigkeiten", 1, entity.OverheadPosition);
             _currentBrokenTooltip = "";
+            GameManager.Instance.TasklistScreenBehaviour.RemoveImpediment(this);
+            GameManager.Instance.TasklistScreenBehaviour.ReportTaskProgress(BonusTaskType.Todo);
             OnFixed();
         }
 
@@ -36,6 +39,7 @@ namespace Core
             IsBroken = true;
 
             GameManager.Instance.NotificationController.DisplayNotification(GetBrokenMessage(), NotificationType.Warning);
+            GameManager.Instance.TasklistScreenBehaviour.AddImpediment(this);
         }
 
         private void SetBrokenTooltip()
@@ -58,7 +62,7 @@ namespace Core
         {
             if (entity is NPC)
             {
-                GameManager.Instance.AddToTeamspirit("Hindernisfreies arbeiten", 1, entity.OverheadPosition);
+                GameManager.Instance.AddToTeamspirit("Hindernisfreies arbeiten", 2, entity.OverheadPosition);
             }
         }
 

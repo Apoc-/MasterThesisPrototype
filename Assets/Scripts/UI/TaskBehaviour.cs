@@ -1,5 +1,6 @@
 ﻿using System.Linq;
 using Core;
+using Tasklist;
 using UnityEngine;
 
 namespace UI
@@ -94,6 +95,7 @@ namespace UI
                 {
                     CurrentLane = lane;
                     GameManager.Instance.Company.AddEffectToCompanyScore("Agilität", "Taskboard Pflege", 2);
+                    GameManager.Instance.TasklistScreenBehaviour.ReportTaskProgress(BonusTaskType.Taskboard);
                 }
                 else
                 {

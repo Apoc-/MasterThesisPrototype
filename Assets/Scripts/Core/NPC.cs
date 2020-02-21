@@ -17,7 +17,8 @@ namespace Core
         [SerializeField] private float _randomInteractionChance = 0.8f;
         [SerializeField] private float _meetingAttendChance = 0.5f;
         [SerializeField] private float _minimumOfficeTime = 20f;
-        [SerializeField] private float _breakChance = 0.2f;
+        [SerializeField] private float _baseBreakChance = 0.2f;
+        [SerializeField] private float _currentBreakChance = 0.2f;
 
         private float _decisionTimer = 0f;
         private float _officeTimer = 0f;
@@ -99,9 +100,14 @@ namespace Core
             if (fixable == null) return;
 
             var rnd = Random.Range(0, 1f);
-            if (rnd <= _breakChance)
+            if (rnd <= _currentBreakChance)
             {
                 fixable.Break();
+                _currentBreakChance = _baseBreakChance;
+            }
+            else
+            {
+                _currentBreakChance += _baseBreakChance;
             }
         }
 

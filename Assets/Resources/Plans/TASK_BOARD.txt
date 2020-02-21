@@ -1,7 +1,6 @@
 ﻿<b>Maßnahme:</b> Taskboard einführen
 
-<b>Art der Maßnahme</b>
-Artefakt
+<b>Art der Maßnahme:</b> Artefakt
 
 <b>Informationen</b>
   - Sichtbar machen der aktuellen Aufgaben und deren Stand

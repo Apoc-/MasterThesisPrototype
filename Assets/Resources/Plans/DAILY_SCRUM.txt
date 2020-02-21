@@ -1,7 +1,7 @@
 ﻿<b>Maßnahme:</b> Daily Scrum Meeting
 
-<b>Art der Maßnahme</b>
-Meeting <i>(Maximal 15 Minuten um 11 Uhr täglich!)</i>
+<b>Art der Maßnahme:</b> Meeting <i>
+(Maximal 15 Minuten um 11 Uhr täglich!)</i>
 
 <b>Informationen</b>
     - Regelmäßiges tägliches Meeting

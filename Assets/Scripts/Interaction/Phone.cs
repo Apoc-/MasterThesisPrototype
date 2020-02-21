@@ -15,6 +15,7 @@ namespace Core
 
         public void Ring(int id)
         {
+            StopRinging();
             _currentCallId = id;
             _isRinging = true;
             RingingEffect.SetActive(true);

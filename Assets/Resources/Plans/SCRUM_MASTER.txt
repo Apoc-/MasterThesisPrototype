@@ -1,7 +1,6 @@
 ﻿<b>Maßnahme:</b> Scrum Master einführen
 
-<b>Art der Maßnahme</b>
-Einführung einer Rolle
+<b>Art der Maßnahme:</b> Einführung einer Rolle
 
 <b>Informationen</b>
   - Beseitigung von Hindernissen

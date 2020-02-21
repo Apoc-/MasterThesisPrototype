@@ -37,7 +37,8 @@ namespace Core
             
             if (ReachedInteractionTarget())
             {
-                if (CurrentInteractTarget is Fixable fixable && fixable.IsBroken || CurrentInteractTarget is Chair)
+                if (CurrentInteractTarget is Fixable fixable && fixable.IsBroken 
+                    || CurrentInteractTarget is Chair)
                 {
                     EnableInteractionIcon();
                 }

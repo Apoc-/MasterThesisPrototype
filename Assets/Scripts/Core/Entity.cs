@@ -46,6 +46,7 @@ namespace Core
             => _spriteRenderer ? _spriteRenderer : _spriteRenderer = GetComponentInChildren<SpriteRenderer>();
 
         public Vector2 OverheadPosition => CalcOverheadPosition();
+        public Vector2 CenterPosition => CalcCenterPosition();
 
         private Vector2 CalcOverheadPosition()
         {
@@ -54,6 +55,12 @@ namespace Core
             pos.y += bounds.extents.y;
 
             return pos;
+        }
+        
+        private Vector2 CalcCenterPosition()
+        {
+            var bounds = GetComponent<Collider2D>().bounds;
+            return bounds.center;
         }
             
         private void FixedUpdate()
@@ -119,7 +126,6 @@ namespace Core
                 _startedInteraction = false;
                 _finishedInteractionCallback?.Invoke();
                 CurrentInteractTarget.FinishInteraction(this);
-                
             }
         }
 

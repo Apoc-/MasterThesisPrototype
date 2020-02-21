@@ -18,14 +18,14 @@ namespace Core
         [SerializeField] private float _meetingAttendChance = 0.5f;
         [SerializeField] private float _minimumOfficeTime = 20f;
         [SerializeField] private float _breakChance = 0.2f;
-        
+
         private float _decisionTimer = 0f;
         private float _officeTimer = 0f;
         public Interactible Office;
 
         private bool _isInOffice = false;
         private float _progressTimer = 0f;
-        
+
         public void Update()
         {
             if (GameManager.Instance.GameState != GameState.PLAYING) return;
@@ -34,7 +34,7 @@ namespace Core
             {
                 EnableInteractionIcon();
             }
-            
+
             if (CanMakeDecision() && CanTakeAction())
             {
                 DecideAction();
@@ -68,7 +68,7 @@ namespace Core
         {
             _officeTimer += Time.deltaTime;
             var timerElapsed = _officeTimer > _minimumOfficeTime;
-            
+
             return timerElapsed;
         }
 
@@ -82,8 +82,8 @@ namespace Core
 
         private void DoRandomInteraction()
         {
-            LeaveOffice();
             var interactible = GetRandomNpcInteractible();
+            LeaveOffice();
             InteractWith(interactible, () =>
             {
                 HandleRandomBreak(interactible);
@@ -94,17 +94,17 @@ namespace Core
         private void HandleRandomBreak(Interactible interactible)
         {
             if (!GameManager.Instance.ScrumMasterActive) return;
-            
+
             var fixable = interactible as Fixable;
             if (fixable == null) return;
-            
+
             var rnd = Random.Range(0, 1f);
             if (rnd <= _breakChance)
             {
                 fixable.Break();
             }
         }
-        
+
         private void GoBackToOffice()
         {
             var floor = Office.GetFloor();
@@ -142,14 +142,14 @@ namespace Core
                 _progressTimer = GameManager.Instance.Company.GetProgressTimer();
             }
         }
-        
+
         private Interactible GetRandomNpcInteractible()
         {
             var interactibles = GameManager.Instance
                 .InteractibleManager
                 .NpcInteractibles
                 .ToList();
-            
+
             var rand = Random.Range(0, interactibles.Count);
 
             return interactibles.ToList()[rand];
@@ -198,8 +198,8 @@ namespace Core
 
         public void GoToMeeting(MeetingRoomInteractible meetingRoomInteractible)
         {
-            if(_isInOffice) LeaveOffice();
-            
+            if (_isInOffice) LeaveOffice();
+
             CancelAllOrders();
             _hasMeeting = true;
             _isRunning = true;

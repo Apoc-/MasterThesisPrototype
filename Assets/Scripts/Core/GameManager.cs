@@ -7,6 +7,7 @@ using Core;
 using Tech;
 using UI;
 using Unity.Collections;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.Experimental.Rendering.Universal;
 using Random = UnityEngine.Random;
@@ -148,6 +149,8 @@ public class GameManager : MonoBehaviour
         Instance.SongHandler?.PlaySongById(1);
         
         player.CanGiveCommand = true;
+
+        InitCalls();
         
         Clock.SetTime(9,0,0);
         Clock.ResetAlarms();
@@ -299,6 +302,31 @@ public class GameManager : MonoBehaviour
     {
         GameSpeedController.Pause();
         UiManager.Instance.FinishGameScreen.Show();
+    }
+
+    private void InitCalls()
+    {
+        switch (Day)
+        {
+            case 1:
+                void Call1() => InteractibleManager.Phone.Ring(1);
+                void Call2() => InteractibleManager.Phone.Ring(2);
+                Clock.SetAlarm(new TimeStamp(11), Call1);
+                Clock.SetAlarm(new TimeStamp(15), Call2);
+                break;
+            case 2:
+                void Call3() => InteractibleManager.Phone.Ring(3);
+                Clock.SetAlarm(new TimeStamp(13,30), Call3);
+                break;
+            case 3:
+                void Call4() => InteractibleManager.Phone.Ring(4);
+                Clock.SetAlarm(new TimeStamp(14,30), Call4);
+                break;
+            default:
+                throw new NotImplementedException();
+                break;
+        }
+            
     }
     
     #region Debug

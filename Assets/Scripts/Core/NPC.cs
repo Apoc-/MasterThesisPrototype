@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Timers;
+using UI;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UIElements;
@@ -119,6 +120,7 @@ namespace Core
 
         private void EnterOffice()
         {
+            SoundEffectManager.Instance.PlayDoorSound();
             _isInOffice = true;
             _officeTimer = 0;
             Hide();
@@ -126,6 +128,7 @@ namespace Core
 
         private void LeaveOffice()
         {
+            SoundEffectManager.Instance.PlayDoorSound();
             _isInOffice = false;
             Show();
         }

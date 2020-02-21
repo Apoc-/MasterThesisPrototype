@@ -18,11 +18,17 @@ namespace UI
         
         public List<AudioClip> Pops;
         public AudioClip Dud;
+        public AudioClip Door;
         public AudioSource SoundEffectAudioSource;
 
         public Toggle MuteToggle;
         
         private bool _isMuted = false;
+
+        public void PlayDoorSound()
+        {
+            SoundEffectAudioSource.PlayOneShot(Door,0.25f);
+        }
         
         public void PlayRandomPop()
         {

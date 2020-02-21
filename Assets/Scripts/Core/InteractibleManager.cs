@@ -20,6 +20,8 @@ namespace Core
 
         public TaskboardInteractible TaskboardInteractible;
 
+        public Phone Phone;
+        
         public void AddToNpcInteractibles(Interactible interactible)
         {
             NpcInteractibles.Add(interactible);

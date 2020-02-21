@@ -1,0 +1,3 @@
+﻿Jim schlägt vor, dass wir uns alle zwei Wochen treffen, um zu besprechen, wie wir besser arbeiten können. Das würde jedoch regelmäßig Zeit in Anspruch nehmen in der das Team auch arbeiten könnte.
+Willst du Jim's Vorschlag annehmen?
+$answer:yes

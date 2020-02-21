@@ -1,0 +1,2 @@
+﻿Der Projektmanager hat aus der Zentrale angerufen und schlägt vor, dass wir einen Lead-Entwickler im Scrum-Team ernennen. Dadurch könnten Entscheidungen potentiell schneller getroffen werden. Sollen wir diesen Vorschlag annehmen?
+$answer:no

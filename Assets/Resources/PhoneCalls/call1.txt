@@ -1,0 +1,2 @@
+﻿Ein Kunde ruft an und fragt, ob das Projekt schon diese Woche fertig werden könnte. Er bietet der Firma dafür einen saftigen Bonus an. Mit ein paar Überstunden sollte das machbar sein. Willst du dem Kunden zusagen?
+$answer:no

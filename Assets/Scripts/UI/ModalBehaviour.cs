@@ -1,27 +1,11 @@
-﻿using System;
-using TMPro;
+﻿using TMPro;
 
 namespace UI
 {
-    public class ModalDialogueBehaviour : ScreenBehaviour
+    public class ModalBehaviour : ScreenBehaviour
     {
-        public Action YesAction;
-        public Action NoAction;
-
         public TextMeshProUGUI Title;
         public TextMeshProUGUI Text;
-
-        public void OnYesClick()
-        {
-            YesAction?.Invoke();
-            Hide();
-        }
-
-        public void OnNoClick()
-        {
-            NoAction?.Invoke();
-            Hide();
-        }
         
         private void OnEnable()
         {
@@ -32,7 +16,7 @@ namespace UI
         {
             GameManager.Instance.GameSpeedController.UnPause();
         }
-
+        
         public void SetTitle(string title)
         {
             Title.text = title;

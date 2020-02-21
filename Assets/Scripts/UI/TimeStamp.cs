@@ -7,7 +7,7 @@
         internal int Seconds;
         internal float RealSeconds = 0f;
 
-        public TimeStamp(int hours, int minutes, int seconds)
+        public TimeStamp(int hours = 00, int minutes = 00, int seconds = 00)
         {
             Hours = hours;
             Minutes = minutes;

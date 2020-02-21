@@ -1,0 +1,3 @@
+﻿<b>"Agile processes promote sustainable development. The sponsors, developers, and users should be able to maintain a constant pace indefinitely." - Agile Principle #8</b>
+
+Grundsätzlich sollten, laut diesem agilen Prinzip, keine Überstunden gemacht werden. Natürlich könnte es sein, dass ein Notfall dies trotzdem notwendig macht. Werden die Überstunden jedoch zur Regel, so hat sich das Team zu viel Arbeit vorgenommen!

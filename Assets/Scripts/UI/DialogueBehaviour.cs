@@ -125,7 +125,7 @@ namespace UI
         {
             var btn = Instantiate(PlanButtonPrefab, PlanButtonContainer.transform);
             btn.name = plan.ToString();
-            btn.GetComponentInChildren<TextMeshProUGUI>().text = plan.ToString();
+            btn.GetComponentInChildren<TextMeshProUGUI>().text = PlanButtonTextProvider.GetButtonTextByPlan(plan);
 
             var planButton = btn.GetComponent<PlanButton>();
 

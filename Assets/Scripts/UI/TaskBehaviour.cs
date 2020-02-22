@@ -19,11 +19,13 @@ namespace UI
         public bool IsTested = false;
         public bool IsDocumented = false;
 
+        public string Description;
+
         private Tooltip _tooltip => UiManager.Instance.TaskBoardScreen.TaskTooltip;
         
         private string GetStatusText()
         {
-            var status = "";
+            var status = "Status: ";
 
             if (IsProgrammed)
             {
@@ -134,16 +136,19 @@ namespace UI
 
         public string GetTooltip()
         {
-            var tooltip = "";
-            
-            tooltip += "Bearbeitet von <b>" + Owner.Name + "</b>\n";
-            tooltip += "Start: " + StartTime;
-            if (EndTime != "")
+            var tooltip = "Bearbeitet von: ";
+            if (Owner != null)
             {
-                tooltip += " Ende: " + EndTime;
+                tooltip += "<b>" + Owner.Name + "</b>";    
             }
 
             tooltip += "\n";
+            tooltip += "Gestartet: " + StartTime + "\n";
+            tooltip += "Abgeschlossen: " + EndTime + "\n";
+
+            tooltip += "\n";
+            tooltip += Description;
+            tooltip += "\n\n";
             tooltip += GetStatusText();
 
             return tooltip;

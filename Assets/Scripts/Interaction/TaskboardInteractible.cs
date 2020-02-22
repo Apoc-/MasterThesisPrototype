@@ -17,7 +17,7 @@ namespace Core
         public GameObject Stuff;
         
         private GameObject _warningSign;
-
+        
         public override void StartInteraction(Entity entity)
         {
             if (entity is NPC npc)
@@ -34,57 +34,72 @@ namespace Core
         private void HandleNpcInteraction(NPC npc)
         {
             var tasksNotDone = TaskBoardScreen.Tasks
-                .Where(task => task.Owner == npc && task.CurrentLane != TaskBoardScreen.DoneLane)
+                .Where(task => task.Owner == npc 
+                    && task.CurrentLane != TaskBoardScreen.DoneLane 
+                    || task.CurrentLane == TaskBoardScreen.TodoLane)
                 .ToList();
                 
             TaskBehaviour handledTask;
 
             if (!tasksNotDone.Any())
             {
-                handledTask = TaskBoardScreen.CreateNewTask(npc);
+                handledTask = TaskBoardScreen.CreateNewTask();
             }
             else
             {
                 handledTask = tasksNotDone.First();
             }
             
-            TaskBoardScreen.ProgressTask(handledTask);
+            TaskBoardScreen.ProgressTask(handledTask, npc);
 
             MakeRandomMistake(handledTask);
-
-            if (handledTask.CurrentLane == TaskBoardScreen.DoneLane)
-            {
-                TaskBoardScreen.CreateNewTask(npc);
-            }
         }
 
         private void MakeRandomMistake(TaskBehaviour handledTask)
         {
+            var madeMistake = false;
             if (handledTask.CurrentLane.laneType == TaskboardLaneType.DONE)
             {
-                var madeMistake = false;
                 var testedRnd = Random.Range(0f, 1f);
-                if (testedRnd > 1-MistakeChance)
+                if (testedRnd < MistakeChance)
                 {
                     handledTask.IsTested = false;
                     madeMistake = true;
                 }
                 
                 var documentedRnd = Random.Range(0f, 1f);
-                if (documentedRnd > 1-MistakeChance)
+                if (documentedRnd < MistakeChance)
                 {
                     handledTask.IsDocumented = false;
                     madeMistake = true;
                 }
-
-                if (madeMistake)
+            }
+            else if(handledTask.CurrentLane.laneType == TaskboardLaneType.DOING)
+            {
+                var rnd = Random.Range(0f, 1f);
+                if (rnd < MistakeChance)
                 {
-                    GameManager.Instance
-                        .NotificationController
-                        .DisplayNotification(
-                            "Auf dem Taskboard ist etwas nicht richtig eingeordnet.", 
-                            NotificationType.Warning);
+                    handledTask.StartTime = "";
+                    handledTask.IsStarted = false;
+                    madeMistake = true;
                 }
+                
+                rnd = Random.Range(0f, 1f);
+                if (rnd < MistakeChance)
+                {
+                    handledTask.Owner = null;
+                    handledTask.IsStarted = false;
+                    madeMistake = true;
+                }
+            }
+            
+            if (madeMistake)
+            {
+                GameManager.Instance
+                    .NotificationController
+                    .DisplayNotification(
+                        "Auf dem Taskboard ist etwas nicht richtig eingeordnet.", 
+                        NotificationType.Warning);
             }
         }
 

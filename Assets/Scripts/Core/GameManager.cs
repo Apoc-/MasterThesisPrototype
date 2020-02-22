@@ -123,16 +123,6 @@ public class GameManager : MonoBehaviour
         UiManager.Instance.ShowScoreScreen();
     }
 
-    private void ExecScrumMasterPlan()
-    {
-        
-    }
-
-    private void ExecDailyScrumPlan()
-    {
-        
-    }
-
     private void InitPlayerAvatar()
     {
         player = Instantiate(Resources.Load<Player>("Prefabs/PlayerAvatar"));
@@ -174,9 +164,7 @@ public class GameManager : MonoBehaviour
             10);
         
         Clock.SetAlarm(new TimeStamp(10,30,0), CallForDailyScrum, true);
-        
-        Clock.OnSecondTick += ExecDailyScrumPlan;
-        
+
         BonusTaskProvider.EnqueueReachProgressTask(1000);
         BonusTaskProvider.EnqueueTodoTask(5);
     }
@@ -204,8 +192,7 @@ public class GameManager : MonoBehaviour
                 10);
 
         ScrumMasterActive = true;
-        Clock.OnSecondTick += ExecScrumMasterPlan;
-        
+
         BonusTaskProvider.EnqueueTodoTask(5);
         BonusTaskProvider.EnqueueReadWikiTask(3);
     }
@@ -223,7 +210,12 @@ public class GameManager : MonoBehaviour
         taskboard.LightContainer.GetComponentsInChildren<Light2D>().ToList().ForEach(light => { light.enabled = true; });
         
         InteractibleManager.AddToNpcInteractibles(taskboard);
-        
+
+        for (int i = 0; i < 8; i++)
+        {
+            taskboard.TaskBoardScreen.CreateNewTask();
+        }
+
         BonusTaskProvider.EnqueueTaskboardTask(3);
         BonusTaskProvider.EnqueueReachProgressTask(2000);
         BonusTaskProvider.EnqueueReachProgressTask(5000);

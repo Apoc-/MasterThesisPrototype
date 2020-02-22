@@ -1,6 +1,8 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using Core;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 namespace UI
 {
@@ -19,7 +21,7 @@ namespace UI
         public Tooltip TaskTooltip;
         
         public List<TaskBehaviour> Tasks = new List<TaskBehaviour>();
-        
+
         public void DoErrorShake()
         {
             BackgroundTween.Play();
@@ -33,16 +35,30 @@ namespace UI
             gameObject.SetActive(false);
         }
 
-        public TaskBehaviour CreateNewTask(NPC npc)
+        public TaskBehaviour CreateNewTask()
         {
             var pref = GetRandomPrefab();
             var task = Instantiate(pref, TodoLane.transform, false);
 
-            task.Owner = npc;
+            task.Description = GenerateTaskDescription();
+            
             Tasks.Add(task);
             
             MoveTaskToLane(task, TodoLane);
             return task;
+        }
+
+        private string GenerateTaskDescription()
+        {
+            var prefixes = Resources.Load<TextAsset>("Tasks/Prefixes").text.Split('\n');
+            var suffixes = Resources.Load<TextAsset>("Tasks/Suffixes").text.Split('\n');
+
+            var pre = prefixes[Random.Range(0, prefixes.Length)];
+            var suf = suffixes[Random.Range(0, suffixes.Length)];
+            pre = pre.Replace("\r", "").Replace("\n", "");
+            suf = suf.Replace("\r", "").Replace("\n", "");
+
+            return pre + " " + suf;
         }
 
         public void MoveTaskToLane(TaskBehaviour task, TaskboardLane lane)
@@ -67,7 +83,7 @@ namespace UI
             return YellowPrefab;
         }
 
-        public void ProgressTask(TaskBehaviour task)
+        public void ProgressTask(TaskBehaviour task, NPC npc)
         {
             if (task.CurrentLane == TodoLane)
             {
@@ -75,6 +91,7 @@ namespace UI
                 
                 task.IsStarted = true;
                 task.StartTime = GameManager.Instance.Clock.GetTime().ToString();
+                if(task.Owner == null) task.Owner = npc;
             } 
             else if (task.CurrentLane == DoingLane)
             {

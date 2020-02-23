@@ -165,7 +165,7 @@ public class GameManager : MonoBehaviour
         
         Clock.SetAlarm(new TimeStamp(10,30,0), CallForDailyScrum, true);
 
-        BonusTaskProvider.EnqueueReachProgressTask(1000);
+        BonusTaskProvider.EnqueueReachProgressTask(600);
         BonusTaskProvider.EnqueueTodoTask(5);
     }
 
@@ -173,7 +173,7 @@ public class GameManager : MonoBehaviour
     {
         NotificationController
             .DisplayNotification(
-                "In 15 Minuten startet das Daily-Scrum-Meeting! " +
+                "In 30 Minuten startet das Daily-Scrum-Meeting! " +
                 "Wenn nicht jeder hingehen will, solltest du nachhelfen!"
                 , NotificationType.Advisor);
 

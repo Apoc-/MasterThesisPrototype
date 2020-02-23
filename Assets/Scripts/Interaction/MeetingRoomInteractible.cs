@@ -66,12 +66,14 @@ namespace Core
                 GameManager.Instance.AddToAgility("Daily Scrum: Jemand war nicht beim Daily!", -10, transform.position);
             }
 
-            _arrivedEntities.ForEach(entity =>
+            _invitedEntities.ForEach(entity =>
             {
                 entity.CancelCurrentInteractionOrder();
                 entity.CancelCurrentWalkOrder();
                 entity.ReturnFromMeeting();
             });
+            
+            GameManager.Instance.player.ReturnFromMeeting();
 
             HasMeeting = false;
             CurrentMeetingName = "Kein Meeting";

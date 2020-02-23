@@ -209,9 +209,13 @@ public class GameManager : MonoBehaviour
         taskboard.Stuff.SetActive(false);
         taskboard.LightContainer.GetComponentsInChildren<Light2D>().ToList().ForEach(light => { light.enabled = true; });
         
+        
+        //a bit hacky, but: three times to increase the change the npcs go there 
+        InteractibleManager.AddToNpcInteractibles(taskboard);
+        InteractibleManager.AddToNpcInteractibles(taskboard);
         InteractibleManager.AddToNpcInteractibles(taskboard);
 
-        for (int i = 0; i < 8; i++)
+        for (int i = 0; i < 12; i++)
         {
             taskboard.TaskBoardScreen.CreateNewTask();
         }

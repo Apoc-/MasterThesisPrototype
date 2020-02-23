@@ -1,0 +1,12 @@
+﻿$title=Leitsätze
+We are uncovering better ways of developing
+software by doing it and helping others do it.
+Through this work we have come to value:
+
+<b>Individuals and interactions</b> over processes and tools
+<b>Working software</b> over comprehensive documentation
+<b>Customer collaboration</b> over contract negotiation
+<b>Responding to change</b> over following a plan
+
+That is, while there is value in the items on
+the right, we value the items on the left more.

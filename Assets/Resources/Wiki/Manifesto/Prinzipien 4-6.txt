@@ -1,0 +1,13 @@
+﻿$title=Prinzipien 4-6
+Business people and developers must work
+together daily throughout the project.
+
+Build projects around motivated individuals.
+Give them the environment and support they need,
+and trust them to get the job done.
+
+The most efficient and effective method of
+conveying information to and within a development
+team is face-to-face conversation.
+
+[Prinzipien 7-9]

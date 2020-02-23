@@ -38,9 +38,9 @@ namespace UI
             AnyKeyTextObject.SetActive(false);
         }
 
-        public void LoadGameScene()
+        public void LoadPregameScene()
         {
-            SceneManager.LoadScene("Scenes/GameScene");
+            SceneManager.LoadScene("Scenes/PregameScene");
         }
 
         public void EndGame()

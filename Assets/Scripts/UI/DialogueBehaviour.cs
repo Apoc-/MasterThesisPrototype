@@ -96,7 +96,9 @@ namespace UI
             var replacedLine = line;
             replacedLine = replacedLine.Replace("{progress}",
                 ""+GameManager.Instance.Company.CompanyScores.First(score => score.Name == "Fortschritt").Value);
-            
+
+            replacedLine = replacedLine.Replace("{playerName}", GameManager.Instance.player.Name);
+
             return replacedLine;
         }
 

@@ -9,6 +9,7 @@ namespace Core
 {
     public class Player : Entity
     {
+        public string Name = "Player";
         public bool CanGiveCommand = false;
         public void DisableCommands() => CanGiveCommand = false;
         public void  EnableCommands() => CanGiveCommand = true;

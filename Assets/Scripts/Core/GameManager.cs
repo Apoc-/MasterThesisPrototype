@@ -61,6 +61,13 @@ public class GameManager : MonoBehaviour
             ? _songHandler
             : _songHandler = FindObjectOfType<SongHandler>();
 
+    private SettingHandler _settingHandler;
+
+    public SettingHandler SettingHandler =>
+        _settingHandler
+            ? _settingHandler
+            : _settingHandler = FindObjectOfType<SettingHandler>();
+    
     private TasklistScreenBehaviour _tasklistScreenBehaviour;
     public TasklistScreenBehaviour TasklistScreenBehaviour
         => _tasklistScreenBehaviour ? _tasklistScreenBehaviour : _tasklistScreenBehaviour = FindObjectOfType<TasklistScreenBehaviour>();
@@ -125,8 +132,18 @@ public class GameManager : MonoBehaviour
 
     private void InitPlayerAvatar()
     {
-        player = Instantiate(Resources.Load<Player>("Prefabs/PlayerAvatar"));
-        player.name = "PlayerAvatar";
+        if (SettingHandler == null)
+        {
+            player = Instantiate(Resources.Load<Player>("Prefabs/PlayerAvatar0"));
+            player.Name = "Player";    
+        }
+        else
+        {
+            var prefabName = $"Prefabs/PlayerAvatar{SettingHandler.AvatarId}";
+            player = Instantiate(Resources.Load<Player>(prefabName));
+            player.Name = SettingHandler.PlayerName;
+        }
+        
         player.MoveInstantly(WaypointProvider.Spawn);
     }
 

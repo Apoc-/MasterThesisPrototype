@@ -59,6 +59,7 @@ namespace Core
             UnityAction action = null;
             action = () =>
             {
+                EnableOutline();
                 Hide();
                 waypoint.UnregisterOnEnterActionForEntity(this, action);
                 DisableCommands();
@@ -72,6 +73,7 @@ namespace Core
             UnityAction action = null;
             action = () =>
             {
+                DisableOutline();
                 Show();
                 waypoint.UnregisterOnEnterActionForEntity(this, action);
                 EnableCommands();

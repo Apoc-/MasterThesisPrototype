@@ -45,6 +45,10 @@ namespace Core
         protected SpriteRenderer SpriteRenderer
             => _spriteRenderer ? _spriteRenderer : _spriteRenderer = GetComponentInChildren<SpriteRenderer>();
 
+        public GameObject Outline;
+        public void EnableOutline() => Outline.SetActive(true);
+        public void DisableOutline() => Outline.SetActive(false);
+        
         public Vector2 OverheadPosition => CalcOverheadPosition();
         public Vector2 CenterPosition => CalcCenterPosition();
 
@@ -252,6 +256,7 @@ namespace Core
             UnityAction action = null;
             action = () =>
             {
+                EnableOutline();
                 Hide();
                 _isInElevator = true;
                 waypoint.UnregisterOnEnterActionForEntity(this, action);
@@ -265,6 +270,7 @@ namespace Core
             UnityAction action = null;
             action = () =>
             {
+                DisableOutline();
                 Show();
                 _isInElevator = false;
                 waypoint.UnregisterOnEnterActionForEntity(this, action);

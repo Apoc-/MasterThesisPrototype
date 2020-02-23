@@ -104,7 +104,8 @@ namespace UI
                     UiManager.Instance.TaskBoardScreen.DoErrorShake();
                 }
             }
-
+            
+            UiManager.Instance.TaskBoardScreen.TaskboardInteractible.CheckWrongTasks();
             transform.SetParent(CurrentLane.transform, true);
             _isPickedUp = false;
         }

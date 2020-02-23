@@ -17,6 +17,10 @@ namespace Core
         public GameObject Stuff;
         
         private GameObject _warningSign;
+
+        private int _wrongTaskCount = 0;
+        private float GetWrongTaskTimer() => (_wrongTaskCount != 0) ? 4f/_wrongTaskCount : 1f;
+        private float _currentWrongTaskTimer = 1;
         
         public override void StartInteraction(Entity entity)
         {
@@ -28,6 +32,22 @@ namespace Core
             {
                 TaskBoardScreen.gameObject.SetActive(true);
                 GameManager.Instance.player.DisableCommands();
+            }
+        }
+
+        public void Update()
+        {
+            if (_wrongTaskCount <= 0) return;
+
+            _currentWrongTaskTimer -= Time.deltaTime;
+            if(_currentWrongTaskTimer <= 0) 
+            {
+                GameManager.Instance.AddToTeamspirit(
+                    "Unordnung auf dem Taskboard", 
+                    -_wrongTaskCount, 
+                    transform.position);
+                
+                _currentWrongTaskTimer = GetWrongTaskTimer();
             }
         }
 
@@ -105,13 +125,22 @@ namespace Core
 
         public override void FinishInteraction(Entity entity)
         {
-            if (TaskBoardScreen.Tasks.Any(task => !task.IsInCorrectLane()))
+            CheckWrongTasks();
+        }
+
+        public void CheckWrongTasks()
+        {
+            _wrongTaskCount = TaskBoardScreen.Tasks.Count(task => !task.IsInCorrectLane());
+            
+            if (_wrongTaskCount > 0)
             {
-                DisplayWarning();       
+                DisplayWarning();
+                GameManager.Instance.TasklistScreenBehaviour.AddImpediment(this, true);
             }
             else
             {
                 RemoveWarning();
+                GameManager.Instance.TasklistScreenBehaviour.RemoveImpediment(this);
             }
         }
 
@@ -132,6 +161,6 @@ namespace Core
         }
         
         public override string GetName() => "Taskboard";
-        public override string GetTooltip() => "Taskboard prüfen";
+        public override string GetTooltip() => "Taskboard in Ordnung bringen";
     }
 }

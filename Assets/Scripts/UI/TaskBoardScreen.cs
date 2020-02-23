@@ -18,6 +18,8 @@ namespace UI
         public TaskboardLane DoingLane;
         public TaskboardLane DoneLane;
 
+        public TaskboardInteractible TaskboardInteractible;
+        
         public Tooltip TaskTooltip;
         
         public List<TaskBehaviour> Tasks = new List<TaskBehaviour>();
@@ -97,7 +99,9 @@ namespace UI
             {
                 MoveTaskToLane(task, DoneLane);
 
+                if(task.StartTime == "") task.StartTime = GameManager.Instance.Clock.GetTime().ToString();
                 task.EndTime = GameManager.Instance.Clock.GetTime().ToString();
+                task.IsStarted = true;
                 task.IsDocumented = true;
                 task.IsTested = true;
                 task.IsProgrammed = true;

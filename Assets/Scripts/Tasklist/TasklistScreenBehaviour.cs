@@ -79,8 +79,13 @@ namespace Core
             BonusText.text = text;
         }
 
-        public void AddImpediment(Interactible interactible)
+        public void AddImpediment(Interactible interactible, bool IsUnique = false)
         {
+            if (IsUnique)
+            {
+                if (_impedimentEntries.ContainsKey(interactible)) return;
+            }
+            
             var entry = Instantiate(ImpedimentEntryPrefab, ImpedimentsContainer.transform);
             //entry.transform.localPosition = Vector3.zero;
             entry.TextElement.text = interactible.GetTooltip();

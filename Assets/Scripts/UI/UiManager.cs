@@ -40,7 +40,7 @@ namespace UI
             var comp = GameManager.Instance.Company;
 
             var agi = comp.CompanyScores.Find(score => score.Name == "Agilität");
-            var spi = comp.CompanyScores.Find(score => score.Name == "Teamgeist");
+            var spi = comp.CompanyScores.Find(score => score.Name == "Produktivität");
             var prog = comp.CompanyScores.Find(score => score.Name == "Fortschritt");
 
             AgilityScore.text = agi.Name + " " + agi.Value;

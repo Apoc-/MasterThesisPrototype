@@ -226,7 +226,7 @@ public class GameManager : MonoBehaviour
         var score = UiManager.Instance.TeamspiritScore;
         void GainPointsCallback()
         {
-            Company.AddEffectToCompanyScore("Teamgeist", description, value);
+            Company.AddEffectToCompanyScore("Produktivität", description, value);
             if (value > 0)
             {
                 SoundEffectManager.Instance.PlayRandomPop();

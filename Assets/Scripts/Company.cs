@@ -15,7 +15,7 @@ public class Company
     {
         Name = name;
         var agility = new CompanyScore("Agilität", 0);
-        var teamspirit = new CompanyScore("Teamgeist", 50);
+        var teamspirit = new CompanyScore("Produktivität", 50);
         var progress = new CompanyScore("Fortschritt", 0);
         
         CompanyScores.Add(agility);
@@ -45,7 +45,7 @@ public class Company
     public float GetProgressTimer()
     {
         var agi = CompanyScores.First(score => score.Name == "Agilität").Value;
-        var tsp = CompanyScores.First(score => score.Name == "Teamgeist").Value;
+        var tsp = CompanyScores.First(score => score.Name == "Produktivität").Value;
 
         return 12000f / (agi*agi + tsp*tsp);
     }

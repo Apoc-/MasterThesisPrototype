@@ -1,4 +1,6 @@
 ﻿using System;
+using Tasklist;
+using UnityEngine;
 
 namespace Core
 {
@@ -15,11 +17,12 @@ namespace Core
         public override void FinishInteraction(Entity entity)
         {
             GameManager.Instance.AddToAgility("Scrum Master Tätigkeiten", 3, entity.OverheadPosition);
+            GameManager.Instance.TasklistScreenBehaviour.RemoveImpediment(this);
             AttachedNPC.GiveGoToMeetingCommand(MeetingRoomInteractible);
             Destroy(gameObject);
         }
 
         public override string GetName() => "Meeting Warnung";
-        public override string GetTooltip() => "Zu Meeting schicken";
+        public override string GetTooltip() => AttachedNPC.Name + " zu Meeting schicken";
     }
 }

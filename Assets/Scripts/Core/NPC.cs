@@ -200,6 +200,7 @@ namespace Core
             var signInteractible = sign.GetComponent<MeetingWarningSign>();
             signInteractible.MeetingRoomInteractible = meetingRoomInteractible;
             signInteractible.AttachedNPC = this;
+            GameManager.Instance.TasklistScreenBehaviour.AddImpediment(signInteractible);
         }
 
         public void GiveGoToMeetingCommand(MeetingRoomInteractible meetingRoomInteractible)
@@ -218,12 +219,16 @@ namespace Core
             base.ReturnFromMeeting();
 
             var sign = GetComponentInChildren<MeetingWarningSign>();
+            
             if (sign != null)
             {
+                GameManager.Instance.TasklistScreenBehaviour.RemoveImpediment(sign);
                 Destroy(sign.gameObject);
             }
-
+            
             _isRunning = false;
+            _decisionTimer = _activity;
+            GoBackToOffice();
         }
 
         public string GetTooltip() => (_isInOffice || _isInElevator || _hasMeeting) ? "" : Name;

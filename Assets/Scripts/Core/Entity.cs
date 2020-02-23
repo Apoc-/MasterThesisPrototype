@@ -332,6 +332,7 @@ namespace Core
 
         public virtual void ReturnFromMeeting()
         {
+            
             _hasMeeting = false;
             Show();
         }

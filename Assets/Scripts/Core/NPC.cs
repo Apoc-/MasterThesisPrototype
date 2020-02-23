@@ -84,7 +84,7 @@ namespace Core
         private void DoRandomInteraction()
         {
             var interactible = GetRandomNpcInteractible();
-            LeaveOffice();
+            if(_isInOffice) LeaveOffice();
             InteractWith(interactible, () =>
             {
                 HandleRandomBreak(interactible);

@@ -27,7 +27,7 @@ namespace Core
             else
             {
                 TaskBoardScreen.gameObject.SetActive(true);
-                GameManager.Instance.player.CanGiveCommand = false;
+                GameManager.Instance.player.DisableCommands();
             }
         }
 

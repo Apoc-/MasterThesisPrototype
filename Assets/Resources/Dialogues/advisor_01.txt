@@ -1,6 +1,5 @@
-﻿Guten Tag {playerName}!
-Sie wurden von Ihrem Großvater zum Erben von {companyName} ernannt.
-Die Firma wird laut Testament unter einer Bedingung vollständig an Sie übergeben: Sorgen Sie dafür, dass das Unternehmen sein nächstes Projekt erfolgreich abschließt!
-Bevor Ihr Großvater starb, plante er einige große Veränderungen. Ich werde Ihnen dabei helfen, die Ideen Stück für Stück umzusetzen.
-Als erstes wollte Ihr Großvater, dass wir einen Art Agile Coach, beziehungweise Scrum Master einführen. Dafür sind Sie in seinen Augen die perfekte Besetzung!
-$plan:SCRUM_MASTER|plan:TASK_BOARD
+﻿Guten Tag {playerName} und willkommen bei .Tech Com!
+Ihre Aufgabe in unserer Abteilung ist klar: Sorgen Sie dafür, dass wir agil werden und machen Sie dabei so viel Fortschritt wie möglich!
+Je Agiler das Team ist und je höher die Produktivität, desto schneller können alle Teammitglieder Fortschritt machen!
+Als erstes werden wir sie als Scrum Master einsetzen. Räumen Sie alle anfallenden Hindernisse aus dem Weg. Viel Erfolg! 
+$plan:SCRUM_MASTER

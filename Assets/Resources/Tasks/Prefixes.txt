@@ -1,7 +1,8 @@
 ﻿Interface
 Barrierefreiheit
 Quality of Life Changes
-Art AssetsText Assets
+Art Assets
+Text Assets
 Gameplay Demos
 Connections
 Kontakte

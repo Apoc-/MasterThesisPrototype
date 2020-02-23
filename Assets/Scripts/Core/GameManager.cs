@@ -146,7 +146,7 @@ public class GameManager : MonoBehaviour
         GameState = GameState.PLAYING;
         Instance.SongHandler?.PlaySongById(1);
         
-        player.CanGiveCommand = true;
+        player.EnableCommands();
 
         InitCalls();
         

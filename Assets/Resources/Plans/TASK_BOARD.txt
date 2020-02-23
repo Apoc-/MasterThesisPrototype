@@ -5,10 +5,7 @@
 <b>Informationen</b>
   - Sichtbar machen der aktuellen Aufgaben und deren Stand
   - Tasks können beispielsweise farblich codiert werden um weitere Informationen zu vermitteln. Z.B.: Zu welchem Feature gehört der Task?
-  - Einfachste Board Variante aus ToDo-, Doing- und Done-Spalte
-  - Die zu erledigenden Aufgaben sind bei ToDo abgelegt
-  - Sobald eine Aufgabe übernommen wird: In die Doing-Spalte verschieben
-  - Ist eine Aufgabe erledigt: In die Done-Spalte verschieben
-  - Eine Aufgabe ist dann fertig wenn sie die Definition of Done erfüllt.
+  - Sobald eine Aufgabe übernommen wird, muss sie in die Doing-Spalte verschoben werden. Die bearbeitende Person trägt sich für den Task ein und notiert die Start-Zeit.
+  - Eine Aufgabe ist fertig wenn sie die Definition of Done erfüllt und kann dann in die Done-Spalte verschoben werden.
   
-  <b>DoD ist in diesem Beispiel: Programmiert, getestet und dokumentiert.</b> 
+<b>Die Definition of Done ist in diesem Beispiel: <br> Ein Task wurde umgesetzt, getestet und dokumentiert.</b> 

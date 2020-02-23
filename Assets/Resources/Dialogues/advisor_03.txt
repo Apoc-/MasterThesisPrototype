@@ -1,5 +1,5 @@
 ﻿Guten Morgen {player_name}!
 Nachdem die Firma jetzt tägliche Meetings durchführt, ist jeder auf dem aktuellen Stand und Probleme können direkt angegangen werden. Ein voller Erfolg!
-Der nächste Schritt ist es endlich ein Taskboard zu führen. Zusätzlich muss endlich klar gemacht werden, was alles dazu gehört einen Task vollständig abzuschließen.
-Zu Beginn führen wir die einfachste Variante eines Taskboards ein!
+Der nächste Schritt ist es endlich ein Taskboard zu führen. Zusätzlich muss klar gemacht werden, was alles dazu gehört einen Task vollständig abzuschließen.
+Ihre Aufgabe hierbei: Sorgen Sie dafür, dass das Taskboard ordentlich geführt wird und korrigieren Sie in dieser Anfangszeit etwaige Fehler auf dem Taskboard.
 $plan:TASK_BOARD

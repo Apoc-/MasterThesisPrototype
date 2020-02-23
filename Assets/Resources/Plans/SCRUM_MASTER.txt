@@ -2,7 +2,7 @@
 
 <b>Art der Maßnahme:</b> Einführung einer Rolle
 
-<b>Informationen</b>
+<b>Aufgaben als Scrum Master</b>
   - Beseitigung von Hindernissen
   - Unterstützung bei der Durchführung von Scrum
   - Vermittlung des richtigen Verständnisses von Scrum an alle Beteiligten

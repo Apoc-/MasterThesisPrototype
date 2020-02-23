@@ -31,7 +31,7 @@ namespace UI
         {
             var player = GameManager.Instance.player;
             player.CurrentInteractTarget.FinishInteraction(player);
-            player.CanGiveCommand = true;
+            player.EnableCommands();
             gameObject.SetActive(false);
         }
 

@@ -30,6 +30,9 @@ namespace Core
         public void EnterMeeting(Entity entity)
         {
             entity.Hide();
+
+            (entity as Player)?.EnterMeeting();
+            
             _arrivedEntities.Add(entity);
         }
 
@@ -42,12 +45,12 @@ namespace Core
 
         public void StopMeeting()
         {
-            if (_arrivedEntities.Count == _invitedEntities.Count)
+            if (_arrivedEntities.Count >= _invitedEntities.Count)
             {
                 GameManager.Instance
                     .NotificationController
                     .DisplayNotification(
-                        "Das Daily-Scrum-Meeting ist fertig und jeder war da! Ja man, das gibt extra Punkte!",
+                        "Das Daily-Scrum-Meeting ist fertig und alle Entwickler waren da! Ja man, das gibt extra Punkte!",
                         NotificationType.Default);
 
                 GameManager.Instance.AddToAgility("Daily Scrum: Volles Haus!", 10, transform.position);
@@ -57,13 +60,13 @@ namespace Core
                 GameManager.Instance
                     .NotificationController
                     .DisplayNotification(
-                        "Mist! Das Daily-Scrum-Meeting ist fertig und jemand hat gefehlt! Das kostet Punkte!",
+                        "Mist! Das Daily-Scrum-Meeting ist fertig und es waren nicht alle Entwickler da! Das kostet Punkte!",
                         NotificationType.Warning);
 
                 GameManager.Instance.AddToAgility("Daily Scrum: Jemand war nicht beim Daily!", -10, transform.position);
             }
 
-            _invitedEntities.ForEach(entity =>
+            _arrivedEntities.ForEach(entity =>
             {
                 entity.CancelCurrentInteractionOrder();
                 entity.CancelCurrentWalkOrder();
@@ -80,7 +83,7 @@ namespace Core
             var meetingRoomBehaviour = GameManager.Instance.MeetingRoomInteractible;
             if (!meetingRoomBehaviour.HasMeeting) return;
 
-            if (entity is NPC) EnterMeeting(entity);
+            EnterMeeting(entity);
         }
 
         public override void FinishInteraction(Entity entity)

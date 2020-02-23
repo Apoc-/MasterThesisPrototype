@@ -10,25 +10,16 @@ namespace Core
     public class Player : Entity
     {
         public bool CanGiveCommand = false;
-
+        public void DisableCommands() => CanGiveCommand = false;
+        public void  EnableCommands() => CanGiveCommand = true;
+        
         private bool _isWorking = false;
+        public void StartWork() => _isWorking = true;
+        public void StopWork() => _isWorking = false;
+        
         public Jun_TweenRuntime BopAnimation;
         private float _progressTimer = 0;
-        
-        public void StartWork()
-        {
-            //hacky stop walk
-            //BopAnimation.enabled = false;
-            _isWorking = true;
-        }
-        
-        public void StopWork()
-        {
-            //hacky start walk
-            //BopAnimation.enabled = true;
-            _isWorking = false;
-        }
-        
+
         private void Update()
         {
             if (_isWorking)
@@ -70,7 +61,7 @@ namespace Core
             {
                 Hide();
                 waypoint.UnregisterOnEnterActionForEntity(this, action);
-                CanGiveCommand = false;
+                DisableCommands();
             };
             
             waypoint.RegisterOnEnterActionForEntity(this, action);
@@ -83,22 +74,29 @@ namespace Core
             {
                 Show();
                 waypoint.UnregisterOnEnterActionForEntity(this, action);
-                CanGiveCommand = true;
+                EnableCommands();
             };
 
             waypoint.RegisterOnEnterActionForEntity(this, action);
         }
+
+        
 
         public override void CallToMeeting(MeetingRoomInteractible interactible)
         {
             
         }
 
+        public void EnterMeeting()
+        {
+            _hasMeeting = true;
+            DisableCommands();
+        }
+        
         public override void ReturnFromMeeting()
         {
             base.ReturnFromMeeting();
-
-            CanGiveCommand = true;
+            EnableCommands();
         }
     }
 }

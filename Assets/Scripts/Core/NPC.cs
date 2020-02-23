@@ -175,7 +175,7 @@ namespace Core
         {
             if (Random.Range(0f, 1f) < _meetingAttendChance)
             {
-                GoToMeeting(meetingRoomInteractible);
+                GiveGoToMeetingCommand(meetingRoomInteractible);
             }
             else
             {
@@ -202,7 +202,7 @@ namespace Core
             signInteractible.AttachedNPC = this;
         }
 
-        public void GoToMeeting(MeetingRoomInteractible meetingRoomInteractible)
+        public void GiveGoToMeetingCommand(MeetingRoomInteractible meetingRoomInteractible)
         {
             if (_isInOffice) LeaveOffice();
 

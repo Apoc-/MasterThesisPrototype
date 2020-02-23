@@ -45,6 +45,8 @@ namespace UI
             });
 
             ReportTextField.text = scoreText;
+            
+            GetComponent<Jun_TweenRuntime>().Play();
         }
     }
 }

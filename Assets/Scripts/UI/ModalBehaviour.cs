@@ -10,6 +10,7 @@ namespace UI
         private void OnEnable()
         {
             GameManager.Instance.GameSpeedController.Pause();
+            GetComponent<Jun_TweenRuntime>().Play();
         }
 
         private void OnDisable()

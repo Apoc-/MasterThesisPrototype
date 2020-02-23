@@ -9,7 +9,7 @@ namespace UI
             this.gameObject.SetActive(true);
         }
 
-        public void Hide()
+        public virtual void Hide()
         {
             this.gameObject.SetActive(false);
         }

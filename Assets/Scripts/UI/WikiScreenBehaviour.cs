@@ -16,9 +16,11 @@ namespace UI
 
         public string WikiPath = "Wiki/Scrum";
         public string MainEntryId = "Scrum";
-
+        
         public WikiEntry WikiEntryPrefab;
         public GameObject RootGo;
+        public GameObject EntriesGo;
+        
         private WikiEntry CurrentDisplayWikiEntry;
 
         private Stack<string> _visitedPages = new Stack<string>();
@@ -33,6 +35,7 @@ namespace UI
         {
             GameManager.Instance.GameSpeedController.Pause();
             DisplayMainWikiEntry();
+            RootGo.GetComponent<Jun_TweenRuntime>().Play();
         }
 
         private void OnDisable()
@@ -66,6 +69,7 @@ namespace UI
 
         public void DisplayMainWikiEntry()
         {
+            RootGo.SetActive(true);
             if (CurrentDisplayWikiEntry != null)
             {
                 _visitedPages.Push(CurrentDisplayWikiEntry.Id);
@@ -92,7 +96,7 @@ namespace UI
             else
             {
                 var data = _data[id];
-                entry = Instantiate(WikiEntryPrefab, RootGo.transform, false);
+                entry = Instantiate(WikiEntryPrefab, EntriesGo.transform, false);
                 entry.Title.text = data.Title;
                 entry.Body.text = data.BodyText;
                 entry.Id = id;
@@ -208,6 +212,13 @@ namespace UI
                 default:
                     return;
             }
+        }
+
+        public override void Hide()
+        {
+            RootGo.SetActive(false);
+
+            base.Hide();
         }
     }
 }

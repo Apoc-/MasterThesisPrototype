@@ -26,7 +26,7 @@ namespace UI
 
         private void OnEnable()
         {
-            
+            GetComponent<Jun_TweenRuntime>().Play();
         }
 
         private void LoadDialoguesFromFile()

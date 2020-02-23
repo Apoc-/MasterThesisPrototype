@@ -1,4 +1,6 @@
-﻿namespace Core
+﻿using UI;
+
+namespace Core
 {
     public class RestroomDoor : Interactible
     {
@@ -6,7 +8,8 @@
         {
             if (entity is NPC)
             {
-                entity.Hide();    
+                entity.Hide();
+                SoundEffectManager.Instance.PlayDoorSound();
             }
         }
 
@@ -14,7 +17,8 @@
         {
             if (entity is NPC)
             {
-                entity.Show();    
+                entity.Show();
+                SoundEffectManager.Instance.PlayDoorSound();
             }
         }
 

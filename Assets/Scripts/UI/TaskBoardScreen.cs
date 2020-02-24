@@ -24,6 +24,16 @@ namespace UI
         
         public List<TaskBehaviour> Tasks = new List<TaskBehaviour>();
 
+        private void OnEnable()
+        {
+            GameManager.Instance.GameSpeedController.Pause();
+        }
+
+        private void OnDisable()
+        {
+            GameManager.Instance.GameSpeedController.UnPause();
+        }
+
         public void DoErrorShake()
         {
             BackgroundTween.Play();

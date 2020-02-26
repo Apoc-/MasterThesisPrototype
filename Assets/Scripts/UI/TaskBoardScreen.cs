@@ -31,7 +31,9 @@ namespace UI
 
         private void OnDisable()
         {
-            GameManager.Instance.GameSpeedController.UnPause();
+            var gsc = GameManager.Instance.GameSpeedController;
+            if (gsc == null) return;
+            gsc.UnPause();
         }
 
         public void DoErrorShake()

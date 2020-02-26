@@ -68,6 +68,7 @@ namespace Core
 
             if (CurrentBonusTask != null)
             {
+                text += $"<b>+{CurrentBonusTask.Bonus} Agilität: </b>";
                 text += CurrentBonusTask.Text;
                 text += $" ({CurrentBonusTask.CurrentCount}/{CurrentBonusTask.MaxCount})";
             }

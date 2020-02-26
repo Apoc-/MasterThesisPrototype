@@ -22,6 +22,8 @@ namespace Core
         private Speed _lastSpeed = Speed.Play;
 
         public bool IsPaused = false;
+
+        public float BaseTimeScale = 1f;
         
         private enum Speed
         {
@@ -40,33 +42,39 @@ namespace Core
 
         public void DebugSpeed()
         {
+            if (_lastSpeed == Speed.Debug && !IsPaused) return;
+            
             IsPaused = false;
             _lastSpeed = Speed.Debug;
-            Time.timeScale = 16;
+            Time.timeScale = 16 * BaseTimeScale;
             ResetColors();
             DebugButton.color = PressedColor;
         }
 
         public void Play()
         {
+            if (_lastSpeed == Speed.Play && !IsPaused) return;
+            
             IsPaused = false;
             DisableAllFlashes();
             PlayFlash.gameObject.SetActive(true);
             PlayFlash.Play();
             _lastSpeed = Speed.Play;
-            Time.timeScale = 1;
+            Time.timeScale = 1 * BaseTimeScale;
             ResetColors();
             PlayButton.color = PressedColor;
         }
         
         public void PlayFast()
         {
+            if (_lastSpeed == Speed.Fast && !IsPaused) return;
+            
             IsPaused = false;
             DisableAllFlashes();
             PlayFastFlash.gameObject.SetActive(true);
             PlayFastFlash.Play();
             _lastSpeed = Speed.Fast;
-            Time.timeScale = 2;
+            Time.timeScale = 2 * BaseTimeScale;
             ResetColors();
             PlayFastButton.color = PressedColor;
         }

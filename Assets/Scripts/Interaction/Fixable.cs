@@ -62,7 +62,7 @@ namespace Core
         {
             if (entity is NPC)
             {
-                GameManager.Instance.AddToTeamspirit("Hindernisfreies Arbeiten", 2, entity.OverheadPosition);
+                GameManager.Instance.AddToTeamspirit("Hindernisfreies Arbeiten", 3, entity.OverheadPosition);
             }
         }
 

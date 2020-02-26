@@ -14,7 +14,16 @@ namespace Tasklist
             if (_bonusTaskQueue.Count == 0)
             {
                 var target = (int) Math.Pow(10, GameManager.Instance.Day);
-                EnqueuePlayerWorkTask(target);
+                var bonus = 5;
+                if (target >= 1000)
+                {
+                    bonus = 15;
+                } else if (target >= 100)
+                {
+                    bonus = 10;
+                }
+                
+                EnqueuePlayerWorkTask(target, bonus);
             }
             
             return _bonusTaskQueue.Dequeue();
@@ -24,7 +33,7 @@ namespace Tasklist
         {
             var task = new BonusTask("Räume Impediments aus dem Weg", 
                 BonusTaskType.Todo,
-                target*3,
+                target*5,
                 target);
             
             _bonusTaskQueue.Enqueue(task);
@@ -40,14 +49,14 @@ namespace Tasklist
             _bonusTaskQueue.Enqueue(task);
         }
         
-        public static void EnqueuePlayerWorkTask(int target)
+        public static void EnqueuePlayerWorkTask(int target, int bonus)
         {
             var task = new BonusTask(
                 $"Arbeite an deinem Schreibtisch",
                 BonusTaskType.MakeProgress,
-                target/10,
+                bonus,
                 target);
-            
+
             _bonusTaskQueue.Enqueue(task);
         }
         

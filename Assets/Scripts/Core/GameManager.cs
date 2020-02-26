@@ -235,8 +235,8 @@ public class GameManager : MonoBehaviour
 
         ScrumMasterActive = true;
 
-        BonusTaskProvider.EnqueueTodoTask(5);
-        BonusTaskProvider.EnqueueReadWikiTask(3);
+        BonusTaskProvider.EnqueueTodoTask(3);
+        BonusTaskProvider.EnqueueReadWikiTask(5);
     }
 
     public void InitTaskBoardPlan()
@@ -257,6 +257,7 @@ public class GameManager : MonoBehaviour
         InteractibleManager.AddToNpcInteractibles(taskboard);
         InteractibleManager.AddToNpcInteractibles(taskboard);
         InteractibleManager.AddToNpcInteractibles(taskboard);
+        InteractibleManager.AddToNpcInteractibles(taskboard);
 
         for (int i = 0; i < taskboard.TaskBoardScreen.TodoLane.MaxTasks; i++)
         {
@@ -264,7 +265,7 @@ public class GameManager : MonoBehaviour
         }
 
         BonusTaskProvider.EnqueueTaskboardTask(3);
-        BonusTaskProvider.EnqueueReachProgressTask(2000);
+        BonusTaskProvider.EnqueueReachProgressTask(3000);
         BonusTaskProvider.EnqueueReachProgressTask(5000);
     }
 

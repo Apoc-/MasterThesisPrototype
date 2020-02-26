@@ -60,7 +60,8 @@ namespace Core
                 var tasksNotDone = GetTasksNotDone(npc);
                 var handledTask = GetHandledTask(tasksNotDone);
                 TaskBoardScreen.ProgressTask(handledTask, npc);
-                MakeRandomMistake(handledTask);
+                var madeMistake = MakeRandomMistake(handledTask);
+                if (madeMistake) break;
             }
         }
 
@@ -85,7 +86,7 @@ namespace Core
                 .ToList();
         }
 
-        private void MakeRandomMistake(TaskBehaviour handledTask)
+        private bool MakeRandomMistake(TaskBehaviour handledTask)
         {
             var madeMistake = false;
             if (handledTask.CurrentLane.laneType == TaskboardLaneType.DONE)
@@ -131,6 +132,8 @@ namespace Core
                         "Auf dem Taskboard ist etwas nicht richtig eingeordnet.",
                         NotificationType.Warning);
             }
+
+            return madeMistake;
         }
 
         public override void FinishInteraction(Entity entity)

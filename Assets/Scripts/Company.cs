@@ -5,6 +5,8 @@ using System.Linq;
 using Core;
 using Tasklist;
 using UI;
+using UnityEngine;
+
 public class Company
 {
     public string Name;
@@ -47,6 +49,9 @@ public class Company
         var agi = CompanyScores.First(score => score.Name == "Agilität").Value;
         var tsp = CompanyScores.First(score => score.Name == "Produktivität").Value;
 
-        return 12000f / (agi*agi + tsp*tsp);
+        var timer = 40000f / (agi * agi + tsp * tsp);
+        timer = Mathf.Clamp(timer, 0.25f, 2f);
+        
+        return timer;
     }
 }

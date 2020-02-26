@@ -9,9 +9,6 @@ namespace UI
     {
         public List<AudioClip> Songs;
         public AudioSource AudioSource;
-
-        private bool _isMuted = false;
-
         private void OnEnable()
         {
             DontDestroyOnLoad(this.gameObject);
@@ -34,16 +31,7 @@ namespace UI
 
         public void ToggleMute()
         {
-            _isMuted = !_isMuted;
-            if (_isMuted)
-            {
-                AudioListener.volume = 0;    
-            }
-            else
-            {
-                AudioListener.volume = 1f;  
-            }
-            
+            AudioSource.mute = !AudioSource.mute;
         }
 
         public void PlaySongById(int id)

@@ -20,11 +20,8 @@ namespace UI
         public AudioClip Dud;
         public AudioClip Door;
         public AudioSource SoundEffectAudioSource;
-
-        public Toggle MuteToggle;
+        public SongHandler SongHandler;
         
-        private bool _isMuted = false;
-
         public void PlayDoorSound()
         {
             SoundEffectAudioSource.PlayOneShot(Door,0.25f);
@@ -42,24 +39,17 @@ namespace UI
             SoundEffectAudioSource.PlayOneShot(Dud, 2);
         }
 
-        public void ToggleMute()
+        public void ToggleMuteEffects()
         {
-            _isMuted = !_isMuted;
-            AudioListener.volume = _isMuted ? 0 : 0.5f;
+            SoundEffectAudioSource.mute = !SoundEffectAudioSource.mute;
         }
 
-        private void OnEnable()
+        public void ToggleMuteMusic()
         {
-            if (AudioListener.volume <= 0)
-            {
-                MuteToggle.isOn = true;
-                AudioListener.volume = 0;
-            }
-            else
-            {
-                MuteToggle.isOn = false;
-                AudioListener.volume = 0.5f;
-            }
+            if (SongHandler == null) SongHandler = FindObjectOfType<SongHandler>();
+            
+            // ReSharper disable once Unity.NoNullPropagation
+            SongHandler?.ToggleMute();
         }
     }
 }

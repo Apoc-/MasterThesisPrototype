@@ -41,7 +41,7 @@ namespace Core
             PlayFastFlash.gameObject.SetActive(true);
             PlayFastFlash.Play();
             _lastSpeed = Speed.Fast;
-            Time.timeScale = 2;
+            Time.timeScale = 32;
             ResetColors();
             PlayFastButton.color = PressedColor;
         }

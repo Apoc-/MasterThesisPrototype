@@ -154,6 +154,8 @@ public class GameManager : MonoBehaviour
         var advisorScreen = UiManager.Instance.AdvisorScreen;
         advisorScreen.DialogueBox.ShowDialogueById(id);
         
+        player.MoveInstantly(WaypointProvider.Spawn);
+        
         advisorScreen.Show();
         GameState = GameState.ADVISE;
     }

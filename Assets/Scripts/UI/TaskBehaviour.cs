@@ -93,7 +93,7 @@ namespace UI
 
             if (lane != null)
             {
-                if (IsLaneCorrectForTask(lane))
+                if (IsLaneCorrectForTask(lane) && CurrentLane != lane)
                 {
                     CurrentLane = lane;
                     GameManager.Instance.Company.AddEffectToCompanyScore("Agilität", "Taskboard Pflege", 2);

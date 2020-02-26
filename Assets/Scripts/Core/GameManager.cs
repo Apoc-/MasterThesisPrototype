@@ -234,7 +234,7 @@ public class GameManager : MonoBehaviour
         InteractibleManager.AddToNpcInteractibles(taskboard);
         InteractibleManager.AddToNpcInteractibles(taskboard);
 
-        for (int i = 0; i < 12; i++)
+        for (int i = 0; i < taskboard.TaskBoardScreen.TodoLane.MaxTasks; i++)
         {
             taskboard.TaskBoardScreen.CreateNewTask();
         }

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Security.Cryptography;
 using System.Threading.Tasks;
@@ -15,13 +16,13 @@ namespace Core
 
         public GameObject LightContainer;
         public GameObject Stuff;
-        
+
         private GameObject _warningSign;
 
         private int _wrongTaskCount = 0;
-        private float GetWrongTaskTimer() => (_wrongTaskCount != 0) ? 4f/_wrongTaskCount : 1f;
+        private float GetWrongTaskTimer() => (_wrongTaskCount != 0) ? 4f / _wrongTaskCount : 1f;
         private float _currentWrongTaskTimer = 1;
-        
+
         public override void StartInteraction(Entity entity)
         {
             if (entity is NPC npc)
@@ -40,39 +41,48 @@ namespace Core
             if (_wrongTaskCount <= 0) return;
 
             _currentWrongTaskTimer -= Time.deltaTime;
-            if(_currentWrongTaskTimer <= 0) 
+            if (_currentWrongTaskTimer <= 0)
             {
                 GameManager.Instance.AddToTeamspirit(
-                    "Unordnung auf dem Taskboard", 
-                    -_wrongTaskCount, 
+                    "Unordnung auf dem Taskboard",
+                    -_wrongTaskCount,
                     transform.position);
-                
+
                 _currentWrongTaskTimer = GetWrongTaskTimer();
             }
         }
 
         private void HandleNpcInteraction(NPC npc)
         {
-            var tasksNotDone = TaskBoardScreen.Tasks
-                .Where(task => task.Owner == npc 
-                    && task.CurrentLane != TaskBoardScreen.DoneLane 
-                    || task.CurrentLane == TaskBoardScreen.TodoLane)
-                .ToList();
-                
-            TaskBehaviour handledTask;
+            //do up to three tasks
+            for (int i = 0; i < Random.Range(1, 3); i++)
+            {
+                var tasksNotDone = GetTasksNotDone(npc);
+                var handledTask = GetHandledTask(tasksNotDone);
+                TaskBoardScreen.ProgressTask(handledTask, npc);
+                MakeRandomMistake(handledTask);
+            }
+        }
 
+        private TaskBehaviour GetHandledTask(List<TaskBehaviour> tasksNotDone)
+        {
             if (!tasksNotDone.Any())
             {
-                handledTask = TaskBoardScreen.CreateNewTask();
+                return TaskBoardScreen.CreateNewTask();
             }
             else
             {
-                handledTask = tasksNotDone.First();
+                return tasksNotDone.First();
             }
-            
-            TaskBoardScreen.ProgressTask(handledTask, npc);
+        }
 
-            MakeRandomMistake(handledTask);
+        private List<TaskBehaviour> GetTasksNotDone(NPC npc)
+        {
+            return TaskBoardScreen.Tasks
+                .Where(task => task.Owner == npc
+                               && task.CurrentLane != TaskBoardScreen.DoneLane
+                               || task.CurrentLane == TaskBoardScreen.TodoLane)
+                .ToList();
         }
 
         private void MakeRandomMistake(TaskBehaviour handledTask)
@@ -86,7 +96,7 @@ namespace Core
                     handledTask.IsTested = false;
                     madeMistake = true;
                 }
-                
+
                 var documentedRnd = Random.Range(0f, 1f);
                 if (documentedRnd < MistakeChance)
                 {
@@ -94,7 +104,7 @@ namespace Core
                     madeMistake = true;
                 }
             }
-            else if(handledTask.CurrentLane.laneType == TaskboardLaneType.DOING)
+            else if (handledTask.CurrentLane.laneType == TaskboardLaneType.DOING)
             {
                 var rnd = Random.Range(0f, 1f);
                 if (rnd < MistakeChance)
@@ -103,7 +113,7 @@ namespace Core
                     handledTask.IsStarted = false;
                     madeMistake = true;
                 }
-                
+
                 rnd = Random.Range(0f, 1f);
                 if (rnd < MistakeChance)
                 {
@@ -112,13 +122,13 @@ namespace Core
                     madeMistake = true;
                 }
             }
-            
+
             if (madeMistake)
             {
                 GameManager.Instance
                     .NotificationController
                     .DisplayNotification(
-                        "Auf dem Taskboard ist etwas nicht richtig eingeordnet.", 
+                        "Auf dem Taskboard ist etwas nicht richtig eingeordnet.",
                         NotificationType.Warning);
             }
         }
@@ -131,7 +141,7 @@ namespace Core
         public void CheckWrongTasks()
         {
             _wrongTaskCount = TaskBoardScreen.Tasks.Count(task => !task.IsInCorrectLane());
-            
+
             if (_wrongTaskCount > 0)
             {
                 DisplayWarning();
@@ -147,7 +157,7 @@ namespace Core
         private void DisplayWarning()
         {
             if (_warningSign != null) return;
-            
+
             var pref = Resources.Load("Prefabs/WarningSign");
             _warningSign = Instantiate(pref, transform) as GameObject;
             _warningSign.transform.localPosition = Vector3.zero;
@@ -159,9 +169,10 @@ namespace Core
             _warningSign.gameObject.SetActive(false);
             Destroy(_warningSign.gameObject);
         }
-        
+
         public override string GetName() => "Taskboard";
 
-        public override string GetTooltip() => _wrongTaskCount > 0 ? "Taskboard in Ordnung bringen" : "Taskboard ansehen";
+        public override string GetTooltip() =>
+            _wrongTaskCount > 0 ? "Taskboard in Ordnung bringen" : "Taskboard ansehen";
     }
 }

@@ -1,5 +1,5 @@
 ﻿Guten Tag {playerName} und willkommen bei .Tech Com!
 Ihre Aufgabe in unserer Abteilung ist klar: Sorgen Sie dafür, dass wir agil werden und machen Sie dabei so viel Fortschritt wie möglich!
 Je agiler das Team ist und je höher die Produktivität, desto schneller können alle Teammitglieder Fortschritt machen!
-Als Erstes werden wir sie als Scrum Master einsetzen. Räumen Sie alle anfallenden Hindernisse aus dem Weg. Viel Erfolg! 
+Als Erstes werden wir Sie als Scrum Master einsetzen. Räumen Sie alle anfallenden Hindernisse aus dem Weg. Viel Erfolg! 
 $plan:SCRUM_MASTER

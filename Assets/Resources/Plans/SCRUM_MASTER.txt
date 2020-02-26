@@ -4,6 +4,6 @@
 
 <b>Allgemeine Aufgaben als Scrum Master</b>
   - Beseitigung von Hindernissen (engl. Impediments)
-  - Abschirmung des Teams vor irrelevanten Ablenkungen
+  - Abschirmung des Teams vor Ablenkungen
   - Vermittlung des richtigen Verständnisses von Scrum an alle Beteiligten
   - Unterstützung bei der Durchführung von Scrum

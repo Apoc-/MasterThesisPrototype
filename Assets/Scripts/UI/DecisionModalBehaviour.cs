@@ -7,7 +7,12 @@ namespace UI
     {
         public Action YesAction;
         public Action NoAction;
-        
+
+        private void OnEnable()
+        {
+            GameManager.Instance.GameSpeedController.Pause();
+        }
+
         public void OnYesClick()
         {
             Hide();

@@ -20,6 +20,8 @@ namespace Core
         
         private Speed _lastSpeed = Speed.Play;
 
+        public bool IsPaused = false;
+        
         private enum Speed
         {
             Play,
@@ -28,6 +30,8 @@ namespace Core
         
         public void Play()
         {
+            IsPaused = false;
+            DisableAllFlashes();
             PlayFlash.gameObject.SetActive(true);
             PlayFlash.Play();
             _lastSpeed = Speed.Play;
@@ -38,6 +42,8 @@ namespace Core
         
         public void PlayFast()
         {
+            IsPaused = false;
+            DisableAllFlashes();
             PlayFastFlash.gameObject.SetActive(true);
             PlayFastFlash.Play();
             _lastSpeed = Speed.Fast;
@@ -48,6 +54,10 @@ namespace Core
         
         public void Pause()
         {
+            if (IsPaused) return;
+            
+            IsPaused = true;
+            DisableAllFlashes();
             PauseFlash.gameObject.SetActive(true);
             PauseFlash.Play();
             Time.timeScale = 0;
@@ -55,8 +65,18 @@ namespace Core
             PauseButton.color = PressedColor;
         }
 
+        private void DisableAllFlashes()
+        {
+            PlayFlash.gameObject.SetActive(false);
+            PauseFlash.gameObject.SetActive(false);
+            PlayFastFlash.gameObject.SetActive(false);
+        }
+
+
         public void UnPause()
         {
+            if (!IsPaused) return;
+            
             switch (_lastSpeed)
             {
                 case Speed.Play:

@@ -8,8 +8,6 @@ namespace Core
 {
     public class InputManager : MonoBehaviour
     {
-        private bool _toggledPauseWithSpace = false;
-        
         private void Update()
         {
             if (Input.GetKeyDown(KeyCode.Space))
@@ -19,7 +17,7 @@ namespace Core
             
             
             //only mouse inputs if unpaused
-            if (Time.timeScale <= 0) return;
+            if (GameManager.Instance.GameSpeedController.IsPaused) return;
             if (Input.GetMouseButtonDown(0))
             {
                 if (GameManager.Instance.GameState != GameState.PLAYING) return;
@@ -50,15 +48,13 @@ namespace Core
             var gm = GameManager.Instance;
             if (gm.GameState != GameState.PLAYING) return;
             
-            if (_toggledPauseWithSpace)
+            if (gm.GameSpeedController.IsPaused)
             {
                 gm.GameSpeedController.UnPause();
-                _toggledPauseWithSpace = false;
             }
             else
             {
                 gm.GameSpeedController.Pause();
-                _toggledPauseWithSpace = true;
             }
         }
 

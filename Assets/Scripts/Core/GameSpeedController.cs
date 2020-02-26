@@ -10,6 +10,7 @@ namespace Core
         public Color BaseColor;
         public Color PressedColor;
 
+        public Image DebugButton;
         public Image PlayButton;
         public Image PlayFastButton;
         public Image PauseButton;
@@ -25,9 +26,27 @@ namespace Core
         private enum Speed
         {
             Play,
-            Fast
+            Fast,
+            Debug
         }
-        
+
+        private void Start()
+        {
+            if (GameManager.Instance.IsDebugMode)
+            {
+                DebugButton.gameObject.SetActive(true);
+            }
+        }
+
+        public void DebugSpeed()
+        {
+            IsPaused = false;
+            _lastSpeed = Speed.Debug;
+            Time.timeScale = 16;
+            ResetColors();
+            DebugButton.color = PressedColor;
+        }
+
         public void Play()
         {
             IsPaused = false;
@@ -47,7 +66,7 @@ namespace Core
             PlayFastFlash.gameObject.SetActive(true);
             PlayFastFlash.Play();
             _lastSpeed = Speed.Fast;
-            Time.timeScale = 32;
+            Time.timeScale = 2;
             ResetColors();
             PlayFastButton.color = PressedColor;
         }
@@ -95,6 +114,7 @@ namespace Core
             PlayButton.color = BaseColor;
             PlayFastButton.color = BaseColor;
             PauseButton.color = BaseColor;
+            DebugButton.color = BaseColor;
         }
     }
 }

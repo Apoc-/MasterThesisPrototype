@@ -98,7 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 1
+  m_UseShadowmask: 0
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -8064,6 +8064,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Colors.m_SelectedColor.b
       value: 0.43137255
+      objectReference: {fileID: 0}
+    - target: {fileID: 324578204029064947, guid: 856c50d98ebdf7c49b6dcd56d0af16ea,
+        type: 3}
+      propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ToggleMute
       objectReference: {fileID: 0}
     - target: {fileID: 324578205033964364, guid: 856c50d98ebdf7c49b6dcd56d0af16ea,
         type: 3}

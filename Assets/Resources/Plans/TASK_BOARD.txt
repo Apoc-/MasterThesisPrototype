@@ -3,9 +3,9 @@
 <b>Art der Maßnahme:</b> Artefakt
 
 <b>Informationen</b>
-  - Sorgt dafür, dass alle die aktuellen Aufgaben und deren Stand einsehen können
-  - Je nach Team haben die verwendeten Taskfarben unterschiedliche Bedeutung
+  - Sorgt dafür, dass alle die aktuellen Aufgaben und deren Stand einsehen können.
+  - Je nach Team haben die verwendeten Taskfarben unterschiedliche Bedeutung.
   - Sobald eine Aufgabe gestartet wird, muss sie in die Doing-Spalte verschoben werden. Die bearbeitende Person trägt sich für den Task ein und notiert die Start-Zeit.
-  - Eine Aufgabe ist fertig wenn sie die Definition of Done erfüllt und kann dann in die Done-Spalte verschoben werden.
+  - Eine Aufgabe ist fertig, wenn sie die Definition of Done erfüllt und kann in die Done-Spalte verschoben werden.
   
 <b>Die Definition of Done ist in diesem Beispiel: <br>Ein Aufgabe ist fertig, wenn sie umgesetzt, getestet und dokumentiert</b> wurde. 

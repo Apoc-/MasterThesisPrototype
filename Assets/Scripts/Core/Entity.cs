@@ -291,6 +291,8 @@ namespace Core
 
         public void MoveInstantly(Waypoint targetWp)
         {
+            CancelAllOrders();
+            Show();
             var targetPos = targetWp.transform.position;
             transform.position = targetPos;
             _currentWalkTarget = targetWp;

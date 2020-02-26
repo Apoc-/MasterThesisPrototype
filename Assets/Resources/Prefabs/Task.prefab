@@ -97,6 +97,7 @@ MonoBehaviour:
   IsProgrammed: 0
   IsTested: 0
   IsDocumented: 0
+  Description: 
 --- !u!61 &9063329205465471689
 BoxCollider2D:
   m_ObjectHideFlags: 0

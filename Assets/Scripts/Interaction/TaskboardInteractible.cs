@@ -173,6 +173,6 @@ namespace Core
         public override string GetName() => "Taskboard";
 
         public override string GetTooltip() =>
-            _wrongTaskCount > 0 ? "Taskboard in Ordnung bringen" : "Taskboard ansehen";
+            _wrongTaskCount > 0 ? "Taskboard ordnen" : "Taskboard ansehen";
     }
 }

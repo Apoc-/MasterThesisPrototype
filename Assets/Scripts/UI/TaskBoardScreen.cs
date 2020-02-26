@@ -49,7 +49,7 @@ namespace UI
 
         public TaskBehaviour CreateNewTask()
         {
-            var pref = GetRandomPrefab();
+            var pref = YellowPrefab;
             var task = Instantiate(pref, TodoLane.transform, false);
 
             task.Description = GenerateTaskDescription();

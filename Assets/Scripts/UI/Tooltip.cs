@@ -23,7 +23,14 @@ namespace UI
         {
             var x = Input.mousePosition.x;
             var y = Input.mousePosition.y;
-            return new Vector2(x, y);
+            var offsetY = 0f;
+            var collider = GetComponent<Collider2D>();
+            if (collider != null)
+            {
+                offsetY = collider.bounds.extents.y;
+            }
+
+            return new Vector2(x, y - offsetY);
         }
 
         public void Show(IHasToolTip hasToolTip)

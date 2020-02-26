@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Code;
 using Core;
+using DefaultNamespace;
 using Tasklist;
 using Tech;
 using UI;
@@ -28,7 +29,7 @@ public class GameManager : MonoBehaviour
     #endregion
 
     public bool IsDebugMode = true;
-    
+
     private WaypointProvider _waypointProvider;
 
     public WaypointProvider WaypointProvider
@@ -85,6 +86,12 @@ public class GameManager : MonoBehaviour
             ? _tasklistScreenBehaviour
             : _tasklistScreenBehaviour = FindObjectOfType<TasklistScreenBehaviour>();
 
+    private EntrySignBehaviour _entrySignBehaviour;
+    public EntrySignBehaviour EntrySignBehaviour
+        => _entrySignBehaviour 
+            ? _entrySignBehaviour
+            : _entrySignBehaviour = FindObjectOfType<EntrySignBehaviour>();
+
     private Clock _clock;
     public Clock Clock => _clock ? _clock : _clock = FindObjectOfType<Clock>();
 
@@ -98,8 +105,7 @@ public class GameManager : MonoBehaviour
 
     public bool ScrumMasterActive = false;
 
-    
-    
+
     public Company Company { get; private set; }
     [SerializeField] private float _impedimentChance = 0.1f;
 
@@ -166,6 +172,7 @@ public class GameManager : MonoBehaviour
     public void InitNewDay()
     {
         Day += 1;
+        EntrySignBehaviour.EnableSignByDay(Day);
         var id = DialogueIdProvider.GetDialogueIdByDay(Day);
         var advisorScreen = UiManager.Instance.AdvisorScreen;
         advisorScreen.DialogueBox.ShowDialogueById(id);

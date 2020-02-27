@@ -11,6 +11,7 @@ public class CameraHandler : MonoBehaviour
     public float initialZoom = 100;
     public float zoomStep = 10;
     public float zoomDuration = 10;
+    public Vector3 PermanentOffset;
     public AnimationCurve zoomAnimationCurve = AnimationCurve.Linear(0f,0f,1f,1f);
     
     private Camera Cam => gameObject.gameObject.GetComponent<Camera>();
@@ -52,7 +53,7 @@ public class CameraHandler : MonoBehaviour
         var zoom = (CurrentZoom-minZoomSize) / (maxZoomSize-minZoomSize);
         targetPos.y += Mathf.Lerp(cameraMinYOffset, cameraMaxYOffset, zoom);
         targetPos.y = Mathf.Clamp(targetPos.y, cameraMinY, cameraMaxY);
-        
+        targetPos += PermanentOffset;
         transform.position = targetPos;
     }
 

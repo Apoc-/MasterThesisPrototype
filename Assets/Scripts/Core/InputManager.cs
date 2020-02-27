@@ -32,12 +32,12 @@ namespace Core
                 }
             }
 
-            if (Input.mouseScrollDelta.y > 0.01f)
+            if (Input.mouseScrollDelta.y > 0.01f || Input.GetKeyDown(KeyCode.UpArrow))
             {
                 Camera.main.GetComponent<CameraHandler>().ZoomIn();
             }
 
-            if (Input.mouseScrollDelta.y < -0.01f)
+            if (Input.mouseScrollDelta.y < -0.01f || Input.GetKeyDown(KeyCode.DownArrow))
             {
                 Camera.main.GetComponent<CameraHandler>().ZoomOut();
             }

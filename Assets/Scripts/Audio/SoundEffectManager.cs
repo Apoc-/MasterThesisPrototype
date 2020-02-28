@@ -21,6 +21,24 @@ namespace UI
         public AudioClip Door;
         public AudioSource SoundEffectAudioSource;
         public SongHandler SongHandler;
+        public AudioClip BeamerSound;
+        public AudioClip BeamerClick;
+
+        private void Start()
+        {
+            DontDestroyOnLoad(this);
+        }
+
+        public void PlayBeamerClick()
+        {
+            SoundEffectAudioSource.PlayOneShot(BeamerClick, 2f);
+        }
+
+        public void PlayAmbientBeamerSound()
+        {
+            SoundEffectAudioSource.clip = BeamerSound;
+            SoundEffectAudioSource.Play();
+        }
         
         public void PlayDoorSound()
         {
@@ -39,6 +57,12 @@ namespace UI
             SoundEffectAudioSource.PlayOneShot(Dud, 2);
         }
 
+        public void ToggleMuteAll()
+        {
+            ToggleMuteEffects();
+            ToggleMuteMusic();
+        }
+        
         public void ToggleMuteEffects()
         {
             SoundEffectAudioSource.mute = !SoundEffectAudioSource.mute;

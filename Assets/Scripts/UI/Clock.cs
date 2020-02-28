@@ -29,7 +29,7 @@ namespace Code
         public float SpeedFactor = 60f;
         public bool Running = false;
         private TimeStamp CurrentTime = new TimeStamp(0,0,0);
-        private TextMeshProUGUI _clockText;
+        public TextMeshProUGUI ClockText;
 
         public delegate void ClockTickAction();
 
@@ -41,16 +41,11 @@ namespace Code
         public Color BaseColor;
         public Color WarningColor;
         
-        private void Start()
-        {
-            _clockText = GetComponent<TextMeshProUGUI>();
-        }
-
         private void Update()
         {
             if (Running) IncrementClock();
 
-            _clockText.text = CurrentTime.ToString();
+            ClockText.text = CurrentTime.ToString();
         }
 
         private void IncrementClock()
@@ -122,12 +117,12 @@ namespace Code
 
         public void SetToBaseColor()
         {
-            _clockText.color = BaseColor;
+            ClockText.color = BaseColor;
         }
 
         public void SetToWarningColor()
         {
-            _clockText.color = WarningColor;
+            ClockText.color = WarningColor;
         }
     }
 }

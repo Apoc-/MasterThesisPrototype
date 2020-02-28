@@ -14,8 +14,7 @@ namespace Core
             {
                 HandlePauseToggle();
             }
-            
-            
+
             //only mouse inputs if unpaused
             if (GameManager.Instance.GameSpeedController.IsPaused) return;
             if (Input.GetMouseButtonDown(0))
@@ -42,7 +41,6 @@ namespace Core
                 Camera.main.GetComponent<CameraHandler>().ZoomOut();
             }
         }
-
         private void HandlePauseToggle()
         {
             var gm = GameManager.Instance;

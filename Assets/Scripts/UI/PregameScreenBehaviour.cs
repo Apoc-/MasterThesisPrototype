@@ -14,11 +14,6 @@ namespace UI
 
         public ToggleGroup AvatarToggleGroup;
 
-        public void StartTutorial()
-        {
-            SceneManager.LoadScene("Scenes/GameScene");
-        }
-        
         public void StoreNameInSettingsHandler()
         {
             SettingHandler.PlayerName = InputField.text;

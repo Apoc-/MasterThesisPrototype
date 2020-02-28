@@ -9,15 +9,33 @@ namespace UI
     {
         public List<AudioClip> Songs;
         public AudioSource AudioSource;
+
+        public bool _stopped = false;
+        
+        private void Start()
+        {
+            DontDestroyOnLoad(this);
+        }
+        
         private void OnEnable()
         {
-            DontDestroyOnLoad(this.gameObject);
             AudioListener.volume = 0.5f;
+        }
+
+        public void StopPlaying()
+        {
+            _stopped = true;
+            AudioSource.Stop();
+        }
+
+        public void StartPlaying()
+        {
+            _stopped = false;
         }
 
         private void Update()
         {
-            if (!AudioSource.isPlaying)
+            if (!AudioSource.isPlaying && !_stopped)
             {
                 PlayRandomSong();
             }

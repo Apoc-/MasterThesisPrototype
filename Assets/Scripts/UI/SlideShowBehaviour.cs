@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 namespace UI
 {
@@ -17,6 +18,10 @@ namespace UI
 
         public int CurrentSlide = -1;
 
+        public List<Image> PlayerImages;
+        public Sprite Lucy;
+        public Sprite Jack;
+        
         public AudioClip ClickSound;
         private SoundEffectManager _soundEffectManager;
         public SoundEffectManager SoundEffectManager => _soundEffectManager
@@ -29,6 +34,12 @@ namespace UI
             HideAllSlides();
             ShowFirstSlide();
 
+            var avatarId = FindObjectOfType<PregameScreenBehaviour>().SettingHandler.AvatarId;
+            PlayerImages.ForEach(image =>
+            {
+                image.sprite = (avatarId == 0) ? Lucy : Jack;
+            });
+            
             if (SoundEffectManager != null)
             {
                 SoundEffectManager.PlayAmbientBeamerSound();
@@ -38,8 +49,11 @@ namespace UI
 
         private void OnDisable()
         {
-            SoundEffectManager.StopSound();
-            SoundEffectManager.SongHandler.DisableRadioEffect();
+            if (SoundEffectManager != null)
+            {
+                SoundEffectManager.StopSound();
+                SoundEffectManager.SongHandler.DisableRadioEffect();    
+            }
         }
 
         private void ShowFirstSlide()

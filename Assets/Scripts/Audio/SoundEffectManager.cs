@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Audio;
 using UnityEngine.UI;
 using Random = UnityEngine.Random;
 
@@ -24,9 +25,10 @@ namespace UI
         public AudioClip BeamerSound;
         public AudioClip BeamerClick;
 
+
         private void Start()
         {
-            DontDestroyOnLoad(this);
+            DontDestroyOnLoad(this.gameObject);
         }
 
         public void PlayBeamerClick()
@@ -38,6 +40,11 @@ namespace UI
         {
             SoundEffectAudioSource.clip = BeamerSound;
             SoundEffectAudioSource.Play();
+        }
+
+        public void StopSound()
+        {
+            SoundEffectAudioSource.Stop();
         }
         
         public void PlayDoorSound()
@@ -63,12 +70,12 @@ namespace UI
             ToggleMuteMusic();
         }
         
-        public void ToggleMuteEffects()
+        public void ToggleMuteEffects(bool state = false)
         {
             SoundEffectAudioSource.mute = !SoundEffectAudioSource.mute;
         }
 
-        public void ToggleMuteMusic()
+        public void ToggleMuteMusic(bool state = false)
         {
             if (SongHandler == null) SongHandler = FindObjectOfType<SongHandler>();
             

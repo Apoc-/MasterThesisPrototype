@@ -38,6 +38,10 @@ namespace Core
             {
                 DebugButton.gameObject.SetActive(true);
             }
+            else
+            {
+                DebugButton.gameObject.SetActive(false);
+            }
         }
 
         public void DebugSpeed()

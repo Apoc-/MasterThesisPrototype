@@ -98,7 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 0
+  m_UseShadowmask: 1
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -8118,5 +8118,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7645332262176089207, guid: 768b9b93e5de11944ba157cdf662e4aa,
+        type: 3}
+      propertyPath: RadioMixerGroup
+      value: 
+      objectReference: {fileID: 3635195460493164223, guid: 6d27f96ea00da204bb2c7d8b575bfbea,
+        type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 768b9b93e5de11944ba157cdf662e4aa, type: 3}

@@ -23,7 +23,7 @@ namespace UI
             ? _soundEffectManager
             : _soundEffectManager = FindObjectOfType<SoundEffectManager>();
 
-        private void Start()
+        private void OnEnable()
         {
             Slides = GetSlides();
             HideAllSlides();
@@ -32,8 +32,14 @@ namespace UI
             if (SoundEffectManager != null)
             {
                 SoundEffectManager.PlayAmbientBeamerSound();
-                SoundEffectManager.SongHandler.StopPlaying();    
+                SoundEffectManager.SongHandler.EnableRadioEffect();
             }
+        }
+
+        private void OnDisable()
+        {
+            SoundEffectManager.StopSound();
+            SoundEffectManager.SongHandler.DisableRadioEffect();
         }
 
         private void ShowFirstSlide()
@@ -88,6 +94,7 @@ namespace UI
         
         public void StartGame()
         {
+            
             SceneManager.LoadScene("Scenes/GameScene");
         }
 

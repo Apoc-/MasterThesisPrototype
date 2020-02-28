@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Audio;
 using Random = UnityEngine.Random;
 
 namespace UI
@@ -12,6 +13,8 @@ namespace UI
 
         public bool _stopped = false;
         
+        public AudioMixerGroup RadioMixerGroup;
+        
         private void Start()
         {
             DontDestroyOnLoad(this);
@@ -22,6 +25,21 @@ namespace UI
             AudioListener.volume = 0.5f;
         }
 
+        
+        public void EnableRadioEffect()
+        {
+            AudioSource.outputAudioMixerGroup = RadioMixerGroup;
+        }
+
+        public void DisableRadioEffect()
+        {
+            if (AudioSource != null)
+            {
+                AudioSource.outputAudioMixerGroup = null;    
+            }
+        }
+
+        
         public void StopPlaying()
         {
             _stopped = true;

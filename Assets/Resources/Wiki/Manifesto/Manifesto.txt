@@ -1,4 +1,4 @@
 ﻿$title=Manifesto
 Das agile Manifest wurde 2001 von 17 [Personen] formuliert. Es wurden 4 [Leitsätze] und 12 [Prinzipien] formuliert die die Ideen und Konzepte der Verfasser zur Bedeutung von agiler Entwicklung wiederspiegeln.
 
-Quelle: https://agilemanifesto.org/
+Quelle: <link><color="blue">https://agilemanifesto.org/</color></link>

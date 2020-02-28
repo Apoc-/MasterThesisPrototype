@@ -40,7 +40,10 @@ namespace UI
 
         private void OnDisable()
         {
-            GameManager.Instance.GameSpeedController.Play();
+            if (GameManager.Instance.GameSpeedController != null)
+            {
+                GameManager.Instance.GameSpeedController.Play();    
+            }
         }
 
         public void OnPointerClick(PointerEventData eventData)
@@ -50,9 +53,16 @@ namespace UI
             if (linkIndex != -1)
             {
                 var linkInfo = CurrentDisplayWikiEntry.Body.textInfo.linkInfo[linkIndex];
-
-                _visitedPages.Push(CurrentDisplayWikiEntry.Id);
-                DisplayWikiEntryById(linkInfo.GetLinkID());
+                var linkText = linkInfo.GetLinkText();
+                if (linkText.StartsWith("https"))
+                {
+                    Application.OpenURL(linkText);
+                }
+                else
+                {
+                    _visitedPages.Push(CurrentDisplayWikiEntry.Id);
+                    DisplayWikiEntryById(linkInfo.GetLinkID());
+                }
             }
         }
 

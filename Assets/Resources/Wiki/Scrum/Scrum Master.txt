@@ -1,7 +1,7 @@
 ﻿$title=Scrum Master
 Der Scrum Master ist dafür verantwortlich, Scrum entsprechend des Scrum Guides zu fördern und zu unterstützen. Er ist ein "Servant Leader" für das Team. Zudem hilft er außenstehenden zu verstehen, welche Interaktionen mit dem Team sich hilfreich auswirken und welche nicht. Dabei hilft er bei der Optimierung der Zusammenarbeit des Scrum-Teams.
 
-Der Scrum Master hilft dem [Product Owner], indem er dafür sorgt, dass die Ziele im Scrum-Team so gut wie möglich verstanden werden. und vermittelt ihm Techniken und Verständnis zur Verwaltung des [Product Backlog]s. Bei Bedarf oder auf Anfrage unterstützt der Scrum Master bei der Durchführung von [Scrum Ereignisse]n.
+Der Scrum Master hilft dem [Product Owner], indem er dafür sorgt, dass die Ziele im Scrum-Team so gut wie möglich verstanden werden und vermittelt ihm Techniken und Verständnis zur Verwaltung des [Product Backlog]s. Bei Bedarf oder auf Anfrage unterstützt der Scrum Master bei der Durchführung von [Scrum Ereignisse]n.
 
 Dem [Entwicklungsteam] hilft der Scrum Master, indem er sie zur Selbstorganisation und funktionsübergreifender Teamarbeit coached. Er beseitigt Hindernisse, die das Entwicklungsteam aufhalten.
 

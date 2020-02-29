@@ -1,0 +1,2 @@
+﻿$title=Überprüfung
+Scrum-Anwender müssen die Scrum-[Artefakte] und den Fortschritt regelmäßig in Bezug auf die Erreichung des Sprint-Ziels überprüfen, um unerwünschte Abweichungen zu erkennen. Ihre Untersuchungen sollten nicht so häufig erfolgen, dass sie die Arbeit behindern. Den größten Nutzen bringen Überprüfungen, wenn sie gewissenhaft durch kompetente Prüfer dort vorgenommen werden, wo die Arbeit verrichtet wird.

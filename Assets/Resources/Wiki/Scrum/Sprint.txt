@@ -1,0 +1,12 @@
+﻿$title=Sprint
+Das Herz von Scrum ist der Sprint, ein Zeitraum (Time Box) von maximal einem Monat, innerhalb dessen ein fertiges (Done), nutzbares und potenziell auslieferbares Produktinkrement hergestellt wird. Alle Sprints innerhalb eines Entwicklungsvorhabens sollten die gleiche Dauer haben. Der neue Sprint startet sofort nach Abschluss des vorherigen Sprints.
+
+Ein Sprint beinhaltet und umfasst das [Sprint Planning], die [Daily Scrum]s, die Entwicklungsarbeit, das [Sprint Review] und die [Sprint Retrospektive].
+
+Während des Sprints:
+• werden keine Änderungen vorgenommen, die das Sprint-Ziel gefährden,
+• wird der Qualitätsanspruch nicht geschmälert, und
+• kann der Anforderungsumfang zwischen Product Owner und Entwicklungsteam geklärt und neu ausgehandelt werden, wenn sich neue Erkenntnisse ergeben haben
+
+<b>Einen Sprint abbrechen</b>
+Ein Sprint kann vorzeitig, d.h. vor dem Ablauf seiner Time Box, abgebrochen werden. Dazu ist nur der Product Owner berechtigt, auch wenn er oder sie den Abbruch auf Anraten der Stakeholder, des Entwicklungsteams oder des Scrum Masters vornimmt.

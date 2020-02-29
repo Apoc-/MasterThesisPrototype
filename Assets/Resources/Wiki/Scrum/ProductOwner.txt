@@ -1,6 +1,2 @@
 ﻿$title=Product Owner
-<b>Aufgaben</b>
-- Wertmaximierung des Produkts sowie der Arbeit des Entwicklungsteams
-- Management des Product Backlogs
-- Er ist eine einzelne Person
-- Entscheidungen müssen von der gesamten Organisation respektiert werden
+Er sorgt für eine Wertmaximierung des Produkts sowie der Arbeit des  [Entwicklungsteam]s. Dabei ist der Product Owner stets eine einzelne Person und nie ein Komitee. Daneben kümmert er sich um das [Product Backlog] und managed dieses. Damit er als Product Owner arbeiten kann, müssen seine Entscheidungen von der gesamten Organisation respektiert werden.

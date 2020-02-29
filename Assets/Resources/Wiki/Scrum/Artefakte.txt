@@ -1,0 +1,12 @@
+﻿$title=Artefakte
+Die Artefakte von Scrum repräsentieren Arbeit oder Wert, um Transparenz sowie Möglichkeiten zur Überprüfung und Anpassung zu schaffen. Die in Scrum definierten Artefakte wurden speziell so entworfen, dass sie die Transparenz der wesentlichen Informationen maximieren, um für alle ein gleiches Verständnis über das Artefakt zu schaffen.
+
+Diese Artefakte sind:
+• [Product Backlog]
+• [Sprint Backlog]
+• [Inkrement]
+
+<b>Definition of Done</b>
+Es müssen alle verstehen, was „Done“ bedeutet, sobald ein Product-Backlog-Eintrag oder ein Produkt-Inkrement als „Done“ bezeichnet wird. Obwohl sich dies erheblich von Scrum-Team zu Scrum-Team unterscheiden kann, müssen alle Teammitglieder ein gemeinsames Verständnis davon haben wann Arbeit fertig ist, um [Transparenz] zu gewährleisten. Dies erfolgt durch die Definition of Done des Scrum-Teams und wird dazu verwendet festzustellen, wann die Arbeit an einem Produktinkrement fertig ist.
+
+Die gleiche Definition leitet das Entwicklungsteam bei der Entscheidung, wie viele Product Backlog-Einträge es während des Sprint Plannings selektieren kann. Der Zweck eines jeden Sprints ist es, Inkremente potentiell auslieferbarer Funktionalität zu liefern, die der aktuellen Definition of Done des Scrum-Teams entsprechen.

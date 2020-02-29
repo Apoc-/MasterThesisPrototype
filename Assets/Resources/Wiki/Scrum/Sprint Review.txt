@@ -1,0 +1,8 @@
+﻿$title=Sprint Review
+Am Ende eines [Sprint]s wird ein Sprint Review abgehalten, um das Produktinkrement zu überprüfen und das [Product Backlog] bei Bedarf anzupassen. Während des Sprint Reviews beschäftigen sich das Scrum-Team und die Stakeholder gemeinsam mit den Ergebnissen des Sprints. Zusammen mit eventuellen Änderungen am Product Backlog während des Sprints bieten diese die Basis für die gemeinsame Arbeit an möglichen neuen, den Wert des Produkts steigernden Punkten. Beim Sprint Review handelt es sich um ein informelles Meeting, keinen Statusreport. Die Vorführung des Inkrements ist als Anregung für Feedback und die Basis für die Zusammenarbeit gedacht.
+
+Für einen einmonatigen Sprint wird für dieses Meeting eine Obergrenze (Time Box) von vier Stunden angesetzt. Für kürzere Sprints wird in der Regel ein kürzerer Zeitrahmen veranschlagt. Der [Scrum Master] stellt sicher, dass das Event stattfindet und die Teilnehmer seinen Zweck verstehen. Der Scrum Master bringt allen Beteiligten bei, das Event innerhalb der Frist (Time Box) durchzuführen.
+
+Das Sprint Review hat mehrere [Sprint Review Elemente].
+
+Das Ergebnis des Sprint Reviews ist ein überarbeitetes Product Backlog, das die möglichen Product-Backlog-Einträge für den kommenden Sprint enthält. Das Product Backlog kann auch umfassend umgearbeitet werden, um neue Chancen zu nutzen.

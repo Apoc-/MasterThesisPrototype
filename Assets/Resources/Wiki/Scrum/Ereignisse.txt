@@ -1,0 +1,11 @@
+﻿$title=Ereignisse
+In Scrum werden vorgeschriebene Ereignisse verwendet, um eine Regelmäßigkeit herzustellen und die Notwendigkeit anderer, nicht in Scrum definierter, Besprechungen zu minimieren. Alle Ereignisse sind befristet (time boxed), so dass jedes Ereignis eine maximale Dauer hat. Die Dauer eines Sprints steht zu seinem Beginn fest und darf weder gekürzt noch verlängert werden. Die anderen Ereignisse dürfen beendet werden, sobald sie ihren Zweck erfüllt haben. Dies stellt sicher, dass nur so viel Zeit wie nötig aufgewendet und Verschwendung vermieden wird.
+
+Mit Ausnahme des Sprints als Container für alle anderen Ereignisse ist jedes Scrum-Ereignis eine formale Gelegenheit zur Überprüfung und Anpassung. Diese Ereignisse sind genau dazu gedacht, an den kritischen Stellen Transparenz und Überprüfung zu ermöglichen. Das Weglassen irgendeines dieser Ereignisse führt zu verringerter Transparenz und ist eine verpasste Gelegenheit den gegenwärtigen Stand zu erfassen (Inspect) und darauf zu reagieren (Adapt).
+
+Die Ereignisse sind:
+• [Sprint] als Container
+• [Sprint Planning]
+• [Daily Scrum]
+• [Sprint Review]
+• [Sprint Retrospektive]

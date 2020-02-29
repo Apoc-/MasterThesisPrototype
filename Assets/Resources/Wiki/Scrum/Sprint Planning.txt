@@ -1,0 +1,6 @@
+﻿$title=Sprint Planning
+Im Sprint Planning wird die Arbeit für den kommenden [Sprint] geplant. Dieser Plan entsteht durch die gemeinschaftliche Arbeit des gesamten Scrum-Teams ([Rollen]). Das [Sprint Planning] ist für einen einmonatigen Sprint auf maximal 8 Stunden befristet (Time Box). Bei kürzeren Sprints wendet man normalerweise weniger Zeit auf. Der [Scrum Master] sorgt dafür, dass das Ereignis stattfindet und die Teilnehmer dessen Zweck verstehen. Er bringt dem Scrum-Team bei, das Ereignis innerhalb der Frist erfolgreich abzuschließen. 
+
+Das Sprint Planning beantwortet die folgenden Fragen:
+• Was ist in dem Produktinkrement des kommenden Sprints enthalten?
+• Wie wird die für die Lieferung des Produktinkrements erforderliche Arbeit erledigt? 

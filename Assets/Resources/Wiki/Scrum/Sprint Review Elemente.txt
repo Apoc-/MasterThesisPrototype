@@ -1,0 +1,10 @@
+﻿$title=Sprint Review Elemente
+Das Sprint Review beinhaltet die folgenden Elemente:
+• Die Teilnehmer, bestehend aus dem Scrum-Team und wichtigen Stakeholdern, die vom [Product Owner] eingeladen werden.
+• Der Product Owner erklärt, welche [Product-Backlog]-Einträge fertig (Done) sind, und welche nicht.
+• Das [Entwicklungsteam] stellt dar, was während des [Sprint]s gut lief, welche Probleme aufgetaucht sind, und wie es diese Probleme gelöst hat.
+• Das Entwicklungsteam führt die fertige Arbeit vor, und beantwortet Fragen zu dem Inkrement.
+• Der Product Owner stellt den aktuellen Stand des Product Backlogs dar. Er gibt bei Bedarf eine aktualisierte Vorhersage von wahrscheinlichen Ziel- und Lieferterminen auf der Basis des Entwicklungsfortschritts.
+• Alle Teilnehmer erarbeiten gemeinsam, was als nächstes zu tun ist, so dass das Sprint Review wertvollen Input für die kommenden [Sprint Planning]s liefert.
+• Es erfolgt eine Begutachtung, ob sich durch die Marktsituation oder den möglichen Produkteinsatz neue Erkenntnisse über die wertvollsten nächsten Schritte ergeben haben.
+• Anschließend werden Zeitplan, Budget, die potentiellen Eigenschaften sowie die Markterwartungen für das nächste zu erwartende Produkt-Release überprüft.

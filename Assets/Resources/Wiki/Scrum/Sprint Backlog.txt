@@ -1,0 +1,8 @@
+﻿$title=Sprint Backlog
+Das Sprint Backlog ist die Menge der für den [Sprint] ausgewählten [Product Backlog]-Einträge, ergänzt um einen Plan, um das Produktinkrement zu liefern und das Sprint-Ziel zu erreichen. Das Sprint Backlog ist eine Prognose des [Entwicklungsteams] darüber, welche Funktionalität im nächsten Inkrement enthalten sein wird, sowie über die erforderliche Arbeit, um diese Funktionalität in einem fertigen (Done) Inkrement zu liefern.
+
+Das Sprint Backlog macht die gesamte Arbeit sichtbar, die das Entwicklungsteam für notwendig erachtet, um das Sprint-Ziel zu erreichen. Um kontinuierliche Verbesserungen zu gewährleisten, umfasst es mindestens eine wichtige Prozessverbesserung, die in der vorherigen [Sprint Retrospektive] identifiziert wurde.
+
+Das Sprint Backlog ist ein ausreichend detaillierter Plan, um den Fortschritt innerhalb des Sprints im [Daily Scrum] erkennen zu können. Das Entwicklungsteam passt das Sprint Backlog während des Sprints an; das Sprint Backlog entwickelt sich so während des Sprints. Diese Entwicklung erfolgt, während das Entwicklungsteam den Plan abarbeitet und mehr über die noch benötigten Schritte zur Erreichung des Sprint-Ziels lernt. 
+
+Wenn weitere Arbeiten erforderlich sind, werden sie vom Entwicklungsteam zum Sprint Backlog hinzugefügt. Wenn eine Arbeit durchgeführt wird oder abgeschlossen wurde, wird die Schätzung der verbleibenden Arbeit aktualisiert. Wenn sich Bestandteile des Plans als unnötig erweisen, werden sie entfernt. Nur das Entwicklungsteam kann sein Sprint Backlog während des Sprints ändern. Das Sprint Backlog ist ein hochgradig sichtbares Echtzeit-Abbild der Arbeit, die das Entwicklungsteam plant, während des Sprints zu erreichen. Es gehört einzig und allein dem Entwicklungsteam.

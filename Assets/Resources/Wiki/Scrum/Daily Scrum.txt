@@ -1,0 +1,9 @@
+$title=Daily Scrum
+Das Daily Scrum ist eine Time Box von 15 Minuten für das [Entwicklungsteam]. Das Daily Scrum findet an jedem Tag des [Sprint]s statt. Das Entwicklungsteam plant dabei die Arbeit für die nächsten 24 Stunden. Es überprüft die Arbeitsergebnisse seit dem letzten Daily Scrum und prognostiziert die im Sprint bevorstehende Arbeit, um die Zusammenarbeit und Leistung des Teams zu optimieren. Um die Komplexität zu reduzieren, wird das Daily Scrum an jedem Tag zur gleichen Uhrzeit am gleichen Ort abgehalten.
+
+Die Struktur des Ereignisses wird vom Entwicklungsteam festgelegt und kann auf unterschiedliche Weise durchgeführt werden, sofern die Erreichung des Sprint-Ziels im Fokus steht. Einige Entwicklungsteams verwenden Fragen, andere konzentrieren sich eher auf Diskussionen. 
+
+Hier ist ein Beispiel, was verwendet werden könnte:
+• Was habe ich gestern getan, das dem Entwicklungsteam geholfen hat, das Sprint-Ziel zu erreichen?
+• Was werde ich heute erledigen, um dem Entwicklungsteam beim Erreichen des Sprint-Ziels zu helfen?
+• Sehe ich irgendein Hindernis, das mich oder das Entwicklungsteam daran hindert, das Sprint-Ziel zu erreichen?

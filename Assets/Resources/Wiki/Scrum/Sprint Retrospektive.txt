@@ -1,0 +1,11 @@
+﻿$title=Sprint Retrospektive
+Die Sprint Retrospektive bietet dem Scrum-Team die Gelegenheit, sich selbst zu überprüfen und einen Verbesserungsplan für den kommenden [Sprint] zu erstellen. 
+
+Sie findet zwischen dem [Sprint Review] und dem nächsten [Sprint Planning] statt. Für einen einmonatigen Sprint wird hierfür eine Obergrenze von drei Stunden angesetzt. Bei kürzeren Sprints ist das Meeting in der Regel kürzer. Der Scrum Master sorgt dafür, dass das Meeting stattfindet und alle Teilnehmer dessen Zweck verstehen.
+
+Die Sprint Retrospektive wird durchgeführt, um
+• zu überprüfen wie der vergangene Sprint in Bezug auf die beteiligten Personen, Beziehungen, Prozesse und Werkzeuge verlief;
+• die wichtigsten gut gelaufenen Elemente und mögliche Verbesserungen zu identifizieren und in eine Reihenfolge zu bringen; und
+• einen Plan für die Umsetzung von Verbesserungen der Arbeitsweise des Scrum-Teams zu erstellen.
+
+Zum Ende der Sprint Retrospektive sollte das Scrum-Team Verbesserungen für den kommenden Sprint identifiziert haben. Die Umsetzung dieser Verbesserungen im nächsten Sprint ist die Anpassungsleistung zur Selbstüberprüfung des Scrum-Teams. Auch wenn jederzeit Verbesserungen eingeführt werden können, bietet die Sprint Retrospektive eine formelle Gelegenheit, sich auf die Überprüfung und Anpassung zu fokussieren.

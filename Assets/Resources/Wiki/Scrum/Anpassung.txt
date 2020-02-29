@@ -1,0 +1,2 @@
+$title=Anpassung
+Wenn ein Prüfer feststellt, dass Aspekte des Prozesses von den akzeptablen Grenzwerten abweichen und dass das resultierende Produkt so nicht akzeptabel sein wird, müssen der Prozess oder das zu bearbeitende Material angepasst werden. Die Anpassung muss dann so schnell wie möglich vorgenommen werden, um weitere Abweichungen zu minimieren. Scrum schreibt vier formale Ereignisse für Überprüfung und Anpassung vor. Diese werden im Abschnitt Scrum-[Ereignisse] beschrieben.

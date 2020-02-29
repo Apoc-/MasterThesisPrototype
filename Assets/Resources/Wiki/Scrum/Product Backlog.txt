@@ -1,0 +1,8 @@
+﻿$title=Product Backlog
+Das Product Backlog ist eine geordnete Liste von allem, von dem bekannt ist, dass es im Produkt enthalten sein soll. Es dient als einzige Anforderungsquelle für alle Änderungen am Produkt. Der [Product Owner] ist für das Product Backlog, seine Inhalte, den Zugriff darauf und die Reihenfolge der Einträge verantwortlich.
+
+Das Product Backlog wird wärend der Entwicklung andauernd erweitert. Es werden alle zukünftigen Features, Funktionalitäten, Verbesserungen und Fehlerbehebungen aufgelistet.
+
+Das Product Backlog wird regelmäßig und kontinuierlich vom Product Owner verfeinert (Refinement). Das heisst die Einträge werden detaillierter, ihr Aufwand wird genauer geschätzt oder sie werden neu priorisiert. Alle Product-Backlog-Einträge die soweit verfeinert wurden, dass sicher gestellt werden kann, dass sie in einem Sprint fertiggestellt werden können, werdfen als "Ready" bezeichnet. Sie können beim nächsten [Sprint Planning] in das [Sprint Backlog] übernommen werden.
+
+Das Entwicklungsteam ist für alle Schätzungen verantwortlich. Der Product Owner kann das Entwicklungsteam dahingehend beeinflussen, dass er ihm beim Verständnis der Einträge hilft oder Kompromisse eingeht. Die endgültige Schätzung erfolgt immer von denen, die auch die Arbeit erledigen werden.

@@ -1,0 +1,6 @@
+﻿$title=Transparenz
+Die wesentlichen Aspekte des Prozesses müssen für diejenigen sichtbar sein, die für das Ergebnis verantwortlich sind. Transparenz erfordert, dass diese Aspekte nach einem gemeinsamen Standard definiert werden, damit die Betrachter ein gemeinsames Verständnis des Gesehenen teilen.
+
+Dies umfasst beispielsweise:
+• Eine gemeinsame Prozesssprache, die von allen Teilnehmern geteilt wird.
+• Die Personen, die das Produktinkrement produzieren und inspizieren, müssen alle ein gemeinsames Verständnis von „fertig“ (Done) teilen.

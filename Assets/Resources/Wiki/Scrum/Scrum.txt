@@ -1,5 +1,8 @@
 ﻿$title=Scrum
 Scrum ist ein agiles Vorgehensmodell für Projekte und wurde 1995 von Ken Schwaber das erste mal vorgestellt.
-Wichtige Elemente von Scrum sind die [Rollen], Ereignisse und Artefakte.
+Wichtige Elemente von Scrum sind die [Rollen], [Ereignisse] und [Artefakte].
 
-Mehr Informationen: <link><color="blue">https://www.scrumguides.org/</color></link>
+Die "Drei Säulen von Scrum" tragen das Konzept der empirischen Prozesssteuerung. Diese Säulen sind: [Transparenz], [Überprüfung] und [Anpassung]. 
+Mit den Säulen hängen die Scrum Werte zusammen. Wenn die Werte Selbstverpflichtung, Mut, Fokus, Offenheit und Respekt durch das Scrum-Team verkörpert und gelebt werden, werden die Scrum-Säulen Transparenz, Überprüfung und Anpassung lebendig und bauen bei allen Beteiligten Vertrauen zueinander auf. Die Mitglieder des Scrum-Teams lernen und erforschen diese Werte, indem sie mit den Scrum-Ereignissen, Rollen und Artefakten arbeiten.
+
+Die Inhalte dieses Wikis wurden, teilweise gekürzt und/oder zusammengefasst, aus dem deutschen Scrum-Guide (<link><color="blue">https://www.scrumguides.org/</color></link>) übernommen.

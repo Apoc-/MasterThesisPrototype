@@ -1,0 +1,2 @@
+﻿$title=Entwicklungsteam
+Nur das Entwicklungsteam erstellt das Produktinkrement und ist dabei selbstorganisierend. Das Team ist interdisziplinär. Innerhalb des Teams gibt es keine Titel, unabhängig von der Arbeit die ein Teammitglied erledigt und keine weiteren Unterteilungen. Die Rechenschaftspflicht obliegt dem Team stets als Ganzem. Im Optimalfall besteht ein Entwicklungsteam aus 3 bis 9 Mitgliedern.

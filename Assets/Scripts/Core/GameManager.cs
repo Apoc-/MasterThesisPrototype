@@ -105,6 +105,7 @@ public class GameManager : MonoBehaviour
 
     public bool ScrumMasterActive = false;
 
+    private List<NPC> _npcs = new List<NPC>();
 
     public Company Company { get; private set; }
     [SerializeField] private float _impedimentChance = 0.1f;
@@ -131,7 +132,8 @@ public class GameManager : MonoBehaviour
     {
         Company = new Company(name);
 
-        FindObjectsOfType<NPC>().ToList().ForEach(entity => { Company.RegisterTeamMember(entity); });
+        _npcs = FindObjectsOfType<NPC>().ToList();
+        _npcs.ForEach(entity => { Company.RegisterTeamMember(entity); });
     }
 
     private void WarnFinishDay()
@@ -196,6 +198,7 @@ public class GameManager : MonoBehaviour
         Clock.ResetAlarms();
         Clock.Running = true;
         GameSpeedController.Play();
+        _npcs.ForEach(npc => { npc.MakeThirsty(); });
     }
 
     public void InitDailyScrumPlan()

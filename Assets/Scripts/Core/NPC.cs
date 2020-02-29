@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Timers;
+using Code;
 using UI;
 using UnityEngine;
 using UnityEngine.Events;
@@ -26,6 +27,8 @@ namespace Core
 
         private bool _isInOffice = false;
         private float _progressTimer = 0f;
+
+        private bool _drankMorningCoffee = false;
 
         public void Update()
         {
@@ -75,9 +78,25 @@ namespace Core
 
         private void DecideAction()
         {
-            if (Random.Range(0f, 1f) < _randomInteractionChance)
+            if (!_drankMorningCoffee)
             {
-                DoRandomInteraction();
+                Debug.Log("Giving coffee order");
+                var coffeeMachine = GameManager.Instance
+                    .InteractibleManager
+                    .NpcInteractibles.First(interactible => interactible is CoffeeMachine);
+                
+                InteractWith(coffeeMachine, () =>
+                {
+                    _drankMorningCoffee = true;
+                    GoBackToOffice();
+                });
+            }
+            else
+            {
+                if (Random.Range(0f, 1f) < _randomInteractionChance)
+                {
+                    DoRandomInteraction();
+                }
             }
         }
 
@@ -232,5 +251,12 @@ namespace Core
         }
 
         public string GetTooltip() => (_isInOffice || _isInElevator || _hasMeeting) ? "" : Name;
+
+        public void MakeThirsty()
+        {
+            Debug.Log("Making thirsty");
+            CancelAllOrders();
+            _drankMorningCoffee = false;
+        }
     }
 }

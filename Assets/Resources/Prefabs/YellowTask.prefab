@@ -112,6 +112,21 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 5422676827963813434, guid: cfc21b1680c45014296b37ef20defa70,
+        type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5422676827963813434, guid: cfc21b1680c45014296b37ef20defa70,
+        type: 3}
+      propertyPath: m_Color.g
+      value: 0.8333334
+      objectReference: {fileID: 0}
+    - target: {fileID: 5422676827963813434, guid: cfc21b1680c45014296b37ef20defa70,
+        type: 3}
+      propertyPath: m_Color.b
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6040595196263639330, guid: cfc21b1680c45014296b37ef20defa70,
         type: 3}
       propertyPath: m_Name

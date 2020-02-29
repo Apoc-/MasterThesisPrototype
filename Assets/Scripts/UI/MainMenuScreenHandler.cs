@@ -14,9 +14,13 @@ namespace UI
         public Jun_TweenRuntime LogoAnim;
         private Vector3 CameraStart;
 
+        public Jun_TweenRuntime Credits;
+        
         public GameObject AnyKeyTextObject;
 
         private bool _logoAnimPlayed = false;
+        private bool _creditsPlaying = false;
+        
         
         private void Awake()
         {
@@ -29,6 +33,18 @@ namespace UI
             {
                 StartLogoAnim();
             }
+
+            if (Input.anyKeyDown && _creditsPlaying)
+            {
+                StopCredits();
+            }
+        }
+
+        private void StopCredits()
+        {
+            _creditsPlaying = false;
+            Credits.transform.parent.gameObject.SetActive(false);
+            Credits.StopPlay();
         }
 
         private void StartLogoAnim()
@@ -56,6 +72,13 @@ namespace UI
             
             FadeOut.Play();
             FadeOut.AddOnFinished(() => CameraAnim.Play());
+        }
+
+        public void PlayCredits()
+        {
+            _creditsPlaying = true;
+            Credits.transform.parent.gameObject.SetActive(true);
+            Credits.Play();
         }
     }
 }

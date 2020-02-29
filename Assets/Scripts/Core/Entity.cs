@@ -181,7 +181,7 @@ namespace Core
 
         public void GiveInteractionOrder(Interactible interactible, Action finishedCallback = null)
         {
-            GameManager.Instance.WaypointProvider.ClearWaypointActionsForEntity(this);
+            CancelCurrentInteractionOrder();
             _finishedInteraction = false;
             _finishedInteractionCallback = finishedCallback;
             CurrentInteractTarget = interactible;

@@ -116,6 +116,9 @@ namespace Core
                 case Speed.Fast:
                     PlayFast();
                     break;
+                case Speed.Debug:
+                    DebugSpeed();
+                    break;
                 default:
                     throw new ArgumentOutOfRangeException();
             }

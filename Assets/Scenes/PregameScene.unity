@@ -98,7 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 1
+  m_UseShadowmask: 0
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -2181,7 +2181,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &609596736
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2476,7 +2476,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &767120467
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4936,8 +4936,8 @@ PrefabInstance:
     - target: {fileID: 8918010041853165010, guid: c34f68373cfd8234cb2c42cc4226bf6e,
         type: 3}
       propertyPath: m_text
-      value: "Je gewissenhafter Sie ihre Aufgaben erf\xFCllen, desto gr\xF6\xDFer
-        wird die Agilit\xE4t ihrer Abteilung."
+      value: "Je gewissenhafter Sie Ihre Aufgaben erf\xFCllen, desto gr\xF6\xDFer
+        wird die Agilit\xE4t Ihrer Abteilung."
       objectReference: {fileID: 0}
     - target: {fileID: 8918010041853165010, guid: c34f68373cfd8234cb2c42cc4226bf6e,
         type: 3}
@@ -5134,6 +5134,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_fontSizeBase
       value: 38.22
+      objectReference: {fileID: 0}
+    - target: {fileID: 8918010041853165010, guid: c34f68373cfd8234cb2c42cc4226bf6e,
+        type: 3}
+      propertyPath: m_margin.x
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 8918010041853165010, guid: c34f68373cfd8234cb2c42cc4226bf6e,
+        type: 3}
+      propertyPath: m_margin.z
+      value: 4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c34f68373cfd8234cb2c42cc4226bf6e, type: 3}
@@ -5976,7 +5986,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1390879775
 RectTransform:
   m_ObjectHideFlags: 0

@@ -50,20 +50,20 @@ namespace Core
                 GameManager.Instance
                     .NotificationController
                     .DisplayNotification(
-                        "Das Daily-Scrum-Meeting ist fertig und alle Entwickler waren da! Ja man, das gibt extra Punkte!",
+                        "Das Daily-Scrum-Meeting ist abgeschlossen und alle Entwickler waren da. Super!",
                         NotificationType.Default);
 
-                GameManager.Instance.AddToAgility("Daily Scrum: Volles Haus!", 10, transform.position);
+                GameManager.Instance.AddToAgility("Daily Scrum: Alle Entwickler anwesend!", 10, transform.position);
             }
             else
             {
                 GameManager.Instance
                     .NotificationController
                     .DisplayNotification(
-                        "Mist! Das Daily-Scrum-Meeting ist fertig und es waren nicht alle Entwickler da! Das kostet Punkte!",
+                        "Mist! Das Daily-Scrum-Meeting ist fertig und es waren nicht alle Entwickler da.",
                         NotificationType.Warning);
 
-                GameManager.Instance.AddToAgility("Daily Scrum: Jemand war nicht beim Daily!", -10, transform.position);
+                GameManager.Instance.AddToAgility("Daily Scrum: Einer der Entwickler war nicht beim Daily!", -10, transform.position);
             }
 
             _invitedEntities.ForEach(entity =>

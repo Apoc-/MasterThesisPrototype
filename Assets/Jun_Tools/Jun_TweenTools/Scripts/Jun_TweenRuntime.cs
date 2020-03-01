@@ -132,7 +132,7 @@ public class Jun_TweenRuntime : MonoBehaviour
 	}
 	
 	// Update is called once per frame
-	void Update ()
+	void LateUpdate ()
 	{
 		if(isPlaying)
 		{

@@ -1,5 +1,7 @@
 ﻿using System;
+using Core;
 using TMPro;
+using UnityEngine;
 
 namespace UI
 {
@@ -10,7 +12,7 @@ namespace UI
 
         private void OnEnable()
         {
-            GameManager.Instance.GameSpeedController.Pause();
+            GameManager.Instance.GameSpeedController.ForcePause();
         }
 
         public void OnYesClick()

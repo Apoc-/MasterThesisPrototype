@@ -28,7 +28,7 @@ public class GameManager : MonoBehaviour
 
     #endregion
 
-    public bool IsDebugMode = false;
+    public bool IsDebugMode = true;
 
     private WaypointProvider _waypointProvider;
 

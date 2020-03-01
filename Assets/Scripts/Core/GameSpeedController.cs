@@ -1,6 +1,7 @@
 ﻿using System;
 using UnityEditor;
 using UnityEngine;
+using UnityEngine.Serialization;
 using UnityEngine.UI;
 
 namespace Core
@@ -24,6 +25,8 @@ namespace Core
         public bool IsPaused = false;
 
         public float BaseTimeScale = 1f;
+
+        private bool _canUnpause = true;
         
         private enum Speed
         {
@@ -46,6 +49,7 @@ namespace Core
 
         public void DebugSpeed()
         {
+            if (!_canUnpause) return;
             if (_lastSpeed == Speed.Debug && !IsPaused) return;
             
             IsPaused = false;
@@ -57,6 +61,7 @@ namespace Core
 
         public void Play()
         {
+            if (!_canUnpause) return;
             if (_lastSpeed == Speed.Play && !IsPaused) return;
             
             IsPaused = false;
@@ -71,6 +76,7 @@ namespace Core
         
         public void PlayFast()
         {
+            if (!_canUnpause) return;
             if (_lastSpeed == Speed.Fast && !IsPaused) return;
             
             IsPaused = false;
@@ -103,9 +109,21 @@ namespace Core
             PlayFastFlash.gameObject.SetActive(false);
         }
 
+        public void ForcePause()
+        {
+            Pause();
+            _canUnpause = false;
+        }
+
+        public void ForceUnPause()
+        {
+            _canUnpause = true;
+            UnPause();
+        }
 
         public void UnPause()
         {
+            if (!_canUnpause) return;
             if (!IsPaused) return;
             
             switch (_lastSpeed)

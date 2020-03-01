@@ -9,7 +9,7 @@ namespace UI
 
         private void OnDisable()
         {
-            GameManager.Instance.GameSpeedController.UnPause();
+            GameManager.Instance.GameSpeedController.ForceUnPause();
         }
         
         public void OnOkClick()

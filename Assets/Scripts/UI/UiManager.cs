@@ -29,7 +29,10 @@ namespace UI
         {
             DecisionModal.SetTitle("Spiel Beenden");
             DecisionModal.SetText("Möchtest du das Spiel wirklich verlassen?");
-            DecisionModal.NoAction = () => { GameManager.Instance.GameSpeedController.UnPause(); };
+            DecisionModal.NoAction = () =>
+            {
+                GameManager.Instance.GameSpeedController.ForceUnPause();
+            };
             DecisionModal.YesAction = Application.Quit;
 
             DecisionModal.Show();

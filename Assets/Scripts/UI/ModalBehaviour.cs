@@ -9,7 +9,6 @@ namespace UI
 
         private void OnEnable()
         {
-            
             GetComponent<Jun_TweenRuntime>().Play();
         }
         

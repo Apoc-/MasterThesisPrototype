@@ -92,11 +92,11 @@ namespace UI
             //lazy init phone
             if (PhoneAudioSource == null)
             {
-                PhoneAudioSource = FindObjectOfType<Phone>().GetComponentInChildren<AudioSource>();
+                var phone = FindObjectOfType<Phone>();
+                if (phone == null) return;
+                
+                PhoneAudioSource = phone.GetComponentInChildren<AudioSource>();
             }
-
-            //no phone found
-            if (PhoneAudioSource == null) return;
 
             PhoneAudioSource.mute = !PhoneAudioSource.mute;
         }

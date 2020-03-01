@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using Core;
 using UnityEngine;
 using UnityEngine.Audio;
 using UnityEngine.UI;
@@ -25,7 +26,8 @@ namespace UI
         public AudioClip BeamerSound;
         public AudioClip BeamerClick;
 
-
+        public AudioSource PhoneAudioSource;
+        
         private void Start()
         {
             DontDestroyOnLoad(this.gameObject);
@@ -73,6 +75,8 @@ namespace UI
         public void ToggleMuteEffects(bool state = false)
         {
             SoundEffectAudioSource.mute = !SoundEffectAudioSource.mute;
+
+            ToggleMutePhone();
         }
 
         public void ToggleMuteMusic(bool state = false)
@@ -81,6 +85,20 @@ namespace UI
             
             // ReSharper disable once Unity.NoNullPropagation
             SongHandler?.ToggleMute();
+        }
+
+        public void ToggleMutePhone()
+        {
+            //lazy init phone
+            if (PhoneAudioSource == null)
+            {
+                PhoneAudioSource = FindObjectOfType<Phone>().GetComponentInChildren<AudioSource>();
+            }
+
+            //no phone found
+            if (PhoneAudioSource == null) return;
+
+            PhoneAudioSource.mute = !PhoneAudioSource.mute;
         }
     }
 }

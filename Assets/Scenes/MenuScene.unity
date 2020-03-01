@@ -98,7 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 1
+  m_UseShadowmask: 0
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -3848,9 +3848,9 @@ MonoBehaviour:
     von Lobo Loco\n\nhttps://freemusicarchive.org/music/Lobo_Loco\n\n\nThe Beauty
     of Maths von Meyd\xE4n\n\nhttps://freemusicarchive.org/music/Meydan\n\n\nStamp
     von A. A. Aalto\n\nhttps://freemusicarchive.org/music/A_A_Aalto\n\n\n<b>Soundeffekte</b>\n\nhttps://freesound.org/people/Vilkas_Sound/packs/26194/\nhttps://freesound.org/people/Heshl/sounds/269158/\nhttps://freesound.org/people/cbakos/sounds/50646/\nhttps://freesound.org/people/schroedel/sounds/31548/\nhttps://freesound.org/people/fedsmoker/sounds/208525/\nhttps://freesound.org/people/GreekIrish/sounds/254713/\n\n\n<b>Besonderer
-    Dank geht an</b>\n\nAlexander Fr\xFChwald\r\nPhilip Ziegler\r\nJonathan Sudermann\r\nMartin
-    Esche\r\nMatthias Coym\r\nMatthias Kleinhenz\r\nViktor Ziegler\n\nVielen, Vielen
-    Dank f\xFCr's testen und flei\xDFig Tickets schreiben!\n"
+    Dank geht an</b>\n\nAlexander Fr\xFChwald\r\nAnna Ziegler\nPhilip Ziegler\r\nJonathan
+    Sudermann\r\nMartin Esche\r\nMatthias Coym\r\nMatthias Kleinhenz\r\nTobias R\xFCthlein\nViktor
+    Ziegler\n\nVielen, Vielen Dank f\xFCrs testen und flei\xDFig Tickets schreiben!\n"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 6ca91044028f4ef4f9630b3f1bd3f373, type: 2}
   m_sharedMaterial: {fileID: 1896355889915570175, guid: 6ca91044028f4ef4f9630b3f1bd3f373,

@@ -320,7 +320,7 @@ namespace Core
             col.a = 1;
             SpriteRenderer.color = col;
             
-            SpriteRenderer.gameObject.GetComponent<ShadowCaster2D>().castsShadows = true;
+            //SpriteRenderer.gameObject.GetComponent<ShadowCaster2D>().castsShadows = true;
         }
 
         public void Hide()
@@ -329,7 +329,7 @@ namespace Core
             col.a = 0;
             SpriteRenderer.color = col;
 
-            SpriteRenderer.gameObject.GetComponent<ShadowCaster2D>().castsShadows = false;
+            //SpriteRenderer.gameObject.GetComponent<ShadowCaster2D>().castsShadows = false;
         }
 
         public virtual void ReturnFromMeeting()

@@ -112,8 +112,8 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
-        QualitySettings.vSyncCount = 0;
-        Application.targetFrameRate = 60;
+        //QualitySettings.vSyncCount = 1;
+        //Application.targetFrameRate = 60;
 
         InitPlayerAvatar();
         InitCompany();

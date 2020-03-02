@@ -80,7 +80,7 @@ namespace Core
         {
             if (!_drankMorningCoffee)
             {
-                Debug.Log("Giving coffee order");
+                if(_isInOffice) LeaveOffice();
                 var coffeeMachine = GameManager.Instance
                     .InteractibleManager
                     .NpcInteractibles.First(interactible => interactible is CoffeeMachine);
@@ -254,7 +254,6 @@ namespace Core
 
         public void MakeThirsty()
         {
-            Debug.Log("Making thirsty");
             CancelAllOrders();
             _drankMorningCoffee = false;
         }

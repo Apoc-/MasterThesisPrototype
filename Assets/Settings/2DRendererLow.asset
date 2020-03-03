@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 11145981673336645838492a2d98e247, type: 3}
-  m_Name: 2DRenderer
+  m_Name: 2DRendererLow
   m_EditorClassIdentifier: 
   m_RendererFeatures: []
   m_TransparencySortMode: 0
@@ -20,7 +20,7 @@ MonoBehaviour:
   - enabled: 1
     name: Default
     maskTextureChannel: 0
-    renderTextureScale: 0.1
+    renderTextureScale: 0.2
     blendMode: 1
     customBlendFactors:
       multiplicative: 0

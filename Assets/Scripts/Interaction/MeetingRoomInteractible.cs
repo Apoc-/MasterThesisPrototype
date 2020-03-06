@@ -32,8 +32,6 @@ namespace Core
                 member.CallToMeeting(this);
                 _invitedEntities.Add(member);
             });
-
-            
         }
 
         private void InvitePlayerToMeeting()
@@ -142,6 +140,6 @@ namespace Core
 
         public override string GetName() => "Meeting Raum";
 
-        public override string GetTooltip() => "";
+        public override string GetTooltip() => TargetGraphicContainer.activeSelf ? "An Meeting teilnehmen." : "";
     }
 }

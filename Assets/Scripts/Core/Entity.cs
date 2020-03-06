@@ -279,12 +279,36 @@ namespace Core
 
         private void SetLookingDirection()
         {
+            if (_forcedLookDirection) return;
+            
             var x = transform.position.x;
             var targetX = _currentWalkTarget.transform.position.x;
 
-            var flip = Mathf.Sign(x - targetX) > 0;
+            var flip = Mathf.Sign(x - targetX) < 0;
             SpriteRenderer.flipX = flip;
             Outline.GetComponent<SpriteRenderer>().flipX = flip;
+        }
+
+        private bool _forcedLookDirection = false;
+
+        public void DisableForcedLookDirection()
+        {
+            _forcedLookDirection = false;
+        }
+        
+        public void ForceLookLeft()
+        {
+            _forcedLookDirection = true;
+            SpriteRenderer.flipX = false;
+            Outline.GetComponent<SpriteRenderer>().flipX = false;
+        }
+
+        
+        public void ForceLookRight()
+        {
+            _forcedLookDirection = true;
+            SpriteRenderer.flipX = true;
+            Outline.GetComponent<SpriteRenderer>().flipX = true;
         }
 
         public void MoveInstantly(Waypoint targetWp)

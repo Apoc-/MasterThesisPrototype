@@ -13,9 +13,12 @@ namespace Core
         public float PlayerInteractDurationFactor = 0.5f;
         private IHasToolTip _hasToolTipImplementation;
         public int InteractionLayer = 0;
+        public Collider2D InteractionClickCollider;
+        
         public void OnEnable()
         {
             GameManager.Instance.InteractibleManager.RegisterInteractible(this);
+            InteractionClickCollider = GetComponent<Collider2D>();
         }
 
         public abstract void StartInteraction(Entity entity);
@@ -23,9 +26,8 @@ namespace Core
         public abstract string GetName();
         public Floor GetFloor()
         {
-            var col = GetComponent<Collider2D>();
             List<Collider2D> overlap = new List<Collider2D>();
-            col.OverlapCollider(new ContactFilter2D(), overlap);
+            InteractionClickCollider.OverlapCollider(new ContactFilter2D(), overlap);
             var floor = overlap.FindAll(c => c.GetComponent<Floor>() != null).Select(c => c.GetComponent<Floor>()).First();
             return floor;
         }
@@ -39,7 +41,12 @@ namespace Core
             
             return BaseInteractionDuration * PlayerInteractDurationFactor;
         }
-        
+
+        public virtual Vector3 GetNPCWalkTarget()
+        {
+            return transform.position;
+        }
+
         public abstract string GetTooltip();
     }
 }

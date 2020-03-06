@@ -83,8 +83,6 @@ namespace Core
             waypoint.RegisterOnEnterActionForEntity(this, action);
         }
 
-        
-
         public override void CallToMeeting(MeetingRoomInteractible interactible)
         {
             
@@ -93,12 +91,14 @@ namespace Core
         public void EnterMeeting()
         {
             _hasMeeting = true;
+            ForceLookLeft();
             DisableCommands();
         }
         
         public override void ReturnFromMeeting()
         {
             base.ReturnFromMeeting();
+            DisableForcedLookDirection();
             EnableCommands();
         }
     }

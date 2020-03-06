@@ -184,7 +184,7 @@ namespace Core
         {
             var floor = interactible.GetFloor();
             var floorCollider = floor.GetComponent<Collider2D>();
-            var walkTarget = new Vector2(interactible.transform.position.x, floorCollider.bounds.min.y);
+            var walkTarget = new Vector2(interactible.GetNPCWalkTarget().x, floorCollider.bounds.min.y);
 
             GiveInteractionOrder(interactible, finishedCallback);
             GiveWalkOrder(walkTarget, floor.floorId);
@@ -230,7 +230,10 @@ namespace Core
             _hasMeeting = true;
             _isRunning = true;
 
-            InteractWith(meetingRoomInteractible);
+            GiveWalkOrder(
+                meetingRoomInteractible.GetNPCWalkTarget(), 
+                meetingRoomInteractible.GetFloor().floorId, 
+                () => {meetingRoomInteractible.EnterMeeting(this);});
         }
 
         public override void ReturnFromMeeting()

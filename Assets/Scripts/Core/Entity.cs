@@ -224,6 +224,7 @@ namespace Core
             else
             {
                 _currentWalkTarget = targetWp;
+                Show();
             }
         }
 

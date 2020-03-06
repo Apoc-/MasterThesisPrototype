@@ -65,7 +65,7 @@ namespace Core
         {
             _decisionTimer += Time.deltaTime;
             var decisionTimerElapsed = _decisionTimer > _activity;
-            return decisionTimerElapsed && !_hasMeeting && _finishedInteraction && _reachedWalkTarget;
+            return decisionTimerElapsed && !HasMeeting && _finishedInteraction && _reachedWalkTarget;
         }
 
         private bool CanTakeAction()
@@ -204,7 +204,7 @@ namespace Core
 
         private void DontAttendMeeting(MeetingRoomInteractible meetingRoomInteractible)
         {
-            _hasMeeting = true;
+            HasMeeting = true;
             DisplayMeetingWarning(meetingRoomInteractible);
         }
 
@@ -227,7 +227,7 @@ namespace Core
             if (_isInOffice) LeaveOffice();
 
             CancelAllOrders();
-            _hasMeeting = true;
+            HasMeeting = true;
             _isRunning = true;
 
             GiveWalkOrder(
@@ -253,7 +253,7 @@ namespace Core
             GoBackToOffice();
         }
 
-        public string GetTooltip() => (_isInOffice || _isInElevator || _hasMeeting) ? "" : Name;
+        public string GetTooltip() => (_isInOffice || _isInElevator || HasMeeting) ? "" : Name;
 
         public void MakeThirsty()
         {

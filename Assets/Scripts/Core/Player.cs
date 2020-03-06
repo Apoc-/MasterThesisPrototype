@@ -90,7 +90,7 @@ namespace Core
 
         public void EnterMeeting()
         {
-            _hasMeeting = true;
+            HasMeeting = true;
             ForceLookLeft();
             DisableCommands();
         }

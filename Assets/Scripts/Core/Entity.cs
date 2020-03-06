@@ -19,7 +19,7 @@ namespace Core
         
         public GameObject InteractionIcon;
         
-        protected bool _hasMeeting;
+        public bool HasMeeting;
         protected bool _reachedWalkTarget = true;
         protected bool _finishedInteraction = true;
         protected bool _startedInteraction = false;
@@ -358,7 +358,7 @@ namespace Core
         public virtual void ReturnFromMeeting()
         {
             
-            _hasMeeting = false;
+            HasMeeting = false;
             Show();
         }
 

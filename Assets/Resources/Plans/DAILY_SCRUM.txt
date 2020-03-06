@@ -5,6 +5,7 @@
 
 <b>Informationen</b>
     - Regelmäßiges tägliches Meeting
+    - Falls ein Taskboard vorhanden ist, sollte das Meeting dort stattfinden.
     - Alle Teilnehmer stehen
     - Planung der nächsten 24h
     - Die Mitglieder des Entwicklerteams schildern:

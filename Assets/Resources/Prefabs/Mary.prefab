@@ -153,7 +153,7 @@ SpriteRenderer:
   m_SortingLayer: 3
   m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: 69621023a5a91734981529e79e2c603d, type: 3}
-  m_Color: {r: 0.12941177, g: 0.5137255, b: 0.76862746, a: 1}
+  m_Color: {r: 0, g: 0.67058825, b: 0.4, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -359,7 +359,6 @@ GameObject:
   m_Component:
   - component: {fileID: 9202573937644022553}
   - component: {fileID: 9202573937644022554}
-  - component: {fileID: 9202573937644022552}
   m_Layer: 0
   m_Name: Sprite
   m_TagString: Untagged
@@ -432,47 +431,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &9202573937644022552
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9202573937644022555}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7db70e0ea77f5ac47a8f4565a9406397, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_ShadowGroup: 0
-  m_HasRenderer: 1
-  m_UseRendererSilhouette: 1
-  m_CastsShadows: 1
-  m_SelfShadows: 0
-  m_ApplyToSortingLayers: 0000000085244e5b2dcf28c52d3b3b53
-  m_ShapePath:
-  - {x: -7.828415, y: -13.47995, z: 0}
-  - {x: -2.7100372, y: -17.996841, z: 0}
-  - {x: 3.3309937, y: -17.868317, z: 0}
-  - {x: 7.4428253, y: -13.47995, z: 0}
-  - {x: 6.525421, y: 1.2115097, z: 0}
-  - {x: 4.3855743, y: 4.6590195, z: 0}
-  - {x: 5.9765778, y: 6.2784576, z: 0}
-  - {x: 5.7610016, y: 10.805313, z: 0}
-  - {x: 4.5753937, y: 14.46991, z: 0}
-  - {x: 5.176422, y: 16.375336, z: 0}
-  - {x: 3.7574615, y: 18.08635, z: 0}
-  - {x: 1.3323822, y: 18.083282, z: 0}
-  - {x: 0.30155945, y: 16.923607, z: 0}
-  - {x: -2.4687653, y: 16.730324, z: 0}
-  - {x: -4.8744354, y: 15.596718, z: 0}
-  - {x: -6.437454, y: 12.979446, z: 0}
-  - {x: -6.1803894, y: 6.0386963, z: 0}
-  - {x: -4.6380005, y: 3.9821854, z: 0}
-  - {x: -5.9233246, y: 1.5400696, z: 0}
-  m_ShapePathHash: -2125669993
-  m_Mesh: {fileID: 0}
-  m_InstanceId: 92310
 --- !u!1 &9202573938518580736
 GameObject:
   m_ObjectHideFlags: 0
@@ -500,7 +458,7 @@ Transform:
   m_GameObject: {fileID: 9202573938518580736}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -234, y: -144.1, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: -1, y: 1, z: 1}
   m_Children:
   - {fileID: 9202573936930898725}
   m_Father: {fileID: 0}
@@ -521,12 +479,13 @@ MonoBehaviour:
   WalkSpeed: 50
   RunSpeed: 100
   InteractionIcon: {fileID: 8053728727818200847}
+  SpriteRenderer: {fileID: 9202573937644022554}
   Outline: {fileID: 4982749185527240089}
   Name: Mary
   _activity: 1
   _randomInteractionChance: 0.01
-  _meetingAttendChance: 0.3
-  _minimumOfficeTime: 20
+  _meetingAttendChance: 0
+  _minimumOfficeTime: 7.5
   _baseBreakChance: 0.2
   _currentBreakChance: 0.2
   Office: {fileID: 0}

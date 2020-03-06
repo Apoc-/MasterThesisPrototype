@@ -223,6 +223,7 @@ MonoBehaviour:
   WalkSpeed: 80
   RunSpeed: 160
   InteractionIcon: {fileID: 1007091064661270838}
+  SpriteRenderer: {fileID: 4615138578275318996}
   Outline: {fileID: 4884853982864961042}
   Name: Player
   CanGiveCommand: 0
@@ -263,9 +264,8 @@ GameObject:
   m_Component:
   - component: {fileID: 4615138578275318997}
   - component: {fileID: 4615138578275318996}
-  - component: {fileID: 8595909236249672283}
   m_Layer: 0
-  m_Name: Jack
+  m_Name: Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -335,58 +335,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &8595909236249672283
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4615138578275318998}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7db70e0ea77f5ac47a8f4565a9406397, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_ShadowGroup: 0
-  m_HasRenderer: 1
-  m_UseRendererSilhouette: 1
-  m_CastsShadows: 1
-  m_SelfShadows: 0
-  m_ApplyToSortingLayers: 00000000578a4f6985244e5b2dcf28c52d3b3b53
-  m_ShapePath:
-  - {x: -5.1146684, y: -13.879405, z: 0}
-  - {x: -3.1280735, y: -15.538951, z: 0}
-  - {x: -0.75011396, y: -16.371237, z: 0}
-  - {x: 1.9845457, y: -16.311787, z: 0}
-  - {x: 4.6597567, y: -15.003909, z: 0}
-  - {x: 6.481998, y: -13.047118, z: 0}
-  - {x: 7.4538603, y: -10.426331, z: 0}
-  - {x: 6.0865774, y: 1.7607307, z: 0}
-  - {x: 5.194846, y: 4.0792427, z: 0}
-  - {x: 3.5897222, y: 5.5060234, z: 0}
-  - {x: 4.1842103, y: 7.111145, z: 0}
-  - {x: 5.6109896, y: 7.765085, z: 0}
-  - {x: 5.7893343, y: 8.835169, z: 0}
-  - {x: 5.5774045, y: 10.132721, z: 0}
-  - {x: 5.623921, y: 12.024769, z: 0}
-  - {x: 5.0552974, y: 13.8703, z: 0}
-  - {x: 4.9234705, y: 15.534878, z: 0}
-  - {x: 3.1470397, y: 17.17339, z: 0}
-  - {x: 0.19793344, y: 17.523949, z: 0}
-  - {x: -7.6968446, y: 17.679039, z: 0}
-  - {x: -7.8634033, y: 14.092476, z: 0}
-  - {x: -6.645948, y: 12.461487, z: 0}
-  - {x: -6.041101, y: 11.391453, z: 0}
-  - {x: -6.101457, y: 9.607979, z: 0}
-  - {x: -6.0429125, y: 7.1406174, z: 0}
-  - {x: -5.5655093, y: 5.327648, z: 0}
-  - {x: -4.317077, y: 3.544176, z: 0}
-  - {x: -5.208813, y: 1.2851124, z: 0}
-  - {x: -6.7544665, y: -10.069635, z: 0}
-  - {x: -6.3383245, y: -11.793658, z: 0}
-  m_ShapePathHash: -789034585
-  m_Mesh: {fileID: 0}
-  m_InstanceId: 89380
 --- !u!1 &4615138578649896429
 GameObject:
   m_ObjectHideFlags: 0
@@ -398,7 +346,7 @@ GameObject:
   - component: {fileID: 4615138578649896427}
   - component: {fileID: 2118552899614170287}
   m_Layer: 0
-  m_Name: Sprite
+  m_Name: Animation
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

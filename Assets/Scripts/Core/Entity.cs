@@ -38,12 +38,10 @@ namespace Core
         private Action _reachedWalkTargetCallback;
 
         private List<Waypoint> _helperWaypoints = new List<Waypoint>();
-        private SpriteRenderer _spriteRenderer;
 
         protected bool _isInElevator = false;
         
-        protected SpriteRenderer SpriteRenderer
-            => _spriteRenderer ? _spriteRenderer : _spriteRenderer = GetComponentInChildren<SpriteRenderer>();
+        public SpriteRenderer SpriteRenderer;
 
         public GameObject Outline;
         public void EnableOutline() => Outline.SetActive(true);
@@ -284,9 +282,9 @@ namespace Core
             var x = transform.position.x;
             var targetX = _currentWalkTarget.transform.position.x;
 
-            var scale = transform.localScale;
-            scale.x = Mathf.Sign(x - targetX);
-            transform.localScale = scale;
+            var flip = Mathf.Sign(x - targetX) > 0;
+            SpriteRenderer.flipX = flip;
+            Outline.GetComponent<SpriteRenderer>().flipX = flip;
         }
 
         public void MoveInstantly(Waypoint targetWp)

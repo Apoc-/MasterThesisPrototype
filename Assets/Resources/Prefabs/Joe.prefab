@@ -72,7 +72,7 @@ SpriteRenderer:
   m_SortingLayer: 3
   m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: 69621023a5a91734981529e79e2c603d, type: 3}
-  m_Color: {r: 0.12941177, g: 0.5137255, b: 0.76862746, a: 1}
+  m_Color: {r: 0, g: 0.67058825, b: 0.4, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -108,7 +108,7 @@ MonoBehaviour:
   tweens:
   - _tweenType: 1
     _isSelf: 1
-    _tweenObject: {fileID: 420778099520793473}
+    _tweenObject: {fileID: 0}
     _curve:
       serializedVersion: 2
       m_Curve:
@@ -282,7 +282,7 @@ Transform:
   m_GameObject: {fileID: 6320040942407651880}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: -1, y: 1, z: 1}
   m_Children:
   - {fileID: 6320040943404288176}
   m_Father: {fileID: 0}
@@ -303,12 +303,13 @@ MonoBehaviour:
   WalkSpeed: 50
   RunSpeed: 100
   InteractionIcon: {fileID: 1676040277020200436}
+  SpriteRenderer: {fileID: 6320040943524256709}
   Outline: {fileID: 3954837318719062854}
   Name: Joe
   _activity: 1
-  _randomInteractionChance: 0.5
-  _meetingAttendChance: 1
-  _minimumOfficeTime: 20
+  _randomInteractionChance: 0.01
+  _meetingAttendChance: 0.5
+  _minimumOfficeTime: 12.5
   _baseBreakChance: 0.2
   _currentBreakChance: 0.2
   Office: {fileID: 0}
@@ -442,7 +443,6 @@ GameObject:
   m_Component:
   - component: {fileID: 6320040943524256708}
   - component: {fileID: 6320040943524256709}
-  - component: {fileID: 3510083834811584944}
   m_Layer: 0
   m_Name: Sprite
   m_TagString: Untagged
@@ -515,43 +515,3 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &3510083834811584944
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6320040943524256731}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7db70e0ea77f5ac47a8f4565a9406397, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_ShadowGroup: 0
-  m_HasRenderer: 1
-  m_UseRendererSilhouette: 1
-  m_CastsShadows: 1
-  m_SelfShadows: 0
-  m_ApplyToSortingLayers: 00000000578a4f6985244e5b2dcf28c52d3b3b53
-  m_ShapePath:
-  - {x: -5.3612747, y: -15.511871, z: 0}
-  - {x: -1.6083646, y: -17.347342, z: 0}
-  - {x: 2.7571933, y: -17.002695, z: 0}
-  - {x: 6.3952146, y: -14.707692, z: 0}
-  - {x: 7.697164, y: -11.373424, z: 0}
-  - {x: 6.5483313, y: 0.9190674, z: 0}
-  - {x: 5.6292677, y: 3.67626, z: 0}
-  - {x: 5.7441487, y: 12.522255, z: 0}
-  - {x: 3.6762607, y: 15.96875, z: 0}
-  - {x: 0.3064232, y: 17.349998, z: 0}
-  - {x: -2.8720787, y: 17.23246, z: 0}
-  - {x: -5.820811, y: 14.822571, z: 0}
-  - {x: -6.6632156, y: 11.603191, z: 0}
-  - {x: -5.6292677, y: 11.603193, z: 0}
-  - {x: -5.6292677, y: 6.318569, z: 0}
-  - {x: -4.4804387, y: 4.135792, z: 0}
-  - {x: -6.0888033, y: 1.7232456, z: 0}
-  - {x: -7.2376328, y: -12.292487, z: 0}
-  m_ShapePathHash: 695468515
-  m_Mesh: {fileID: 0}
-  m_InstanceId: 92572

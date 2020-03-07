@@ -14,7 +14,7 @@ namespace Core
         private IHasToolTip _hasToolTipImplementation;
         public int InteractionLayer = 0;
         public Collider2D InteractionClickCollider;
-        
+
         public void OnEnable()
         {
             GameManager.Instance.InteractibleManager.RegisterInteractible(this);

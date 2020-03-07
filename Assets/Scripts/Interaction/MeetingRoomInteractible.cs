@@ -46,7 +46,15 @@ namespace Core
                     _currentTalkBubbleTime = TalkBubbleTimer;
                     var ent = _arrivedEntities[_currentTalkBubbleLocation];
                     MoveBubbleToEntity(ent);
+
+                    (ent as NPC)?.HelpNpc();
+                    
                     _currentTalkBubbleLocation += 1;
+
+                    if (_currentTalkBubbleLocation > _arrivedEntities.Count)
+                    {
+                        _currentTalkBubbleLocation = 0;
+                    }
                 }
             }
         }

@@ -14,61 +14,70 @@ namespace Core
     public class NPC : Entity, IHasToolTip
     {
         public string Name;
-        [SerializeField] private float _activity = 1f; //seconds per decision
-        [SerializeField] private float _randomInteractionChance = 0.8f;
         [SerializeField] private float _meetingAttendChance = 0.5f;
         [SerializeField] private float _minimumOfficeTime = 20f;
         [SerializeField] private float _baseBreakChance = 0.2f;
         [SerializeField] private float _currentBreakChance = 0.2f;
+        [SerializeField] private float _needHelpChance = 0.1f;
+        
 
-        private float _decisionTimer = 0f;
+        private float _helpTimer = 0f;
         private float _officeTimer = 0f;
         public Interactible Office;
 
         private bool _isInOffice = false;
         private float _progressTimer = 0f;
+        public bool NeedsHelp { get; set; } = false;
+        private HelpWarningSign _helpWarningSign;
 
+        public GameObject AnimationGameObject;
+        
         private bool _drankMorningCoffee = false;
 
         public void Update()
         {
             if (GameManager.Instance.GameState != GameState.PLAYING) return;
 
+            if (_isInOffice && !NeedsHelp)
+            {
+                CheckForHelpTick();
+                DoWork();
+            }
+
+            if (CanMakeDecision() && FinishedOfficeTime())
+            {
+                DecideAction();
+            }
+            
             if (ReachedInteractionTarget() || _isInOffice)
             {
                 EnableInteractionIcon();
             }
 
-            if (CanMakeDecision() && CanTakeAction())
-            {
-                DecideAction();
-            }
-
-            if (_isInOffice)
-            {
-                MakeProgress();
-            }
-
-            if (!(ReachedInteractionTarget() || _isInOffice))
+            if (!(ReachedInteractionTarget() || _isInOffice) || NeedsHelp)
             {
                 DisableInteractionIcon();
             }
         }
 
-        private void OnEnable()
+        private void CheckForHelpTick()
         {
-            _decisionTimer = _activity;
-            _officeTimer = _minimumOfficeTime;
+            _helpTimer -= Time.deltaTime;
+            if (_helpTimer >= 0)
+            {
+                return;
+            }
+
+            _helpTimer = 1;
+            
+            if (Random.Range(0f, 1f) < _needHelpChance)
+            {
+                NeedsHelp = true;
+                DisplayHelpWarning();
+            }
         }
 
-        private bool CanMakeDecision()
-        {
-            _decisionTimer += Time.deltaTime;
-            var decisionTimerElapsed = _decisionTimer > _activity;
-            return decisionTimerElapsed && !HasMeeting && _finishedInteraction && _reachedWalkTarget;
-        }
-
-        private bool CanTakeAction()
+        private bool FinishedOfficeTime()
         {
             _officeTimer += Time.deltaTime;
             var timerElapsed = _officeTimer > _minimumOfficeTime;
@@ -76,15 +85,43 @@ namespace Core
             return timerElapsed;
         }
 
+        private void DisplayHelpWarning()
+        {
+            var pos = GetSignPosition();
+            var sign = Instantiate(
+                Resources.Load<GameObject>("Prefabs/HelpWarningSign"),
+                AnimationGameObject.transform);
+
+            sign.transform.position = pos;
+            _helpWarningSign = sign.GetComponent<HelpWarningSign>();
+            _helpWarningSign.AttachedNPC = this;
+            GameManager.Instance.TasklistScreenBehaviour.AddImpediment(_helpWarningSign);
+        }
+
+        private Vector3 GetSignPosition()
+        {
+            return SpriteRenderer.bounds.center;
+        }
+
+        private void OnEnable()
+        {
+            _officeTimer = _minimumOfficeTime;
+        }
+
+        private bool CanMakeDecision()
+        {
+            return !HasMeeting && _finishedInteraction && _reachedWalkTarget && !NeedsHelp;
+        }
+        
         private void DecideAction()
         {
             if (!_drankMorningCoffee)
             {
-                if(_isInOffice) LeaveOffice();
+                if (_isInOffice) LeaveOffice();
                 var coffeeMachine = GameManager.Instance
                     .InteractibleManager
                     .NpcInteractibles.First(interactible => interactible is CoffeeMachine);
-                
+
                 InteractWith(coffeeMachine, () =>
                 {
                     _drankMorningCoffee = true;
@@ -93,17 +130,14 @@ namespace Core
             }
             else
             {
-                if (Random.Range(0f, 1f) < _randomInteractionChance)
-                {
-                    DoRandomInteraction();
-                }
+                DoRandomInteraction();
             }
         }
 
         private void DoRandomInteraction()
         {
             var interactible = GetRandomNpcInteractible();
-            if(_isInOffice) LeaveOffice();
+            if (_isInOffice) LeaveOffice();
             InteractWith(interactible, () =>
             {
                 HandleRandomBreak(interactible);
@@ -136,11 +170,7 @@ namespace Core
             var floorCollider = floor.GetComponent<Collider2D>();
             var walkTarget = new Vector2(Office.transform.position.x, floorCollider.bounds.min.y);
 
-            GiveWalkOrder(walkTarget, floor.floorId, () =>
-            {
-                EnterOffice();
-                _decisionTimer = 0;
-            });
+            GiveWalkOrder(walkTarget, floor.floorId, EnterOffice);
         }
 
         private void EnterOffice()
@@ -158,7 +188,7 @@ namespace Core
             Show();
         }
 
-        private void MakeProgress()
+        private void DoWork()
         {
             _progressTimer -= Time.deltaTime;
             if (_progressTimer <= 0)
@@ -210,10 +240,10 @@ namespace Core
 
         private void DisplayMeetingWarning(MeetingRoomInteractible meetingRoomInteractible)
         {
-            var pos = SpriteRenderer.bounds.center;
+            var pos = GetSignPosition();
             var sign = Instantiate(
                 Resources.Load<GameObject>("Prefabs/MeetingWarningSign"),
-                transform);
+                AnimationGameObject.transform);
 
             sign.transform.position = pos;
             var signInteractible = sign.GetComponent<MeetingWarningSign>();
@@ -231,9 +261,9 @@ namespace Core
             _isRunning = true;
 
             GiveWalkOrder(
-                meetingRoomInteractible.GetNPCWalkTarget(), 
-                meetingRoomInteractible.GetFloor().floorId, 
-                () => {meetingRoomInteractible.EnterMeeting(this);});
+                meetingRoomInteractible.GetNPCWalkTarget(),
+                meetingRoomInteractible.GetFloor().floorId,
+                () => { meetingRoomInteractible.EnterMeeting(this); });
         }
 
         public override void ReturnFromMeeting()
@@ -241,15 +271,14 @@ namespace Core
             base.ReturnFromMeeting();
 
             var sign = GetComponentInChildren<MeetingWarningSign>();
-            
+
             if (sign != null)
             {
                 GameManager.Instance.TasklistScreenBehaviour.RemoveImpediment(sign);
                 Destroy(sign.gameObject);
             }
-            
+
             _isRunning = false;
-            _decisionTimer = _activity;
             GoBackToOffice();
         }
 
@@ -259,6 +288,11 @@ namespace Core
         {
             CancelAllOrders();
             _drankMorningCoffee = false;
+        }
+
+        public void HelpNpc()
+        {
+            _helpWarningSign.FinishInteraction(this);
         }
     }
 }

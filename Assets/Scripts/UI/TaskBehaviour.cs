@@ -98,6 +98,7 @@ namespace UI
                     CurrentLane = lane;
                     GameManager.Instance.Company.AddEffectToCompanyScore("Agilität", "Taskboard Pflege", 2);
                     GameManager.Instance.TasklistScreenBehaviour.ReportTaskProgress(BonusTaskType.Taskboard);
+                    UiManager.Instance.TaskBoardScreen.DoSuccessShake();
                 }
                 else
                 {

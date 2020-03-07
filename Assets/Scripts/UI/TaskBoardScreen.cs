@@ -8,7 +8,9 @@ namespace UI
 {
     public class TaskBoardScreen : ScreenBehaviour
     {
-        public Jun_TweenRuntime BackgroundTween;
+        public GameObject TaskboardBackground;
+        private Jun_TweenRuntime _errorTween;
+        private Jun_TweenRuntime _successTween;
 
         public TaskBehaviour YellowPrefab;
         public TaskBehaviour GreenPrefab;
@@ -27,18 +29,27 @@ namespace UI
         private void OnEnable()
         {
             GameManager.Instance.GameSpeedController.Pause();
+            var tweens = TaskboardBackground.GetComponentsInChildren<Jun_TweenRuntime>();
+            _errorTween = tweens[0];
+            _successTween = tweens[1];
         }
 
         private void OnDisable()
         {
+            if(_isQuitting) return;
+            
             var gsc = GameManager.Instance.GameSpeedController;
-            if (gsc == null) return;
             gsc.UnPause();
         }
 
         public void DoErrorShake()
         {
-            BackgroundTween.Play();
+            _errorTween.Play();
+        }
+        
+        public void DoSuccessShake()
+        {
+            _successTween.Play();
         }
         
         public void CloseTaskBoardScreen()

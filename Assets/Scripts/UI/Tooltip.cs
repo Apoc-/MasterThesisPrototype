@@ -35,7 +35,7 @@ namespace UI
 
         public void Show(IHasToolTip hasToolTip)
         {
-            if (isActiveAndEnabled) return;
+            if (hasToolTip == _lastDisplayed) return;
             
             var text = hasToolTip.GetTooltip();
             if (text == "")
@@ -53,6 +53,7 @@ namespace UI
 
         public void Hide()
         {
+            _lastDisplayed = null;
             gameObject.SetActive(false);
         }
     }

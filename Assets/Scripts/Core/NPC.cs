@@ -25,7 +25,7 @@ namespace Core
         private float _officeTimer = 0f;
         public Interactible Office;
 
-        private bool _isInOffice = false;
+        public bool IsInOffice = false;
         private float _progressTimer = 0f;
         public bool NeedsHelp { get; set; } = false;
         private HelpWarningSign _helpWarningSign;
@@ -38,7 +38,7 @@ namespace Core
         {
             if (GameManager.Instance.GameState != GameState.PLAYING) return;
 
-            if (_isInOffice && !NeedsHelp)
+            if (IsInOffice && !NeedsHelp)
             {
                 CheckForHelpTick();
                 DoWork();
@@ -49,12 +49,12 @@ namespace Core
                 DecideAction();
             }
             
-            if (ReachedInteractionTarget() || _isInOffice)
+            if (ReachedInteractionTarget() || IsInOffice)
             {
                 EnableInteractionIcon();
             }
 
-            if (!(ReachedInteractionTarget() || _isInOffice) || NeedsHelp)
+            if (!(ReachedInteractionTarget() || IsInOffice) || NeedsHelp)
             {
                 DisableInteractionIcon();
             }
@@ -117,7 +117,7 @@ namespace Core
         {
             if (!_drankMorningCoffee)
             {
-                if (_isInOffice) LeaveOffice();
+                if (IsInOffice) LeaveOffice();
                 var coffeeMachine = GameManager.Instance
                     .InteractibleManager
                     .NpcInteractibles.First(interactible => interactible is CoffeeMachine);
@@ -137,7 +137,7 @@ namespace Core
         private void DoRandomInteraction()
         {
             var interactible = GetRandomNpcInteractible();
-            if (_isInOffice) LeaveOffice();
+            if (IsInOffice) LeaveOffice();
             InteractWith(interactible, () =>
             {
                 HandleRandomBreak(interactible);
@@ -176,7 +176,7 @@ namespace Core
         private void EnterOffice()
         {
             SoundEffectManager.Instance.PlayDoorSound();
-            _isInOffice = true;
+            IsInOffice = true;
             _officeTimer = 0;
             Hide();
         }
@@ -184,7 +184,7 @@ namespace Core
         private void LeaveOffice()
         {
             SoundEffectManager.Instance.PlayDoorSound();
-            _isInOffice = false;
+            IsInOffice = false;
             Show();
         }
 
@@ -254,7 +254,7 @@ namespace Core
 
         public void GiveGoToMeetingCommand(MeetingRoomInteractible meetingRoomInteractible)
         {
-            if (_isInOffice) LeaveOffice();
+            if (IsInOffice) LeaveOffice();
 
             CancelAllOrders();
             HasMeeting = true;
@@ -282,7 +282,7 @@ namespace Core
             GoBackToOffice();
         }
 
-        public string GetTooltip() => (_isInOffice || _isInElevator || HasMeeting) ? "" : Name;
+        public string GetTooltip() => (IsInOffice || _isInElevator || HasMeeting) ? "" : Name;
 
         public void MakeThirsty()
         {

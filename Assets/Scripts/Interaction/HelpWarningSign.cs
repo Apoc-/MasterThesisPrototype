@@ -28,7 +28,11 @@ namespace Core
 
         public override void StartInteraction(Entity entity)
         {
-            
+            if (AttachedNPC.IsInOffice)
+            {
+                (entity as Player)?.Hide();
+                (entity as Player)?.DisableOutline();  
+            }
         }
 
         public override void FinishInteraction(Entity entity)
@@ -39,7 +43,9 @@ namespace Core
             if (this == null) return; //ee if already destroyed
             
             AttachedNPC.NeedsHelp = false;
-            
+         
+            (entity as Player)?.Show();
+            (entity as Player)?.EnableOutline();
             Destroy(gameObject);
         }
 

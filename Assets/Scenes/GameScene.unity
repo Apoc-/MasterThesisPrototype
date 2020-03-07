@@ -19907,7 +19907,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d4f8a0dafaf84e8886768c23ed400063, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TootltipText: Meeting Raum
+  TootltipText: Abstellkammer
 --- !u!61 &1546458570
 BoxCollider2D:
   m_ObjectHideFlags: 0

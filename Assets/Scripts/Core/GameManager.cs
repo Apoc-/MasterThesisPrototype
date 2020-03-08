@@ -376,8 +376,8 @@ public class GameManager : MonoBehaviour
             case 1:
                 void Call1() => InteractibleManager.Phone.Ring(1);
                 void Call2() => InteractibleManager.Phone.Ring(2);
-                Clock.SetAlarm(new TimeStamp(11), Call1);
-                Clock.SetAlarm(new TimeStamp(15), Call2);
+                Clock.SetAlarm(new TimeStamp(11,00,00), Call1);
+                Clock.SetAlarm(new TimeStamp(15,00,00), Call2);
                 break;
             case 2:
                 void Call3() => InteractibleManager.Phone.Ring(3);

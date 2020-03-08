@@ -657,7 +657,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5bcee5e88597421468f3ec0e3b5fceac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  IsDebugMode: 1
+  IsDebugMode: 0
   player: {fileID: 0}
   GameState: 0
   InteractibleManager: {fileID: 874315207}

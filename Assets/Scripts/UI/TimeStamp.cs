@@ -15,24 +15,28 @@ namespace Code
             Minutes = minutes;
             Seconds = totalSeconds;
         }
-
-        public TimeStamp(int totalSeconds)
+        
+        public static TimeStamp FromSeconds(int totalSeconds)
         {
-            Hours = totalSeconds / 3600;
-            totalSeconds -= Hours * 3600;
+            var stamp = new TimeStamp(0,0,0);
             
-            Minutes = totalSeconds / 60;
-            totalSeconds -= Minutes * 60;
+            stamp.Hours = totalSeconds / 3600;
+            totalSeconds -= stamp.Hours * 3600;
             
-            Seconds = totalSeconds;
+            stamp.Minutes = totalSeconds / 60;
+            totalSeconds -= stamp.Minutes * 60;
+            
+            stamp.Seconds = totalSeconds;
+
+            return stamp;
         }
 
         public static TimeStamp operator -(TimeStamp a, TimeStamp b)
         {
             var seconds = a.GetTimeAsSeconds() - b.GetTimeAsSeconds();
             if(seconds < 0) throw new InvalidOperationException("TimeStamps cannot be negative");
-            
-            return new TimeStamp(seconds);
+
+            return TimeStamp.FromSeconds(seconds);
         }
 
         public bool LaterThanOrEqualTo(TimeStamp other)

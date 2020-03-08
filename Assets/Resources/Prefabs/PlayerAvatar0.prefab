@@ -223,6 +223,7 @@ MonoBehaviour:
   WalkSpeed: 80
   RunSpeed: 160
   InteractionIcon: {fileID: 1007091064661270838}
+  HasMeeting: 0
   SpriteRenderer: {fileID: 4615138578275318996}
   Outline: {fileID: 8005821124280565348}
   Name: Player
@@ -326,7 +327,7 @@ SpriteRenderer:
   m_SortingOrder: 10
   m_Sprite: {fileID: 21300000, guid: d53a7dbae7decb245b5024e5e968b3d5, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_FlipX: 0
+  m_FlipX: 1
   m_FlipY: 0
   m_DrawMode: 0
   m_Size: {x: 10.4, y: 15.63}

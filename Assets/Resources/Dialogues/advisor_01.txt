@@ -1,6 +1,6 @@
-﻿Guten Tag {playerName}! Ich bin Ihr Berater und werde Ihnen in der Anfangszeit zur Seite stehen.
-Ihre Aufgabe in unserer Abteilung ist klar: Sorgen Sie dafür, dass wir agil werden und machen Sie dabei so viel Fortschritt wie möglich!
+﻿Guten Tag {playerName}! Ich bin dein Berater und werde dir in der Anfangszeit zur Seite stehen.
+Deine Aufgabe in unserer Abteilung ist klar: Sorge dafür, dass wir agil werden und mache dabei so viel Fortschritt wie möglich!
 Je agiler das Team ist und je höher die Produktivität, desto schneller können alle Teammitglieder Fortschritt machen!
-Als Erstes werden wir Sie als Scrum Master einsetzen. Räumen Sie alle anfallenden Hindernisse aus dem Weg.
+Als Erstes werden wir dich als Scrum Master einsetzen. Räume alle anfallenden Hindernisse aus dem Weg.
 Viel Erfolg! 
 $plan:SCRUM_MASTER

@@ -381,11 +381,11 @@ public class GameManager : MonoBehaviour
                 break;
             case 2:
                 void Call3() => InteractibleManager.Phone.Ring(3);
-                Clock.SetAlarm(new TimeStamp(13, 30), Call3);
+                Clock.SetAlarm(new TimeStamp(13, 30,00), Call3);
                 break;
             case 3:
                 void Call4() => InteractibleManager.Phone.Ring(4);
-                Clock.SetAlarm(new TimeStamp(14, 30), Call4);
+                Clock.SetAlarm(new TimeStamp(14, 30,00), Call4);
                 break;
             default:
                 throw new NotImplementedException();

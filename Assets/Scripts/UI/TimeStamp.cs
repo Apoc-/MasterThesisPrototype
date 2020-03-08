@@ -1,4 +1,6 @@
-﻿namespace Code
+﻿using System;
+
+namespace Code
 {
     public class TimeStamp
     {
@@ -7,11 +9,30 @@
         internal int Seconds;
         internal float RealSeconds = 0f;
 
-        public TimeStamp(int hours = 00, int minutes = 00, int seconds = 00)
+        public TimeStamp(int hours, int minutes, int totalSeconds)
         {
             Hours = hours;
             Minutes = minutes;
-            Seconds = seconds;
+            Seconds = totalSeconds;
+        }
+
+        public TimeStamp(int totalSeconds)
+        {
+            Hours = totalSeconds / 3600;
+            totalSeconds -= Hours * 3600;
+            
+            Minutes = totalSeconds / 60;
+            totalSeconds -= Minutes * 60;
+            
+            Seconds = totalSeconds;
+        }
+
+        public static TimeStamp operator -(TimeStamp a, TimeStamp b)
+        {
+            var seconds = a.GetTimeAsSeconds() - b.GetTimeAsSeconds();
+            if(seconds < 0) throw new InvalidOperationException("TimeStamps cannot be negative");
+            
+            return new TimeStamp(seconds);
         }
 
         public bool LaterThanOrEqualTo(TimeStamp other)

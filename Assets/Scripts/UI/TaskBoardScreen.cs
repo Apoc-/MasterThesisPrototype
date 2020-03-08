@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using Code;
 using Core;
 using UnityEngine;
 using Random = UnityEngine.Random;
@@ -122,7 +123,11 @@ namespace UI
             {
                 MoveTaskToLane(task, DoneLane);
 
-                if(task.StartTime == "") task.StartTime = GameManager.Instance.Clock.GetTime().ToString();
+                if (task.StartTime == "")
+                {
+                    var stamp = GameManager.Instance.Clock.GetTime() - new TimeStamp(0, 10, 0);
+                    task.StartTime = stamp.ToString();
+                }
                 task.EndTime = GameManager.Instance.Clock.GetTime().ToString();
                 task.IsStarted = true;
                 task.IsDocumented = true;

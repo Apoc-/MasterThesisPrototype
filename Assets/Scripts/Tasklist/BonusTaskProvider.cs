@@ -11,25 +11,10 @@ namespace Tasklist
         
         public static BonusTask GetNextBonusTask()
         {
-            if (_bonusTaskQueue.Count == 0)
-            {
-                var target = (int) Math.Pow(10, GameManager.Instance.Day);
-                var bonus = 5;
-                if (target >= 1000)
-                {
-                    bonus = 15;
-                } else if (target >= 100)
-                {
-                    bonus = 10;
-                }
-                
-                EnqueuePlayerWorkTask(target, bonus);
-            }
-            
             return _bonusTaskQueue.Dequeue();
         }
         
-        public static void EnqueueTodoTask(int target)
+        public static void EnqueueImpedimentsTask(int target)
         {
             var task = new BonusTask("Räume Impediments aus dem Weg", 
                 BonusTaskType.Todo,
@@ -49,10 +34,10 @@ namespace Tasklist
             _bonusTaskQueue.Enqueue(task);
         }
         
-        public static void EnqueuePlayerWorkTask(int target, int bonus)
+        public static void EnqueuePlayerWorkTask(string text, int target, int bonus)
         {
             var task = new BonusTask(
-                $"Arbeite an deinem Schreibtisch",
+                $"(Büroarbeit) {text}",
                 BonusTaskType.MakeProgress,
                 bonus,
                 target);
@@ -71,7 +56,7 @@ namespace Tasklist
             _bonusTaskQueue.Enqueue(task);
         }
 
-        public static void EnqueueReachProgressTask(int target)
+        public static void EnqueueReachProgressTask(int target, int bonus)
         {
             void SetCurrentToProgressValue(BonusTask thisTask)
             {
@@ -84,12 +69,16 @@ namespace Tasklist
             var task = new BonusTask(
                 $"Erreiche einen Fortschritt von {target}",
                 BonusTaskType.ReachProgress,
-                10,
+                bonus,
                 target,
                 SetCurrentToProgressValue);
             
             _bonusTaskQueue.Enqueue(task);
         }
 
+        public static bool HasTasksQueued()
+        {
+            return _bonusTaskQueue.Count > 0;
+        }
     }
 }

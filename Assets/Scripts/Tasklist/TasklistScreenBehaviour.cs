@@ -31,6 +31,8 @@ namespace Core
             _bonusPullTimer -= Time.deltaTime;
             if (_bonusPullTimer <= 0 && CurrentBonusTask == null)
             {
+                if (!BonusTaskProvider.HasTasksQueued()) return;
+                
                 CurrentBonusTask = BonusTaskProvider.GetNextBonusTask();
                 CurrentBonusTask.Start();
                 UpdateBonusTaskText();

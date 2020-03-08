@@ -209,9 +209,11 @@ public class GameManager : MonoBehaviour
             10);
 
         Clock.SetAlarm(new TimeStamp(10, 30, 0), CallForDailyScrum, true);
-
-        BonusTaskProvider.EnqueueReachProgressTask(600);
-        BonusTaskProvider.EnqueueTodoTask(5);
+        
+        BonusTaskProvider.EnqueueReachProgressTask(600, 5);
+        BonusTaskProvider.EnqueuePlayerWorkTask("E-Mails beantworten", 30, 10);
+        BonusTaskProvider.EnqueueImpedimentsTask(5);
+        BonusTaskProvider.EnqueuePlayerWorkTask("Neue Lizenzschlüssel einkaufen", 100, 10);
     }
 
     private void CallForDailyScrum()
@@ -238,8 +240,11 @@ public class GameManager : MonoBehaviour
 
         ScrumMasterActive = true;
 
-        BonusTaskProvider.EnqueueTodoTask(3);
+        BonusTaskProvider.EnqueuePlayerWorkTask("Stakeholder zu Meeting einladen", 10, 10);
+        BonusTaskProvider.EnqueueImpedimentsTask(3);
         BonusTaskProvider.EnqueueReadWikiTask(5);
+        BonusTaskProvider.EnqueuePlayerWorkTask("Projektinformationen recherchieren", 25, 10);
+        BonusTaskProvider.EnqueueImpedimentsTask(4);
     }
 
     public void InitTaskBoardPlan()
@@ -252,11 +257,8 @@ public class GameManager : MonoBehaviour
         var taskboard = InteractibleManager.TaskboardInteractible;
         taskboard.gameObject.SetActive(true);
         taskboard.Stuff.SetActive(false);
-        /*taskboard.LightContainer.GetComponentsInChildren<Light2D>().ToList()
-            .ForEach(light => { light.enabled = true; });*/
 
-
-        //a bit hacky, but: three times to increase the change the npcs go there 
+        //a bit hacky, but: multiple times to increase the change the npcs go there 
         InteractibleManager.AddToNpcInteractibles(taskboard);
         InteractibleManager.AddToNpcInteractibles(taskboard);
         InteractibleManager.AddToNpcInteractibles(taskboard);
@@ -267,9 +269,9 @@ public class GameManager : MonoBehaviour
             taskboard.TaskBoardScreen.CreateNewTask();
         }
 
+        BonusTaskProvider.EnqueuePlayerWorkTask("Lokalen Testserver neustarten", 100, 10);
         BonusTaskProvider.EnqueueTaskboardTask(3);
-        BonusTaskProvider.EnqueueReachProgressTask(3000);
-        BonusTaskProvider.EnqueueReachProgressTask(5000);
+        BonusTaskProvider.EnqueueReachProgressTask(5000, 20);
     }
 
     public void AddToTeamspirit(string description, int value, Vector2 pos)

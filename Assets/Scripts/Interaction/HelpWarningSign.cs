@@ -39,6 +39,7 @@ namespace Core
         {
             GameManager.Instance.AddToAgility("Scrum Master Tätigkeiten", 3, entity.OverheadPosition);
             GameManager.Instance.TasklistScreenBehaviour.RemoveImpediment(this);
+            GameManager.Instance.TasklistScreenBehaviour.ReportTaskProgress(BonusTaskType.Todo);
 
             if (this == null) return; //ee if already destroyed
             

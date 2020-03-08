@@ -1,5 +1,5 @@
 ﻿Guten Morgen {playerName}!
-Ich hoffe Sie haben sich gut in Ihre neue Rolle eingefügt.
+Ich hoffe du hast dich gut in deine neue Rolle eingefügt.
 Die Probleme des Teams zu lösen ist ein guter erster Schritt, jedoch reicht das noch nicht aus. Deshalb sieht der Plan auch die Einführung täglicher Meetings vor.
-Sorgen Sie dafür, dass das gesamte Team zum Meeting geht, auch wenn Sie nachhelfen müssen!
+Sorge dafür, dass das gesamte Team zum Meeting geht, auch wenn du nachhelfen musst!
 $plan:DAILY_SCRUM

@@ -343,7 +343,7 @@ PrefabInstance:
     - target: {fileID: 8918010041853165010, guid: c34f68373cfd8234cb2c42cc4226bf6e,
         type: 3}
       propertyPath: m_text
-      value: Das sind Sie...
+      value: Das bist du...
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c34f68373cfd8234cb2c42cc4226bf6e, type: 3}
@@ -2348,7 +2348,7 @@ PrefabInstance:
     - target: {fileID: 8918010041853165010, guid: c34f68373cfd8234cb2c42cc4226bf6e,
         type: 3}
       propertyPath: m_text
-      value: "So sieht Ihre Spieloberfl\xE4che aus."
+      value: "So sieht die Spieloberfl\xE4che aus."
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c34f68373cfd8234cb2c42cc4226bf6e, type: 3}
@@ -3362,7 +3362,7 @@ PrefabInstance:
     - target: {fileID: 8918010041853165010, guid: c34f68373cfd8234cb2c42cc4226bf6e,
         type: 3}
       propertyPath: m_text
-      value: "Aktuelle Arbeitssicherheitseinf\xFChrung (Stand: 16.03.2003)"
+      value: "Arbeitssicherheitseinf\xFChrung"
       objectReference: {fileID: 0}
     - target: {fileID: 8918010041853165010, guid: c34f68373cfd8234cb2c42cc4226bf6e,
         type: 3}
@@ -3896,7 +3896,7 @@ PrefabInstance:
     - target: {fileID: 8918010041853165010, guid: c34f68373cfd8234cb2c42cc4226bf6e,
         type: 3}
       propertyPath: m_text
-      value: "...und das ist Ihr B\xFCro."
+      value: "...und das ist dein B\xFCro."
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c34f68373cfd8234cb2c42cc4226bf6e, type: 3}
@@ -4096,7 +4096,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Vielen Dank f\xFCr Ihre Aufmerksamkeit!"
+  m_text: "Vielen Dank f\xFCr deine Aufmerksamkeit!"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: cfd4a11b3f6561c43b31c93702b30fb1, type: 2}
   m_sharedMaterial: {fileID: 8779032421642994835, guid: cfd4a11b3f6561c43b31c93702b30fb1,
@@ -4936,8 +4936,8 @@ PrefabInstance:
     - target: {fileID: 8918010041853165010, guid: c34f68373cfd8234cb2c42cc4226bf6e,
         type: 3}
       propertyPath: m_text
-      value: "Je gewissenhafter Sie Ihre Aufgaben erf\xFCllen, desto gr\xF6\xDFer
-        wird die Agilit\xE4t Ihrer Abteilung."
+      value: "Je gewissenhafter du deine Aufgaben erf\xFCllst, desto gr\xF6\xDFer
+        wird die Agilit\xE4t deines Teams."
       objectReference: {fileID: 0}
     - target: {fileID: 8918010041853165010, guid: c34f68373cfd8234cb2c42cc4226bf6e,
         type: 3}
@@ -5117,8 +5117,8 @@ PrefabInstance:
     - target: {fileID: 8918010041853165010, guid: c34f68373cfd8234cb2c42cc4226bf6e,
         type: 3}
       propertyPath: m_text
-      value: "Hier k\xF6nnen sie das Spieltempo bestimmen, Toneinstellungen machen
-        und das Spiel beenden."
+      value: Hier kannst du das Spieltempo bestimmen, Toneinstellungen machen und
+        das Spiel beenden.
       objectReference: {fileID: 0}
     - target: {fileID: 8918010041853165010, guid: c34f68373cfd8234cb2c42cc4226bf6e,
         type: 3}
@@ -6494,7 +6494,8 @@ PrefabInstance:
     - target: {fileID: 8918010041853165010, guid: c34f68373cfd8234cb2c42cc4226bf6e,
         type: 3}
       propertyPath: m_text
-      value: "Ihre Aufgaben, inklusive einer besonderen Bonusaufgabe, sind hier aufgef\xFChrt."
+      value: "Deine Aufgaben, inklusive einer besonderen Bonusaufgabe, sind hier
+        aufgef\xFChrt."
       objectReference: {fileID: 0}
     - target: {fileID: 8918010041853165010, guid: c34f68373cfd8234cb2c42cc4226bf6e,
         type: 3}
@@ -8752,7 +8753,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_text
       value: "Je gr\xF6\xDFer die Agilit\xE4t und Produktivit\xE4t sind, desto schneller
-        machen Sie und Ihr Team Fortschritt.\n"
+        machen du und dein Team Fortschritt.\n"
       objectReference: {fileID: 0}
     - target: {fileID: 8918010041853165010, guid: c34f68373cfd8234cb2c42cc4226bf6e,
         type: 3}
@@ -10232,7 +10233,7 @@ PrefabInstance:
     - target: {fileID: 8918010041853165010, guid: c34f68373cfd8234cb2c42cc4226bf6e,
         type: 3}
       propertyPath: m_text
-      value: Dies ist Ihr Arbeitsplatz.
+      value: Das ist dein Arbeitsplatz.
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c34f68373cfd8234cb2c42cc4226bf6e, type: 3}

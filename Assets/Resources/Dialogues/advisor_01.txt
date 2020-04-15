@@ -3,4 +3,4 @@ Deine Aufgabe in unserer Abteilung ist klar: Sorge dafür, dass wir agil werden 
 Je agiler das Team ist und je höher die Produktivität, desto schneller können alle Teammitglieder Fortschritt machen!
 Als Erstes werden wir dich als Scrum Master einsetzen. Räume alle anfallenden Hindernisse aus dem Weg.
 Viel Erfolg! 
-$plan:SCRUM_MASTER
+$plan:SCRUM_MASTER|plan:DAILY_SCRUM|plan:TASK_BOARD

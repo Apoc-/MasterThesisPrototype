@@ -1,4 +1,4 @@
-﻿Guten Morgen {playerName}!
+﻿Guten Morgen {playerName}.
 Nachdem die Firma jetzt tägliche Meetings durchführt, ist jeder auf dem aktuellen Stand und Probleme können direkt angegangen werden. Ein voller Erfolg!
 Der nächste Schritt ist es, endlich ein Taskboard zu führen. Zusätzlich muss klar gemacht werden, was alles dazu gehört, einen Task vollständig abzuschließen.
 Deine Aufgabe hierbei: Sorge dafür, dass das Taskboard ordentlich geführt wird und korrigiere in dieser Anfangszeit etwaige Fehler auf dem Taskboard.

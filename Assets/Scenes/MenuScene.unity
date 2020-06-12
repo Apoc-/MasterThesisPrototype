@@ -2038,7 +2038,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 245.25, y: -159}
+  m_AnchoredPosition: {x: 245, y: -159}
   m_SizeDelta: {x: 490.30005, y: 81.3}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &393690983
@@ -2965,7 +2965,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 97.5, y: 29.25}
+  m_AnchoredPosition: {x: 98, y: 29}
   m_SizeDelta: {x: 2898.2, y: 1024.6}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &656796744
@@ -3849,8 +3849,8 @@ MonoBehaviour:
     von Lobo Loco\n\nhttps://freemusicarchive.org/music/Lobo_Loco\n\n\nThe Beauty
     of Maths von Meyd\xE4n\n\nhttps://freemusicarchive.org/music/Meydan\n\n\nStamp
     von A. A. Aalto\n\nhttps://freemusicarchive.org/music/A_A_Aalto\n\n\n<b>Soundeffekte</b>\n\nhttps://freesound.org/people/Vilkas_Sound/packs/26194/\nhttps://freesound.org/people/Heshl/sounds/269158/\nhttps://freesound.org/people/cbakos/sounds/50646/\nhttps://freesound.org/people/schroedel/sounds/31548/\nhttps://freesound.org/people/fedsmoker/sounds/208525/\nhttps://freesound.org/people/GreekIrish/sounds/254713/\n\n\n<b>Besonderer
-    Dank geht an</b>\n\nAlexander Fr\xFChwald\r\nAnna Ziegler\nPhilip Ziegler\r\nJonathan
-    Sudermann\r\nMartin Esche\r\nMatthias Coym\r\nMatthias Kleinhenz\r\nTobias R\xFCthlein\nViktor
+    Dank geht an</b>\n\nAlexander Fr\xFChwald\r\nAnna Ziegler\nJonathan Sudermann\r\nMartin
+    Esche\r\nMatthias Coym\r\nMatthias Kleinhenz\r\nPhilip Ziegler\nTobias R\xFCthlein\nViktor
     Ziegler\n\nVielen, Vielen Dank f\xFCrs testen und flei\xDFig Tickets schreiben!\n"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 6ca91044028f4ef4f9630b3f1bd3f373, type: 2}
@@ -4141,7 +4141,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 245.25, y: -254.25}
+  m_AnchoredPosition: {x: 245, y: -254}
   m_SizeDelta: {x: 490.30005, y: 81.3}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &954228305
@@ -6110,7 +6110,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 97.5, y: 29.25}
+  m_AnchoredPosition: {x: 98, y: 29}
   m_SizeDelta: {x: 2898.2, y: 1024.6}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1453454646
@@ -7160,7 +7160,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 245.25, y: -63.625}
+  m_AnchoredPosition: {x: 245, y: -63.5}
   m_SizeDelta: {x: 490.30005, y: 81.3}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1642498322
@@ -8009,7 +8009,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -76.8, y: -79.24}
+  m_AnchoredPosition: {x: -77, y: -79}
   m_SizeDelta: {x: 113.5, y: 118.48}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1793407174
@@ -8443,7 +8443,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: 847.5, y: 24}
+  m_AnchoredPosition: {x: 848, y: 24}
   m_SizeDelta: {x: -1694.9, y: 48}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1935586793

@@ -19706,6 +19706,11 @@ PrefabInstance:
       propertyPath: _needHelpChance
       value: 0.025
       objectReference: {fileID: 0}
+    - target: {fileID: 6320040942407651882, guid: dc764102dc7b7bd49bcb1a537bc7dc01,
+        type: 3}
+      propertyPath: _meetingAttendChance
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: dc764102dc7b7bd49bcb1a537bc7dc01, type: 3}
 --- !u!4 &1543300949 stripped
@@ -29876,6 +29881,11 @@ PrefabInstance:
         type: 3}
       propertyPath: _needHelpChance
       value: 0.025
+      objectReference: {fileID: 0}
+    - target: {fileID: 6320040942407651882, guid: 61231f02b6f4c9c45853ea4bb7af8839,
+        type: 3}
+      propertyPath: _meetingAttendChance
+      value: 0.5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 61231f02b6f4c9c45853ea4bb7af8839, type: 3}

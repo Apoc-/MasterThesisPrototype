@@ -16,11 +16,11 @@ namespace Core
         {
             var tooltips = new List<string>
             {
-                "'s Scrum-Frage beantworten",
+                "s Scrum-Frage beantworten",
                 " agiles Konzept erklären",
                 " das Vorgehen erläutern",
                 " Zugangsdaten geben",
-                "'s Unklarheit beseitigen"
+                "s Unklarheit beseitigen"
             };
 
             _helpTooltip = tooltips[Random.Range(0, tooltips.Count)];

@@ -5,5 +5,5 @@
 <b>Informationen</b>
   - Sorgt dafür, dass alle die aktuellen Aufgaben und deren Stand einsehen können.
   - Sobald eine Aufgabe gestartet wird, muss sie in die Doing-Spalte verschoben werden. 
-  - Die bearbeitende Person <b>muss sich für den Task eintragen</b>. Dazu gehört auch, dass Sie die <b>Start-Zeit des Tasks notiert</b>.
-  - Eine Aufgabe ist fertig, wenn sie die <b>Definition of Done</b> erfüllt und kann in die Done-Spalte verschoben werden.
+  - Die bearbeitende Person <b>muss sich für den Task eintragen</b>. Dazu gehört auch, dass sie die <b>Start-Zeit des Tasks notiert</b>.
+  - Eine Aufgabe ist fertig, wenn sie die <b>Definition of Done</b> erfüllt. Im Anschluss kann der Task in die Done-Spalte verschoben werden.

@@ -1,3 +1,3 @@
-﻿<b>"Scrum kennt keine Titel außer "Entwickler" für Mitglieder des Entwicklungsteams. Dies ist unabhängig von der Arbeit, die diese Personen erledigen. Es gibt keine Ausnahmen von dieser Regel." - Der Scrum Guide, S. 6</b>
+﻿<b>"Scrum kennt außer "Entwickler" keine Titel für Mitglieder des Entwicklungsteams. Dies ist unabhängig von der Arbeit, die diese Personen erledigen. Es gibt keine Ausnahmen von dieser Regel." - Der Scrum Guide, S. 6</b>
 
-Bei Scrum gibt es keine Rollen. Hierbei ist der Scrumguide sehr eindeutig!
+Bei Scrum gibt es keine Rollen. Hierbei ist der Scrum Guide sehr eindeutig!

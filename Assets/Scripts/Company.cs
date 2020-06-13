@@ -1,10 +1,7 @@
-﻿using System;
-using System.CodeDom;
+﻿using Core;
 using System.Collections.Generic;
 using System.Linq;
-using Core;
 using Tasklist;
-using UI;
 using UnityEngine;
 
 public class Company

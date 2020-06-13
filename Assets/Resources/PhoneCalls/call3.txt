@@ -1,2 +1,2 @@
-﻿Mary hat die Idee, Änderungswünsche der Kunden oder des Projektmanagers nicht mehr sofort durchzuführen und diese somit erst später umzusetzen. Die Wünsche würden erst beachtet werden, wenn das Team die nächsten Schritte für ein Projekt plant. Sollen wir die Idee umsetzen?
+﻿Mary hat die Idee, Änderungswünsche der Kunden oder des Projektmanagers nicht mehr sofort durchzuführen, sondern diese erst später umzusetzen. Die Wünsche würden erst beachtet werden, wenn das Team die nächsten Schritte für ein Projekt plant. Sollen wir die Idee umsetzen?
 $answer:yes

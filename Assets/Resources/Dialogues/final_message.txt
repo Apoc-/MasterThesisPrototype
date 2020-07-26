@@ -1,4 +1,4 @@
 ﻿Gratulation {playerName}! Du bist mit .Tech Com erfolgreich die ersten Schritte auf dem langen Weg zur Agilität gegangen.   
 Mit deiner Hilfe hat das Team insgesamt einen Fortschritt von {progress} Punkten erarbeitet!
-Du warst eindeutig die richtige Wahl als Scrum Master. Weiter so!
+Du warst als Scrum-Master eindeutig die richtige Wahl. Weiter so!
 $end_game

@@ -1,5 +1,5 @@
 ﻿Guten Morgen {playerName}!
 Wie ich sehe, hast dich gut in deine neue Rolle eingefügt. Sehr gut!
-Die Probleme des Teams zu lösen ist ein guter erster Schritt, jedoch reicht das noch nicht aus. Deshalb sieht der Plan auch die Einführung täglicher Meetings vor.
+Die Probleme des Teams zu lösen, ist ein guter erster Schritt, jedoch reicht jedoch das noch nicht aus. Deshalb sieht der Plan auch die Einführung täglicher Meetings vor.
 Sorge dafür, dass das gesamte Team zum Meeting geht, auch wenn du nachhelfen musst!
 $plan:DAILY_SCRUM

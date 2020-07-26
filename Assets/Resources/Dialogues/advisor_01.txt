@@ -1,6 +1,6 @@
 ﻿Guten Tag {playerName}! Ich bin dein Berater und werde dir in der Anfangszeit zur Seite stehen.
 Deine Aufgabe in unserer Abteilung ist klar: Sorge dafür, dass wir agil werden und mache dabei so viel Fortschritt wie möglich!
-Je agiler das Team ist und je höher die Produktivität, desto schneller können alle Teammitglieder Fortschritt machen!
+Je agiler das Team und je höher die Produktivität ist, desto schneller können alle Teammitglieder Fortschritt machen!
 Als Erstes werden wir dich als Scrum Master einsetzen. Räume alle anfallenden Hindernisse aus dem Weg.
 Viel Erfolg! 
-$plan:SCRUM_MASTER|plan:DAILY_SCRUM|plan:TASK_BOARD
+$plan:SCRUM_MASTER
